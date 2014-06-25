@@ -141,6 +141,7 @@
 		44814BC8195B2735006BA9FD = {
 			isa = PBXGroup;
 			children = (
+				44814C4F195B6CAE006BA9FD /* External Libraries */,
 				44814BDA195B2735006BA9FD /* Doctor Tool */,
 				44814BF9195B2736006BA9FD /* Doctor ToolTests */,
 				44814BD3195B2735006BA9FD /* Frameworks */,
@@ -260,6 +261,13 @@
 				44814C4D195B6A95006BA9FD /* UIImage+Resize.m */,
 			);
 			name = Utilities;
+			sourceTree = "<group>";
+		};
+		44814C4F195B6CAE006BA9FD /* External Libraries */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "External Libraries";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

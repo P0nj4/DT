@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+#import "SignUpVC.h"
 
 @implementation AppDelegate
 
@@ -18,6 +19,10 @@
                   clientKey:@"UJRJBoOibEEbPDQfY8hiTfONy3mEx1Y3oOrKdWrH"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
+    UIViewController *viewController = [[SignUpVC alloc] initWithNibName:@"SignUpVC" bundle:nil];
+    UINavigationController *navController=[[UINavigationController alloc]initWithRootViewController:viewController];
+    self.window.rootViewController = navController;
+    [self.window makeKeyAndVisible];
     
     return YES;
 }
