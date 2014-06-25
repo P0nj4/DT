@@ -19,6 +19,9 @@
                   clientKey:@"UJRJBoOibEEbPDQfY8hiTfONy3mEx1Y3oOrKdWrH"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+   
+    
     UIViewController *viewController = [[SignUpVC alloc] initWithNibName:@"SignUpVC" bundle:nil];
     UINavigationController *navController=[[UINavigationController alloc]initWithRootViewController:viewController];
     self.window.rootViewController = navController;
