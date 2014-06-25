@@ -38,8 +38,8 @@
 		44814C3F195B4FAC006BA9FD /* SignUpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44814C3D195B4FAC006BA9FD /* SignUpVC.m */; };
 		44814C40195B4FAC006BA9FD /* SignUpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44814C3E195B4FAC006BA9FD /* SignUpVC.xib */; };
 		44814C45195B65FE006BA9FD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44814C47195B65FE006BA9FD /* Localizable.strings */; };
-		44814C4B195B66C0006BA9FD /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 44814C4A195B66C0006BA9FD /* Constants.m */; };
 		44814C4E195B6A95006BA9FD /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 44814C4D195B6A95006BA9FD /* UIImage+Resize.m */; };
+		44814C57195B6F64006BA9FD /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 44814C56195B6F64006BA9FD /* MBProgressHUD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,10 +98,10 @@
 		44814C44195B65F7006BA9FD /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		44814C46195B65FE006BA9FD /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		44814C48195B660A006BA9FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		44814C49195B66C0006BA9FD /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		44814C4A195B66C0006BA9FD /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		44814C4C195B6A95006BA9FD /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
 		44814C4D195B6A95006BA9FD /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		44814C55195B6F64006BA9FD /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		44814C56195B6F64006BA9FD /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,8 +255,6 @@
 			children = (
 				44814C39195B4D73006BA9FD /* NSString+MD5.h */,
 				44814C3A195B4D73006BA9FD /* NSString+MD5.m */,
-				44814C49195B66C0006BA9FD /* Constants.h */,
-				44814C4A195B66C0006BA9FD /* Constants.m */,
 				44814C4C195B6A95006BA9FD /* UIImage+Resize.h */,
 				44814C4D195B6A95006BA9FD /* UIImage+Resize.m */,
 			);
@@ -266,8 +264,18 @@
 		44814C4F195B6CAE006BA9FD /* External Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				44814C54195B6F64006BA9FD /* ProgressHUD */,
 			);
 			name = "External Libraries";
+			sourceTree = "<group>";
+		};
+		44814C54195B6F64006BA9FD /* ProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				44814C55195B6F64006BA9FD /* MBProgressHUD.h */,
+				44814C56195B6F64006BA9FD /* MBProgressHUD.m */,
+			);
+			path = ProgressHUD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,8 +382,8 @@
 				44814C3B195B4D73006BA9FD /* NSString+MD5.m in Sources */,
 				44814C22195B466E006BA9FD /* UserModel.m in Sources */,
 				44814C1E195B2CAC006BA9FD /* Medicament.m in Sources */,
-				44814C4B195B66C0006BA9FD /* Constants.m in Sources */,
 				44814BEB195B2736006BA9FD /* ViewController.m in Sources */,
+				44814C57195B6F64006BA9FD /* MBProgressHUD.m in Sources */,
 				44814C3F195B4FAC006BA9FD /* SignUpVC.m in Sources */,
 				44814C4E195B6A95006BA9FD /* UIImage+Resize.m in Sources */,
 				44814BE5195B2735006BA9FD /* AppDelegate.m in Sources */,
@@ -597,6 +605,7 @@
 				44814C05195B2737006BA9FD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		44814C06195B2737006BA9FD /* Build configuration list for PBXNativeTarget "Doctor ToolTests" */ = {
 			isa = XCConfigurationList;
@@ -605,6 +614,7 @@
 				44814C08195B2737006BA9FD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

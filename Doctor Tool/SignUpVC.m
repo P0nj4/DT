@@ -10,6 +10,7 @@
 #import "UserModel.h"
 #import "User.h"
 #import "UIImage+Resize.h"
+#import "MBProgressHUD.h"
 
 @interface SignUpVC ()
 @property (weak, nonatomic) IBOutlet UILabel *lblDescription;
@@ -66,14 +67,19 @@
     self.userAux.lastName = txtLastName.text;
     self.userAux.password = txtPassword.text;
     self.userAux.email = txtEmail.text;
-    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     dispatch_queue_t queue = dispatch_queue_create("q_registerUser", NULL);
     dispatch_async(queue, ^{
         @try {
-            [UserModel registerUser:self.userAux];            
+            [UserModel registerUser:self.userAux];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                [[[UIAlertView alloc] initWithTitle:nil message:@"DONE" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+            });
         }
         @catch (NSException *exception) {
             dispatch_async(dispatch_get_main_queue(), ^{
+                [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
                 [[[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(exception.name, nil) delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
             });
         }

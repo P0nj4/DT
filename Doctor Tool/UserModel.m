@@ -11,6 +11,8 @@
 #import "User.h"
 #import "NSString+MD5.h"
 
+NSString* const genericError = @"genericError";
+
 @implementation UserModel
 
 + (User *)loginUser:(NSString *)userName password:(NSString *)pass{
