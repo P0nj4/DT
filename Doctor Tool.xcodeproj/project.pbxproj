@@ -13,7 +13,6 @@
 		44814BDF195B2735006BA9FD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44814BDD195B2735006BA9FD /* InfoPlist.strings */; };
 		44814BE1195B2735006BA9FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 44814BE0195B2735006BA9FD /* main.m */; };
 		44814BE5195B2735006BA9FD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 44814BE4195B2735006BA9FD /* AppDelegate.m */; };
-		44814BEB195B2736006BA9FD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44814BEA195B2736006BA9FD /* ViewController.m */; };
 		44814BED195B2736006BA9FD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44814BEC195B2736006BA9FD /* Images.xcassets */; };
 		44814BF4195B2736006BA9FD /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44814BF3195B2736006BA9FD /* XCTest.framework */; };
 		44814BF5195B2736006BA9FD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44814BD4195B2735006BA9FD /* Foundation.framework */; };
@@ -40,8 +39,10 @@
 		44814C57195B6F64006BA9FD /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 44814C56195B6F64006BA9FD /* MBProgressHUD.m */; };
 		44873F49195B951F00F8DCAD /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44873F48195B951F00F8DCAD /* LoginView.m */; };
 		44873F4B195B953E00F8DCAD /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44873F4A195B953E00F8DCAD /* LoginView.xib */; };
-		44873F4D195B95DE00F8DCAD /* SignUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44873F4C195B95DE00F8DCAD /* SignUpView.xib */; };
-		44873F50195B972D00F8DCAD /* SignUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44873F4F195B972D00F8DCAD /* SignUpView.m */; };
+		44873F54195B990F00F8DCAD /* FirstTimeStartingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44873F52195B990F00F8DCAD /* FirstTimeStartingVC.m */; };
+		44873F55195B990F00F8DCAD /* FirstTimeStartingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44873F53195B990F00F8DCAD /* FirstTimeStartingVC.xib */; };
+		44873F57195B999500F8DCAD /* SignUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44873F56195B999500F8DCAD /* SignUpView.xib */; };
+		44873F5A195B9A0E00F8DCAD /* SignUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44873F59195B9A0E00F8DCAD /* SignUpView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,8 +66,6 @@
 		44814BE2195B2735006BA9FD /* Doctor Tool-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Doctor Tool-Prefix.pch"; sourceTree = "<group>"; };
 		44814BE3195B2735006BA9FD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		44814BE4195B2735006BA9FD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		44814BE9195B2736006BA9FD /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		44814BEA195B2736006BA9FD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		44814BEC195B2736006BA9FD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		44814BF2195B2736006BA9FD /* Doctor ToolTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Doctor ToolTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		44814BF3195B2736006BA9FD /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -104,9 +103,12 @@
 		44873F47195B951F00F8DCAD /* LoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
 		44873F48195B951F00F8DCAD /* LoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
 		44873F4A195B953E00F8DCAD /* LoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
-		44873F4C195B95DE00F8DCAD /* SignUpView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpView.xib; sourceTree = "<group>"; };
-		44873F4E195B972D00F8DCAD /* SignUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpView.h; sourceTree = "<group>"; };
-		44873F4F195B972D00F8DCAD /* SignUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpView.m; sourceTree = "<group>"; };
+		44873F51195B990F00F8DCAD /* FirstTimeStartingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstTimeStartingVC.h; sourceTree = "<group>"; };
+		44873F52195B990F00F8DCAD /* FirstTimeStartingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstTimeStartingVC.m; sourceTree = "<group>"; };
+		44873F53195B990F00F8DCAD /* FirstTimeStartingVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstTimeStartingVC.xib; sourceTree = "<group>"; };
+		44873F56195B999500F8DCAD /* SignUpView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpView.xib; sourceTree = "<group>"; };
+		44873F58195B9A0E00F8DCAD /* SignUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpView.h; sourceTree = "<group>"; };
+		44873F59195B9A0E00F8DCAD /* SignUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,11 +195,12 @@
 				44814C15195B2C2D006BA9FD /* Entities */,
 				44814BE3195B2735006BA9FD /* AppDelegate.h */,
 				44814BE4195B2735006BA9FD /* AppDelegate.m */,
-				44814BE9195B2736006BA9FD /* ViewController.h */,
-				44814BEA195B2736006BA9FD /* ViewController.m */,
 				44814BEC195B2736006BA9FD /* Images.xcassets */,
 				44814BDB195B2735006BA9FD /* Supporting Files */,
 				44814C47195B65FE006BA9FD /* Localizable.strings */,
+				44873F51195B990F00F8DCAD /* FirstTimeStartingVC.h */,
+				44873F52195B990F00F8DCAD /* FirstTimeStartingVC.m */,
+				44873F53195B990F00F8DCAD /* FirstTimeStartingVC.xib */,
 			);
 			path = "Doctor Tool";
 			sourceTree = "<group>";
@@ -287,9 +290,9 @@
 				44873F47195B951F00F8DCAD /* LoginView.h */,
 				44873F48195B951F00F8DCAD /* LoginView.m */,
 				44873F4A195B953E00F8DCAD /* LoginView.xib */,
-				44873F4E195B972D00F8DCAD /* SignUpView.h */,
-				44873F4F195B972D00F8DCAD /* SignUpView.m */,
-				44873F4C195B95DE00F8DCAD /* SignUpView.xib */,
+				44873F58195B9A0E00F8DCAD /* SignUpView.h */,
+				44873F59195B9A0E00F8DCAD /* SignUpView.m */,
+				44873F56195B999500F8DCAD /* SignUpView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -371,10 +374,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44873F4D195B95DE00F8DCAD /* SignUpView.xib in Resources */,
+				44873F57195B999500F8DCAD /* SignUpView.xib in Resources */,
 				44814C45195B65FE006BA9FD /* Localizable.strings in Resources */,
 				44814BED195B2736006BA9FD /* Images.xcassets in Resources */,
 				44873F4B195B953E00F8DCAD /* LoginView.xib in Resources */,
+				44873F55195B990F00F8DCAD /* FirstTimeStartingVC.xib in Resources */,
 				44814BDF195B2735006BA9FD /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -398,12 +402,12 @@
 				44814C1B195B2C98006BA9FD /* Consultation.m in Sources */,
 				44814C3B195B4D73006BA9FD /* NSString+MD5.m in Sources */,
 				44814C22195B466E006BA9FD /* UserModel.m in Sources */,
+				44873F5A195B9A0E00F8DCAD /* SignUpView.m in Sources */,
 				44814C1E195B2CAC006BA9FD /* Medicament.m in Sources */,
-				44814BEB195B2736006BA9FD /* ViewController.m in Sources */,
 				44873F49195B951F00F8DCAD /* LoginView.m in Sources */,
 				44814C57195B6F64006BA9FD /* MBProgressHUD.m in Sources */,
 				44814C4E195B6A95006BA9FD /* UIImage+Resize.m in Sources */,
-				44873F50195B972D00F8DCAD /* SignUpView.m in Sources */,
+				44873F54195B990F00F8DCAD /* FirstTimeStartingVC.m in Sources */,
 				44814BE5195B2735006BA9FD /* AppDelegate.m in Sources */,
 				44814BE1195B2735006BA9FD /* main.m in Sources */,
 			);
