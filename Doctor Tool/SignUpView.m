@@ -69,4 +69,13 @@
         [self.delegate dismissCard];
     }
 }
+
+- (IBAction)btnAddImagePressed:(id)sender {
+    if (!self.usr) {
+        self.usr = [[User alloc] init];
+    }
+    if ([self.delegate respondsToSelector:@selector(takePhoto:)]) {
+        [self.delegate takePhoto:self.usr];
+    }
+}
 @end

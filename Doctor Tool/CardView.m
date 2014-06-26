@@ -6,8 +6,7 @@
 
 @property (assign, nonatomic, readwrite) BOOL isFlipped;
 
-@property (strong, nonatomic) UIView *front;
-@property (strong, nonatomic) UIView *back;
+
 
 - (void)addSwipeRecognizerForDirection:(UISwipeGestureRecognizerDirection)direction;
 - (void)flipCard:(UIViewAnimationOptions)options;

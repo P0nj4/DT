@@ -15,6 +15,7 @@
 - (void)registerButtonPressed:(User *)usr;
 - (void)loginButtonPressed:(User *)usr;
 - (void)dismissCard;
+- (void)takePhoto:(User *)usr;
 
 @end
 
@@ -34,5 +35,6 @@
 - (IBAction)btnRegisterPressed:(id)sender;
 - (IBAction)btnLoginPressed:(id)sender;
 - (IBAction)btnCancelPressed:(id)sender;
+- (IBAction)btnAddImagePressed:(id)sender;
 
 @end

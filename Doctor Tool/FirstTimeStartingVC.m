@@ -13,11 +13,13 @@
 #import "MBProgressHUD.h"
 #import "UserModel.h"
 #import "User.h"
+#import "UIImage+Resize.h"
 
 @interface FirstTimeStartingVC () <CardViewDelegate, LoginViewDelegate, SignUpViewDelegate>
 @property (nonatomic, strong) UIView *viewBG;
 @property (nonatomic, assign) BOOL isLogin;
 @property (nonatomic, strong) CardView *cv;
+@property (nonatomic, weak) User *usr;
 
 - (IBAction)btnSignUpPressed:(id)sender;
 @end
@@ -146,6 +148,12 @@
     }];
 }
 
+- (void)takePhoto:(User *)usr{
+    self.usr = usr;
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"takePhoto", nil), NSLocalizedString(@"useLibrary", nil), nil];
+    [sheet showInView:self.view];
+
+}
 
 #pragma mark - IBActions
 - (IBAction)btnSignUpPressed:(id)sender {
@@ -161,6 +169,62 @@
     }];
 }
 
+
+#pragma mark - UIActionSheetDelegate
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        
+        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:nil
+                                                              message:NSLocalizedString(@"noCamera", nil)
+                                                             delegate:nil
+                                                    cancelButtonTitle:@"OK"
+                                                    otherButtonTitles: nil];
+        
+        [myAlertView show];
+        
+    }else{
+        if (buttonIndex == 1) {
+            UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+            picker.delegate = self;
+            picker.allowsEditing = YES;
+            [picker setCameraDevice:(UIImagePickerControllerCameraDeviceFront)];
+            picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+            
+            [self presentViewController:picker animated:YES completion:NULL];
+        }else if (buttonIndex == 2){
+            UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+            picker.delegate = self;
+            picker.allowsEditing = YES;
+            picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            
+            [self presentViewController:picker animated:YES completion:NULL];
+        }
+    }
+}
+
+#pragma mark - ImagePickerDelegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    if (!self.usr) {
+        return;
+    }
+    self.usr.avatar = [chosenImage imageScaledToWidth:150];
+    SignUpView *su = nil;
+    if(![cv.front isKindOfClass:[LoginView class]]){
+        su = (SignUpView *)cv.front;
+    }else{
+        su = (SignUpView *)cv.back;
+    }
+    su.imgAvatar.image = self.usr.avatar;
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+}
 
 
 @end
