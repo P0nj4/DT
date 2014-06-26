@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
-#import "SignUpVC.h"
+#import "FirstTimeStartingVC.h"
 
 @implementation AppDelegate
 
@@ -22,7 +22,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
    
     
-    UIViewController *viewController = [[SignUpVC alloc] initWithNibName:@"SignUpVC" bundle:nil];
+    UIViewController *viewController = [[FirstTimeStartingVC alloc] initWithNibName:@"FirstTimeStartingVC" bundle:nil];
     UINavigationController *navController=[[UINavigationController alloc]initWithRootViewController:viewController];
     self.window.rootViewController = navController;
     [self.window makeKeyAndVisible];
