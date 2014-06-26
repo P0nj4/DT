@@ -7,10 +7,10 @@
 //
 
 #import "LoginView.h"
+#import "User.h"
 
 @interface LoginView ()
-
-
+@property (nonatomic, strong) User *usr;
 @end
 
 
@@ -40,6 +40,9 @@
 - (void)setup{
     [[NSBundle mainBundle] loadNibNamed:@"LoginView" owner:self options:nil];
     [self addSubview:self.view];
+    self.view.layer.borderWidth = 5;
+    self.view.layer.cornerRadius = 4;
+    self.view.layer.borderColor = [UIColor whiteColor].CGColor;
 }
 
 
@@ -56,15 +59,28 @@
 }
 
 - (IBAction)btnLoginPressed:(id)sender {
-    if([self.delegate respondsToSelector:@selector(loginButtonPressed)]){
-        [self.delegate loginButtonPressed];
+    if (!self.usr) {
+        self.usr = [[User alloc] init];
+    }
+    self.usr.email = self.txtEmail.text;
+    self.usr.password = self.txtPassword.text;
+
+    if([self.delegate respondsToSelector:@selector(loginButtonPressed:)]){
+        [self.delegate loginButtonPressed:self.usr];
     }
 
 }
 
 - (IBAction)btnRegisterPressed:(id)sender {
-    if([self.delegate respondsToSelector:@selector(registerButtonPressed)]){
-        [self.delegate registerButtonPressed];
+    if([self.delegate respondsToSelector:@selector(registerButtonPressed:)]){
+        [self.delegate registerButtonPressed:nil];
+    }
+}
+
+
+- (IBAction)btnCancelPressed:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(dismissCard)]) {
+        [self.delegate dismissCard];
     }
 }
 

@@ -10,9 +10,11 @@
 #import "CardView.h"
 #import "LoginView.h"
 #import "SignUpView.h"
+#import "MBProgressHUD.h"
+#import "UserModel.h"
+#import "User.h"
 
 @interface FirstTimeStartingVC () <CardViewDelegate, LoginViewDelegate, SignUpViewDelegate>
-@property (nonatomic, strong) CardView *cardView;
 @property (nonatomic, strong) UIView *viewBG;
 @property (nonatomic, assign) BOOL isLogin;
 @property (nonatomic, strong) CardView *cv;
@@ -47,12 +49,11 @@
     [self.view addSubview:viewBG];
     
     cv = [[CardView alloc] initWithFrontView:login backView:signUp Frame:CGRectMake(0, 0, 400, 428) withGesture:YES];
-    self.cardView = cv;
     cv.useBackground = NO;
     cv.delegate = self;
     cv.center = self.view.center;
-    self.cardView.alpha = 0;
-    [[self view] addSubview:self.cardView];
+    cv.alpha = 0;
+    [[self view] addSubview:cv];
 }
 
 - (void)didReceiveMemoryWarning
@@ -74,32 +75,88 @@
     }
 }
 
-- (void)registerButtonPressed{
-    if (self.isLogin) {
+
+- (void)registerButtonPressed:(User *)usr{
+    if (!self.isLogin) {
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        dispatch_queue_t queue = dispatch_queue_create("q_registerUser", NULL);
+        dispatch_async(queue, ^{
+            @try {
+                [UserModel registerUser:usr];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                    
+                    [UIView animateWithDuration:0.3 animations:^{
+                        cv.alpha = 0;
+                    }];
+                });
+            }
+            @catch (NSException *exception) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                    [[[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(exception.name, nil) delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+                });
+            }
+        });
+
+    }else{
         [self.cv flip];
     }
 }
 
-- (void)loginWithFacebookButtonPressed{
-
+- (void)loginButtonPressed:(User *)usr{
+    if (self.isLogin) {
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        dispatch_queue_t queue = dispatch_queue_create("q_registerUser", NULL);
+        dispatch_async(queue, ^{
+            @try {
+                [UserModel loginUser:usr.email password:usr.password];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                    
+                    [UIView animateWithDuration:0.3 animations:^{
+                        cv.alpha = 0;
+                    }];
+                });
+            }
+            @catch (NSException *exception) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                    [[[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(exception.name, nil) delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+                });
+            }
+        });
+    }else{
+        [self.cv flip];
+    }
 }
 
 - (void)loginWithGoogleButtonPressed{
 
 }
 
+- (void)loginWithFacebookButtonPressed{
+
+}
+
+- (void)dismissCard{
+    [UIView animateWithDuration:0.3 animations:^{
+        cv.alpha = 0;
+        self.viewBG.alpha = 0;
+    }];
+}
 
 
 #pragma mark - IBActions
 - (IBAction)btnSignUpPressed:(id)sender {
-    self.cardView.alpha = 1;
-    self.cardView.transform = CGAffineTransformMakeScale(0.01, 0.01);
+    cv.alpha = 1;
+    cv.transform = CGAffineTransformMakeScale(0.01, 0.01);
     [UIView animateWithDuration:0.3 animations:^{
         viewBG.alpha = 0.3;
-        self.cardView.transform = CGAffineTransformMakeScale(1.05, 1.05);
+        cv.transform = CGAffineTransformMakeScale(1.05, 1.05);
     }completion:^(BOOL finished) {
         [UIView animateWithDuration:0.2 animations:^{
-            self.cardView.transform = CGAffineTransformMakeScale(1., 1.);
+            cv.transform = CGAffineTransformMakeScale(1., 1.);
         }];
     }];
 }

@@ -8,12 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class User;
+
 @protocol LoginViewDelegate <NSObject>
 
-- (void)registerButtonPressed;
-- (void)loginButtonPressed;
+- (void)registerButtonPressed:(User *)usr;
+- (void)loginButtonPressed:(User *)usr;
 - (void)loginWithFacebookButtonPressed;
 - (void)loginWithGoogleButtonPressed;
+- (void)dismissCard;
 
 @end
 
@@ -27,10 +30,12 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnRegister;
 @property (weak, nonatomic) IBOutlet UITextField *txtEmail;
 @property (weak, nonatomic) IBOutlet UITextField *txtPassword;
+@property (weak, nonatomic) IBOutlet UIButton *btnCancel;
 
 - (IBAction)btnGooglePressed:(id)sender;
 - (IBAction)btnFacebookPressed:(id)sender;
 - (IBAction)btnLoginPressed:(id)sender;
 - (IBAction)btnRegisterPressed:(id)sender;
+- (IBAction)btnCancelPressed:(id)sender;
 
 @end

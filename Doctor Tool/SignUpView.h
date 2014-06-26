@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class User;
+
 @protocol SignUpViewDelegate <NSObject>
 
-- (void)registerButtonPressed;
-- (void)loginButtonPressed;
+- (void)registerButtonPressed:(User *)usr;
+- (void)loginButtonPressed:(User *)usr;
+- (void)dismissCard;
 
 @end
 
@@ -26,7 +29,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnRegister;
 @property (weak, nonatomic) IBOutlet UIButton *btnLogin;
 @property (weak, nonatomic) IBOutlet UIImageView *imgAvatar;
+@property (weak, nonatomic) IBOutlet UIButton *btnCancel;
 
 - (IBAction)btnRegisterPressed:(id)sender;
 - (IBAction)btnLoginPressed:(id)sender;
+- (IBAction)btnCancelPressed:(id)sender;
+
 @end
