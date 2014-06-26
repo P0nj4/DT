@@ -14,18 +14,25 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        [self setup];
     }
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+- (id)init
 {
-    // Drawing code
+    self = [super init];
+    if (self) {
+        [self setup];
+    }
+    return self;
 }
-*/
+
+
+- (void)setup{
+    [[NSBundle mainBundle] loadNibNamed:@"SignUpView" owner:self options:nil];
+    [self addSubview:self.view];
+}
+
 
 @end

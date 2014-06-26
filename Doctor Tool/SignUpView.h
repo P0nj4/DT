@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface SignUpView : UIView
-
+@property (nonatomic, strong) IBOutlet UIView *view;
 @end

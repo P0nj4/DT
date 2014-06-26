@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		444EAB55195BA9800066CC40 /* CardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 444EAB54195BA9800066CC40 /* CardView.m */; };
 		44814BD5195B2735006BA9FD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44814BD4195B2735006BA9FD /* Foundation.framework */; };
 		44814BD7195B2735006BA9FD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44814BD6195B2735006BA9FD /* CoreGraphics.framework */; };
 		44814BD9195B2735006BA9FD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44814BD8195B2735006BA9FD /* UIKit.framework */; };
@@ -56,6 +57,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		444EAB53195BA9800066CC40 /* CardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardView.h; sourceTree = "<group>"; };
+		444EAB54195BA9800066CC40 /* CardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardView.m; sourceTree = "<group>"; };
 		44814BD1195B2735006BA9FD /* Doctor Tool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Doctor Tool.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		44814BD4195B2735006BA9FD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		44814BD6195B2735006BA9FD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -287,12 +290,14 @@
 		44873F46195B94EF00F8DCAD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				444EAB53195BA9800066CC40 /* CardView.h */,
+				444EAB54195BA9800066CC40 /* CardView.m */,
 				44873F47195B951F00F8DCAD /* LoginView.h */,
 				44873F48195B951F00F8DCAD /* LoginView.m */,
-				44873F4A195B953E00F8DCAD /* SignUpView.xib */,
+				44873F56195B999500F8DCAD /* LoginView.xib */,
 				44873F58195B9A0E00F8DCAD /* SignUpView.h */,
 				44873F59195B9A0E00F8DCAD /* SignUpView.m */,
-				44873F56195B999500F8DCAD /* LoginView.xib */,
+				44873F4A195B953E00F8DCAD /* SignUpView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -403,6 +408,7 @@
 				44814C3B195B4D73006BA9FD /* NSString+MD5.m in Sources */,
 				44814C22195B466E006BA9FD /* UserModel.m in Sources */,
 				44873F5A195B9A0E00F8DCAD /* SignUpView.m in Sources */,
+				444EAB55195BA9800066CC40 /* CardView.m in Sources */,
 				44814C1E195B2CAC006BA9FD /* Medicament.m in Sources */,
 				44873F49195B951F00F8DCAD /* LoginView.m in Sources */,
 				44814C57195B6F64006BA9FD /* MBProgressHUD.m in Sources */,
