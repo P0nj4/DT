@@ -43,7 +43,7 @@
         [self addSubview:self.back];
         if(gesture){
             // Add gesture recognizers
-            [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(isTapped:)]];
+            //[self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(isTapped:)]];
             
             [self addSwipeRecognizerForDirection:UISwipeGestureRecognizerDirectionLeft];
             [self addSwipeRecognizerForDirection:UISwipeGestureRecognizerDirectionRight];

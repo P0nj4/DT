@@ -8,6 +8,12 @@
 
 #import "LoginView.h"
 
+@interface LoginView ()
+
+
+@end
+
+
 @implementation LoginView
 
 - (id)initWithFrame:(CGRect)frame
@@ -36,5 +42,30 @@
     [self addSubview:self.view];
 }
 
+
+- (IBAction)btnGooglePressed:(id)sender {
+    if([self.delegate respondsToSelector:@selector(loginWithGoogleButtonPressed)]){
+        [self.delegate loginWithGoogleButtonPressed];
+    }
+}
+
+- (IBAction)btnFacebookPressed:(id)sender {
+    if([self.delegate respondsToSelector:@selector(loginWithFacebookButtonPressed)]){
+        [self.delegate loginWithFacebookButtonPressed];
+    }
+}
+
+- (IBAction)btnLoginPressed:(id)sender {
+    if([self.delegate respondsToSelector:@selector(loginButtonPressed)]){
+        [self.delegate loginButtonPressed];
+    }
+
+}
+
+- (IBAction)btnRegisterPressed:(id)sender {
+    if([self.delegate respondsToSelector:@selector(registerButtonPressed)]){
+        [self.delegate registerButtonPressed];
+    }
+}
 
 @end

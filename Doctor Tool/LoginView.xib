@@ -6,6 +6,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginView">
             <connections>
+                <outlet property="btnLogin" destination="Q8b-w8-JiT" id="0Gc-aq-k3L"/>
+                <outlet property="btnLoginWithFacebook" destination="tZP-IZ-Zqh" id="THB-y9-9eF"/>
+                <outlet property="btnLoginWithGoogle" destination="byy-KT-OGL" id="tm4-l7-dnf"/>
+                <outlet property="btnRegister" destination="cLP-5j-O6n" id="f7J-e1-DJc"/>
+                <outlet property="txtEmail" destination="3OV-Fg-bWG" id="1oa-Ao-E8G"/>
+                <outlet property="txtPassword" destination="O2H-zU-g7V" id="jAq-nv-fKq"/>
                 <outlet property="view" destination="iN0-l3-epB" id="gdZ-KB-2Qy"/>
             </connections>
         </placeholder>
@@ -27,6 +33,9 @@
                     <state key="normal" title="Ingresar con Facebook" backgroundImage="facebook">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="btnFacebookPressed:" destination="-1" eventType="touchUpInside" id="WpL-gd-EH0"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="byy-KT-OGL">
                     <rect key="frame" x="51" y="27" width="300" height="74"/>
@@ -35,6 +44,9 @@
                     <state key="normal" title="Ingresar con Facebook" backgroundImage="google">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="btnGooglePressed:" destination="-1" eventType="touchUpInside" id="vSf-Tx-NmH"/>
+                    </connections>
                 </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3OV-Fg-bWG">
                     <rect key="frame" x="51" y="264" width="300" height="30"/>
@@ -73,6 +85,9 @@
                                 <color key="titleColor" white="0.41688526460000003" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="btnLoginPressed:" destination="-1" eventType="touchUpInside" id="NZ2-yz-btF"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cLP-5j-O6n">
                             <rect key="frame" x="51" y="8" width="109" height="30"/>
@@ -81,6 +96,9 @@
                                 <color key="titleColor" white="0.41688526460000003" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="btnRegisterPressed:" destination="-1" eventType="touchUpInside" id="cOu-9A-1YP"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.93157762099999997" alpha="1" colorSpace="calibratedWhite"/>
@@ -89,6 +107,17 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                    <integer key="value" value="4"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
+                    <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                    <integer key="value" value="2"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
         </view>
     </objects>
     <resources>

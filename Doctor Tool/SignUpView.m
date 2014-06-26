@@ -35,4 +35,15 @@
 }
 
 
+- (IBAction)btnRegisterPressed:(id)sender {
+    if([self.delegate respondsToSelector:@selector(registerButtonPressed)]){
+        [self.delegate registerButtonPressed];
+    }
+}
+
+- (IBAction)btnLoginPressed:(id)sender {
+    if([self.delegate respondsToSelector:@selector(loginButtonPressed)]){
+        [self.delegate loginButtonPressed];
+    }
+}
 @end

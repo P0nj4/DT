@@ -6,6 +6,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignUpView">
             <connections>
+                <outlet property="btnLogin" destination="Zjp-i4-75B" id="HBh-oT-Anl"/>
+                <outlet property="btnRegister" destination="0iv-kh-z5Z" id="Rr8-YQ-wDQ"/>
+                <outlet property="imgAvatar" destination="dVP-rN-t9b" id="pGW-13-JNg"/>
+                <outlet property="txtEmail" destination="BAj-SV-VXC" id="KrH-gW-hz1"/>
+                <outlet property="txtLastName" destination="ho0-Hm-eam" id="aRK-3w-ih8"/>
+                <outlet property="txtName" destination="T4I-RN-Ag4" id="A0x-Kz-Kdc"/>
+                <outlet property="txtPassword" destination="JIx-b2-eTP" id="w2l-aL-3lB"/>
                 <outlet property="view" destination="iN0-l3-epB" id="fw9-ku-0A8"/>
             </connections>
         </placeholder>
@@ -35,6 +42,9 @@
                                 <color key="titleColor" white="0.41688526460000003" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="btnRegisterPressed:" destination="-1" eventType="touchUpInside" id="uZ2-wR-zgX"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zjp-i4-75B">
                             <rect key="frame" x="51" y="8" width="109" height="30"/>
@@ -43,6 +53,9 @@
                                 <color key="titleColor" white="0.41688526460000003" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="btnLoginPressed:" destination="-1" eventType="touchUpInside" id="K10-wT-vkV"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.93157762096774199" alpha="1" colorSpace="calibratedWhite"/>
@@ -86,6 +99,17 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                    <integer key="value" value="4"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                    <integer key="value" value="2"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                    <color key="value" white="0.33157504562043794" alpha="1" colorSpace="calibratedWhite"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
         </view>
     </objects>
 </document>
