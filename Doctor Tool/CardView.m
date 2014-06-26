@@ -63,6 +63,14 @@
     [self isTapped:nil];
 }
 
+- (void)flipWithoutAnimation{
+    self.isFlipped = YES;
+    [UIView transitionFromView:self.back toView:self.front duration:0. options:(UIViewAnimationOptionTransitionFlipFromRight) completion:^(BOOL finished) {
+        [self.delegate CardFliped:!self.isFlipped];
+        
+    }];
+}
+
 #pragma mark - Gesture recognizer handlers
 - (void)isTapped:(UITapGestureRecognizer *)recognizer
 {

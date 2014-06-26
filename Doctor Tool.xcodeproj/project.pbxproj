@@ -349,6 +349,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Ponja;
 				TargetAttributes = {
+					44814BD0195B2735006BA9FD = {
+						DevelopmentTeam = 5TE3G4UK44;
+					};
 					44814BF1195B2736006BA9FD = {
 						TestTargetID = 44814BD0195B2735006BA9FD;
 					};
@@ -545,6 +548,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: German Pereyra (8G4SRRN78P)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: German Pereyra (8G4SRRN78P)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -552,7 +557,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Doctor Tool/Doctor Tool-Prefix.pch";
 				INFOPLIST_FILE = "Doctor Tool/Doctor Tool-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "BEABFB02-5E60-490C-9A7A-B2FEDCD0C331";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -562,6 +569,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: German Pereyra (8G4SRRN78P)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: German Pereyra (8G4SRRN78P)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -569,7 +578,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Doctor Tool/Doctor Tool-Prefix.pch";
 				INFOPLIST_FILE = "Doctor Tool/Doctor Tool-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "BEABFB02-5E60-490C-9A7A-B2FEDCD0C331";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

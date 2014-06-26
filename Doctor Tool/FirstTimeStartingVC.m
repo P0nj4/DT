@@ -20,6 +20,7 @@
 @property (nonatomic, assign) BOOL isLogin;
 @property (nonatomic, strong) CardView *cv;
 @property (nonatomic, weak) User *usr;
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *btnLoginSignUp;
 
 - (IBAction)btnSignUpPressed:(id)sender;
 @end
@@ -56,6 +57,13 @@
     cv.center = self.view.center;
     cv.alpha = 0;
     [[self view] addSubview:cv];
+    
+    
+    for (UIButton *btn in self.btnLoginSignUp) {
+        btn.layer.cornerRadius = 8;
+        btn.layer.borderWidth = 2;
+        btn.layer.borderColor = [UIColor colorWithRed:105/255.0f green:105/255.0f blue:105/255.0f alpha:1.0f].CGColor;
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -157,6 +165,16 @@
 
 #pragma mark - IBActions
 - (IBAction)btnSignUpPressed:(id)sender {
+    UIButton *btn = (UIButton *)sender;
+    if (btn.tag == 2) {
+        if (!cv.isFlipped) {
+            [cv flipWithoutAnimation];
+        }
+        self.isLogin = YES;
+    }else{
+        self.isLogin = NO;
+    }
+    
     cv.alpha = 1;
     cv.transform = CGAffineTransformMakeScale(0.01, 0.01);
     [UIView animateWithDuration:0.3 animations:^{
@@ -183,15 +201,15 @@
         [myAlertView show];
         
     }else{
-        if (buttonIndex == 1) {
+        if (buttonIndex == 0) {
             UIImagePickerController *picker = [[UIImagePickerController alloc] init];
             picker.delegate = self;
             picker.allowsEditing = YES;
-            [picker setCameraDevice:(UIImagePickerControllerCameraDeviceFront)];
             picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+            [picker setCameraDevice:(UIImagePickerControllerCameraDeviceFront)];
             
             [self presentViewController:picker animated:YES completion:NULL];
-        }else if (buttonIndex == 2){
+        }else if (buttonIndex == 1){
             UIImagePickerController *picker = [[UIImagePickerController alloc] init];
             picker.delegate = self;
             picker.allowsEditing = YES;
