@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
 #import "FirstTimeStartingVC.h"
+#import "ConsultationsVC.h"
 
 @implementation AppDelegate
 
@@ -22,7 +23,8 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
    
     
-    UIViewController *viewController = [[FirstTimeStartingVC alloc] initWithNibName:@"FirstTimeStartingVC" bundle:nil];
+    //UIViewController *viewController = [[FirstTimeStartingVC alloc] initWithNibName:@"FirstTimeStartingVC" bundle:nil];
+    UIViewController *viewController = [[ConsultationsVC alloc] initWithNibName:@"ConsultationsVC" bundle:nil];
     UINavigationController *navController=[[UINavigationController alloc]initWithRootViewController:viewController];
     self.window.rootViewController = navController;
     [self.window makeKeyAndVisible];

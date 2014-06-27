@@ -44,6 +44,15 @@
 		44873F55195B990F00F8DCAD /* FirstTimeStartingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44873F53195B990F00F8DCAD /* FirstTimeStartingVC.xib */; };
 		44873F57195B999500F8DCAD /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44873F56195B999500F8DCAD /* LoginView.xib */; };
 		44873F5A195B9A0E00F8DCAD /* SignUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44873F59195B9A0E00F8DCAD /* SignUpView.m */; };
+		44CF607C195CF5BA00BB7B69 /* PatientsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44CF607A195CF5BA00BB7B69 /* PatientsVC.m */; };
+		44CF607D195CF5BA00BB7B69 /* PatientsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44CF607B195CF5BA00BB7B69 /* PatientsVC.xib */; };
+		44CF60BB195CFAE700BB7B69 /* ConsultationsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44CF60B9195CFAE700BB7B69 /* ConsultationsVC.m */; };
+		44CF60BC195CFAE700BB7B69 /* ConsultationsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44CF60BA195CFAE700BB7B69 /* ConsultationsVC.xib */; };
+		44CF60D7195CFF1C00BB7B69 /* NSDate+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 44CF60CE195CFF1C00BB7B69 /* NSDate+convenience.m */; };
+		44CF60D8195CFF1C00BB7B69 /* NSMutableArray+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 44CF60D0195CFF1C00BB7B69 /* NSMutableArray+convenience.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		44CF60D9195CFF1C00BB7B69 /* UIColor+expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 44CF60D2195CFF1C00BB7B69 /* UIColor+expanded.m */; };
+		44CF60DA195CFF1C00BB7B69 /* UIView+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 44CF60D4195CFF1C00BB7B69 /* UIView+convenience.m */; };
+		44CF60DB195CFF1C00BB7B69 /* VRGCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44CF60D6195CFF1C00BB7B69 /* VRGCalendarView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +121,22 @@
 		44873F56195B999500F8DCAD /* LoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
 		44873F58195B9A0E00F8DCAD /* SignUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpView.h; sourceTree = "<group>"; };
 		44873F59195B9A0E00F8DCAD /* SignUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpView.m; sourceTree = "<group>"; };
+		44CF6079195CF5BA00BB7B69 /* PatientsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientsVC.h; sourceTree = "<group>"; };
+		44CF607A195CF5BA00BB7B69 /* PatientsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientsVC.m; sourceTree = "<group>"; };
+		44CF607B195CF5BA00BB7B69 /* PatientsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PatientsVC.xib; sourceTree = "<group>"; };
+		44CF60B8195CFAE700BB7B69 /* ConsultationsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsultationsVC.h; sourceTree = "<group>"; };
+		44CF60B9195CFAE700BB7B69 /* ConsultationsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsultationsVC.m; sourceTree = "<group>"; };
+		44CF60BA195CFAE700BB7B69 /* ConsultationsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConsultationsVC.xib; sourceTree = "<group>"; };
+		44CF60CD195CFF1C00BB7B69 /* NSDate+convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+convenience.h"; sourceTree = "<group>"; };
+		44CF60CE195CFF1C00BB7B69 /* NSDate+convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+convenience.m"; sourceTree = "<group>"; };
+		44CF60CF195CFF1C00BB7B69 /* NSMutableArray+convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+convenience.h"; sourceTree = "<group>"; };
+		44CF60D0195CFF1C00BB7B69 /* NSMutableArray+convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+convenience.m"; sourceTree = "<group>"; };
+		44CF60D1195CFF1C00BB7B69 /* UIColor+expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+expanded.h"; sourceTree = "<group>"; };
+		44CF60D2195CFF1C00BB7B69 /* UIColor+expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+expanded.m"; sourceTree = "<group>"; };
+		44CF60D3195CFF1C00BB7B69 /* UIView+convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+convenience.h"; sourceTree = "<group>"; };
+		44CF60D4195CFF1C00BB7B69 /* UIView+convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+convenience.m"; sourceTree = "<group>"; };
+		44CF60D5195CFF1C00BB7B69 /* VRGCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VRGCalendarView.h; sourceTree = "<group>"; };
+		44CF60D6195CFF1C00BB7B69 /* VRGCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VRGCalendarView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +229,12 @@
 				44873F51195B990F00F8DCAD /* FirstTimeStartingVC.h */,
 				44873F52195B990F00F8DCAD /* FirstTimeStartingVC.m */,
 				44873F53195B990F00F8DCAD /* FirstTimeStartingVC.xib */,
+				44CF6079195CF5BA00BB7B69 /* PatientsVC.h */,
+				44CF607A195CF5BA00BB7B69 /* PatientsVC.m */,
+				44CF607B195CF5BA00BB7B69 /* PatientsVC.xib */,
+				44CF60B8195CFAE700BB7B69 /* ConsultationsVC.h */,
+				44CF60B9195CFAE700BB7B69 /* ConsultationsVC.m */,
+				44CF60BA195CFAE700BB7B69 /* ConsultationsVC.xib */,
 			);
 			path = "Doctor Tool";
 			sourceTree = "<group>";
@@ -273,6 +304,7 @@
 		44814C4F195B6CAE006BA9FD /* External Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				44CF60CC195CFF1C00BB7B69 /* Vurig-Calendar */,
 				44814C54195B6F64006BA9FD /* ProgressHUD */,
 			);
 			name = "External Libraries";
@@ -300,6 +332,23 @@
 				44873F4A195B953E00F8DCAD /* SignUpView.xib */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		44CF60CC195CFF1C00BB7B69 /* Vurig-Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				44CF60CD195CFF1C00BB7B69 /* NSDate+convenience.h */,
+				44CF60CE195CFF1C00BB7B69 /* NSDate+convenience.m */,
+				44CF60CF195CFF1C00BB7B69 /* NSMutableArray+convenience.h */,
+				44CF60D0195CFF1C00BB7B69 /* NSMutableArray+convenience.m */,
+				44CF60D1195CFF1C00BB7B69 /* UIColor+expanded.h */,
+				44CF60D2195CFF1C00BB7B69 /* UIColor+expanded.m */,
+				44CF60D3195CFF1C00BB7B69 /* UIView+convenience.h */,
+				44CF60D4195CFF1C00BB7B69 /* UIView+convenience.m */,
+				44CF60D5195CFF1C00BB7B69 /* VRGCalendarView.h */,
+				44CF60D6195CFF1C00BB7B69 /* VRGCalendarView.m */,
+			);
+			path = "Vurig-Calendar";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -383,7 +432,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				44873F57195B999500F8DCAD /* LoginView.xib in Resources */,
+				44CF60BC195CFAE700BB7B69 /* ConsultationsVC.xib in Resources */,
 				44814C45195B65FE006BA9FD /* Localizable.strings in Resources */,
+				44CF607D195CF5BA00BB7B69 /* PatientsVC.xib in Resources */,
 				44814BED195B2736006BA9FD /* Images.xcassets in Resources */,
 				44873F4B195B953E00F8DCAD /* SignUpView.xib in Resources */,
 				44873F55195B990F00F8DCAD /* FirstTimeStartingVC.xib in Resources */,
@@ -408,8 +459,15 @@
 			files = (
 				44814C18195B2C74006BA9FD /* User.m in Sources */,
 				44814C1B195B2C98006BA9FD /* Consultation.m in Sources */,
+				44CF60DA195CFF1C00BB7B69 /* UIView+convenience.m in Sources */,
+				44CF60D9195CFF1C00BB7B69 /* UIColor+expanded.m in Sources */,
+				44CF60DB195CFF1C00BB7B69 /* VRGCalendarView.m in Sources */,
+				44CF607C195CF5BA00BB7B69 /* PatientsVC.m in Sources */,
 				44814C3B195B4D73006BA9FD /* NSString+MD5.m in Sources */,
 				44814C22195B466E006BA9FD /* UserModel.m in Sources */,
+				44CF60D8195CFF1C00BB7B69 /* NSMutableArray+convenience.m in Sources */,
+				44CF60BB195CFAE700BB7B69 /* ConsultationsVC.m in Sources */,
+				44CF60D7195CFF1C00BB7B69 /* NSDate+convenience.m in Sources */,
 				44873F5A195B9A0E00F8DCAD /* SignUpView.m in Sources */,
 				444EAB55195BA9800066CC40 /* CardView.m in Sources */,
 				44814C1E195B2CAC006BA9FD /* Medicament.m in Sources */,
