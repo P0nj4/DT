@@ -11,6 +11,7 @@
 		442BFA57195DE1F00068A0BB /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = 442BFA56195DE1F00068A0BB /* Patient.m */; };
 		442BFA5A195DE4090068A0BB /* CommonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 442BFA59195DE4090068A0BB /* CommonModel.m */; };
 		442BFA5D195DEB6B0068A0BB /* ConsultationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 442BFA5C195DEB6B0068A0BB /* ConsultationModel.m */; };
+		442BFA60195DF4340068A0BB /* ParseTemporal.m in Sources */ = {isa = PBXBuildFile; fileRef = 442BFA5F195DF4340068A0BB /* ParseTemporal.m */; };
 		444EAB55195BA9800066CC40 /* CardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 444EAB54195BA9800066CC40 /* CardView.m */; };
 		44814BD5195B2735006BA9FD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44814BD4195B2735006BA9FD /* Foundation.framework */; };
 		44814BD7195B2735006BA9FD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44814BD6195B2735006BA9FD /* CoreGraphics.framework */; };
@@ -78,6 +79,8 @@
 		442BFA59195DE4090068A0BB /* CommonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonModel.m; sourceTree = "<group>"; };
 		442BFA5B195DEB6B0068A0BB /* ConsultationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsultationModel.h; sourceTree = "<group>"; };
 		442BFA5C195DEB6B0068A0BB /* ConsultationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsultationModel.m; sourceTree = "<group>"; };
+		442BFA5E195DF4340068A0BB /* ParseTemporal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseTemporal.h; sourceTree = "<group>"; };
+		442BFA5F195DF4340068A0BB /* ParseTemporal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseTemporal.m; sourceTree = "<group>"; };
 		444EAB53195BA9800066CC40 /* CardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardView.h; sourceTree = "<group>"; };
 		444EAB54195BA9800066CC40 /* CardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardView.m; sourceTree = "<group>"; };
 		44814BD1195B2735006BA9FD /* Doctor Tool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Doctor Tool.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -306,6 +309,8 @@
 				442BFA59195DE4090068A0BB /* CommonModel.m */,
 				442BFA5B195DEB6B0068A0BB /* ConsultationModel.h */,
 				442BFA5C195DEB6B0068A0BB /* ConsultationModel.m */,
+				442BFA5E195DF4340068A0BB /* ParseTemporal.h */,
+				442BFA5F195DF4340068A0BB /* ParseTemporal.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -481,6 +486,7 @@
 				44814C1B195B2C98006BA9FD /* Consultation.m in Sources */,
 				44CF60DA195CFF1C00BB7B69 /* UIView+convenience.m in Sources */,
 				44CF60D9195CFF1C00BB7B69 /* UIColor+expanded.m in Sources */,
+				442BFA60195DF4340068A0BB /* ParseTemporal.m in Sources */,
 				44CF60DB195CFF1C00BB7B69 /* VRGCalendarView.m in Sources */,
 				44CF607C195CF5BA00BB7B69 /* PatientsVC.m in Sources */,
 				44814C3B195B4D73006BA9FD /* NSString+MD5.m in Sources */,

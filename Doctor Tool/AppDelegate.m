@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import "FirstTimeStartingVC.h"
 #import "ConsultationsVC.h"
+#import "ParseTemporal.h"
 
 @implementation AppDelegate
 
@@ -26,6 +27,9 @@
     //UIViewController *viewController = [[FirstTimeStartingVC alloc] initWithNibName:@"FirstTimeStartingVC" bundle:nil];
     UIViewController *viewController = [[ConsultationsVC alloc] initWithNibName:@"ConsultationsVC" bundle:nil];
     UINavigationController *navController=[[UINavigationController alloc]initWithRootViewController:viewController];
+    
+    [ParseTemporal loadExample];
+    
     self.window.rootViewController = navController;
     [self.window makeKeyAndVisible];
     
