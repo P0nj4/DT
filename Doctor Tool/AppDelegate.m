@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
 #import "FirstTimeStartingVC.h"
-#import "ConsultationsVC.h"
+#import "PatientsVC.h"
 
 
 #import "ParseTemporal.h"
@@ -29,19 +29,20 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
    
+    [DoctorModel loginDoctor:@"german.f.pereyra@gmail.com" password:@"123456"];
     
     //UIViewController *viewController = [[FirstTimeStartingVC alloc] initWithNibName:@"FirstTimeStartingVC" bundle:nil];
-    UIViewController *viewController = [[ConsultationsVC alloc] initWithNibName:@"ConsultationsVC" bundle:nil];
+    UIViewController *viewController = [[PatientsVC alloc] initWithNibName:@"PatientsVC" bundle:nil];
     UINavigationController *navController=[[UINavigationController alloc]initWithRootViewController:viewController];
     
     
     //Doctor *d = [[Doctor alloc] initWithEmail:@"german.f.pereyra@gmail.com" password:@"123456" name:@"Germán" lastName:@"Pereyra" avatar:nil];
     //[DoctorModel registerDoctor:d];
-    
-    [DoctorModel loginDoctor:@"german.f.pereyra@gmail.com" password:@"123456"];
-    
-    Patient *newPatient = [[Patient alloc] initWithName:@"Mi primer paciente" lastName:@"chupa culo"];
-    [PatientModel addPatient:newPatient forDoctor:[Session sharedInstance].doctor];
+//    
+//    [DoctorModel loginDoctor:@"german.f.pereyra@gmail.com" password:@"123456"];
+//    
+//    Patient *newPatient = [[Patient alloc] initWithName:@"segundo paciente" lastName:@"lalalala"];
+//    [PatientModel addPatient:newPatient forDoctor:[Session sharedInstance].doctor];
     NSLog(@"session doctor %@", [Session sharedInstance].doctor);
     
     

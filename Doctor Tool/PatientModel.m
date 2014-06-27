@@ -15,10 +15,12 @@
 + (void)loadDoctorPatients:(Doctor *)doc{
     if (doc.patients) {
         doc.patients = nil;
+        doc.patients = [[NSMutableDictionary alloc] init];
     }
     
     PFQuery *query = [PFQuery queryWithClassName:@"Patient"];
-    [query whereKey:@"doctor" equalTo:doc.identifier];
+    PFQuery *innerQuery = [PFQuery queryWithClassName:@"Doctor"];
+    [innerQuery whereKey:@"objectId" equalTo:doc.identifier];
     
     NSError *error;
     NSArray *result = [query findObjects:&error];

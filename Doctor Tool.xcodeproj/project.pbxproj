@@ -60,6 +60,7 @@
 		44CF60D9195CFF1C00BB7B69 /* UIColor+expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 44CF60D2195CFF1C00BB7B69 /* UIColor+expanded.m */; };
 		44CF60DA195CFF1C00BB7B69 /* UIView+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 44CF60D4195CFF1C00BB7B69 /* UIView+convenience.m */; };
 		44CF60DB195CFF1C00BB7B69 /* VRGCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44CF60D6195CFF1C00BB7B69 /* VRGCalendarView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		44CF60DE195E2F0100BB7B69 /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44CF60DD195E2F0100BB7B69 /* LoadingView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,6 +159,8 @@
 		44CF60D4195CFF1C00BB7B69 /* UIView+convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+convenience.m"; sourceTree = "<group>"; };
 		44CF60D5195CFF1C00BB7B69 /* VRGCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VRGCalendarView.h; sourceTree = "<group>"; };
 		44CF60D6195CFF1C00BB7B69 /* VRGCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VRGCalendarView.m; sourceTree = "<group>"; };
+		44CF60DC195E2F0100BB7B69 /* LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingView.h; sourceTree = "<group>"; };
+		44CF60DD195E2F0100BB7B69 /* LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -357,6 +360,8 @@
 		44873F46195B94EF00F8DCAD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				44CF60DC195E2F0100BB7B69 /* LoadingView.h */,
+				44CF60DD195E2F0100BB7B69 /* LoadingView.m */,
 				444EAB53195BA9800066CC40 /* CardView.h */,
 				444EAB54195BA9800066CC40 /* CardView.m */,
 				44873F47195B951F00F8DCAD /* LoginView.h */,
@@ -501,6 +506,7 @@
 				44CF607C195CF5BA00BB7B69 /* PatientsVC.m in Sources */,
 				44814C3B195B4D73006BA9FD /* NSString+MD5.m in Sources */,
 				442BFA5A195DE4090068A0BB /* CommonModel.m in Sources */,
+				44CF60DE195E2F0100BB7B69 /* LoadingView.m in Sources */,
 				44814C22195B466E006BA9FD /* DoctorModel.m in Sources */,
 				44CF60D8195CFF1C00BB7B69 /* NSMutableArray+convenience.m in Sources */,
 				442BFA5D195DEB6B0068A0BB /* ConsultationModel.m in Sources */,
