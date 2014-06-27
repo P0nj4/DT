@@ -8,12 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import "Doctor.h"
+#import "Patient.h"
 
 @interface Consultation : NSObject
 @property (nonatomic, strong) NSDate *date;
-@property (nonatomic, strong) Doctor *user;
+@property (nonatomic, weak) Doctor *doctor;
+@property (nonatomic, weak) Patient *patient;
 @property (nonatomic, assign) NSInteger rating;
 @property (nonatomic, assign) BOOL done;
 @property (nonatomic, strong) NSString *notes;
+@property (nonatomic, strong) NSString *identifier;
 @property (nonatomic, strong) NSMutableArray *medicaments;
 @end

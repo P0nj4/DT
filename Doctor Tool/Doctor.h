@@ -18,5 +18,6 @@
 @property (nonatomic, strong) NSString* email;
 @property (nonatomic, strong) NSString* identifier;
 @property (nonatomic, strong) UIImage *avatar;
+@property (nonatomic, strong) NSMutableArray *patients;
 //@property (nonatomic, assign) Role role;
 @end

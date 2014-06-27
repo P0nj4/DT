@@ -7,18 +7,15 @@
 //
 
 #import "DoctorModel.h"
-#import <Parse/Parse.h>
 #import "Doctor.h"
 #import "NSString+MD5.h"
 
-NSString* const genericError = @"genericError";
-
 @implementation DoctorModel
 
-+ (Doctor *)loginUser:(NSString *)userName password:(NSString *)pass{
++ (Doctor *)loginDoctor:(NSString *)userName password:(NSString *)pass{
     pass = [pass stringConvertedToMD5];
     Doctor *u;
-    PFQuery *query = [PFQuery queryWithClassName:@"_User"];
+    PFQuery *query = [PFQuery queryWithClassName:@"Doctor"];
     [query whereKey:@"password" equalTo:pass];
 
     NSError *error;
@@ -35,13 +32,13 @@ NSString* const genericError = @"genericError";
             u.email = [obj objectForKey:@"email"];
         }
     }else{
-        @throw [[NSException alloc] initWithName:genericError reason:error.description userInfo:nil];
+        @throw [[NSException alloc] initWithName:kGenericError reason:error.description userInfo:nil];
     }
     return u;
 }
 
-+ (void)registerUser:(Doctor *)u{
-    PFObject *parse = [PFObject objectWithClassName:@"_User"];
++ (void)registerDoctor:(Doctor *)u{
+    PFObject *parse = [PFObject objectWithClassName:@"Doctor"];
     NSString *pass = [u.password stringConvertedToMD5];
     parse[@"name"] = u.name;
     parse[@"lastName"] = u.lastName;
@@ -50,14 +47,14 @@ NSString* const genericError = @"genericError";
     NSError *error;
     [parse save:&error];
     if (error) {
-        @throw [[NSException alloc] initWithName:genericError reason:error.description userInfo:nil];
+        @throw [[NSException alloc] initWithName:kGenericError reason:error.description userInfo:nil];
     }
 }
 
 
 + (NSMutableArray *)getAllUsers{
     NSMutableArray *arr;
-    PFQuery *query = [PFQuery queryWithClassName:@"_User"];
+    PFQuery *query = [PFQuery queryWithClassName:@"Doctor"];
     NSError *error;
     NSArray *result = [query findObjects:&error];
     
@@ -75,7 +72,7 @@ NSString* const genericError = @"genericError";
             [arr addObject:u];
         }
     }else{
-        @throw [[NSException alloc] initWithName:genericError reason:error.description userInfo:nil];
+        @throw [[NSException alloc] initWithName:kGenericError reason:error.description userInfo:nil];
     }
     return arr;
 }

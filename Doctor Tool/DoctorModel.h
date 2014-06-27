@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CommonModel.h"
 
 @class Doctor;
 
-@interface DoctorModel : NSObject
-+ (Doctor *)loginUser:(NSString *)userName password:(NSString *)pass;
-+ (void)registerUser:(Doctor *)u;
+@interface DoctorModel : CommonModel
++ (Doctor *)loginDoctor:(NSString *)userName password:(NSString *)pass;
++ (void)registerDoctor:(Doctor *)u;
 + (NSMutableArray *)getAllUsers;
 @end
