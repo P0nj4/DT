@@ -20,10 +20,10 @@
 		44814BF6195B2736006BA9FD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44814BD8195B2735006BA9FD /* UIKit.framework */; };
 		44814BFE195B2737006BA9FD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44814BFC195B2737006BA9FD /* InfoPlist.strings */; };
 		44814C00195B2737006BA9FD /* Doctor_ToolTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 44814BFF195B2737006BA9FD /* Doctor_ToolTests.m */; };
-		44814C18195B2C74006BA9FD /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 44814C17195B2C74006BA9FD /* User.m */; };
+		44814C18195B2C74006BA9FD /* Doctor.m in Sources */ = {isa = PBXBuildFile; fileRef = 44814C17195B2C74006BA9FD /* Doctor.m */; };
 		44814C1B195B2C98006BA9FD /* Consultation.m in Sources */ = {isa = PBXBuildFile; fileRef = 44814C1A195B2C98006BA9FD /* Consultation.m */; };
 		44814C1E195B2CAC006BA9FD /* Medicament.m in Sources */ = {isa = PBXBuildFile; fileRef = 44814C1D195B2CAC006BA9FD /* Medicament.m */; };
-		44814C22195B466E006BA9FD /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 44814C21195B466E006BA9FD /* UserModel.m */; };
+		44814C22195B466E006BA9FD /* DoctorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 44814C21195B466E006BA9FD /* DoctorModel.m */; };
 		44814C24195B474D006BA9FD /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44814C23195B474D006BA9FD /* Parse.framework */; };
 		44814C26195B4B13006BA9FD /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44814C25195B4B13006BA9FD /* AudioToolbox.framework */; };
 		44814C28195B4B1C006BA9FD /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44814C27195B4B1C006BA9FD /* CFNetwork.framework */; };
@@ -84,14 +84,14 @@
 		44814BFB195B2736006BA9FD /* Doctor ToolTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Doctor ToolTests-Info.plist"; sourceTree = "<group>"; };
 		44814BFD195B2737006BA9FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		44814BFF195B2737006BA9FD /* Doctor_ToolTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Doctor_ToolTests.m; sourceTree = "<group>"; };
-		44814C16195B2C74006BA9FD /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		44814C17195B2C74006BA9FD /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		44814C16195B2C74006BA9FD /* Doctor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Doctor.h; sourceTree = "<group>"; };
+		44814C17195B2C74006BA9FD /* Doctor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Doctor.m; sourceTree = "<group>"; };
 		44814C19195B2C98006BA9FD /* Consultation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Consultation.h; sourceTree = "<group>"; };
 		44814C1A195B2C98006BA9FD /* Consultation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Consultation.m; sourceTree = "<group>"; };
 		44814C1C195B2CAC006BA9FD /* Medicament.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Medicament.h; sourceTree = "<group>"; };
 		44814C1D195B2CAC006BA9FD /* Medicament.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Medicament.m; sourceTree = "<group>"; };
-		44814C20195B466E006BA9FD /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
-		44814C21195B466E006BA9FD /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
+		44814C20195B466E006BA9FD /* DoctorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorModel.h; sourceTree = "<group>"; };
+		44814C21195B466E006BA9FD /* DoctorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorModel.m; sourceTree = "<group>"; };
 		44814C23195B474D006BA9FD /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		44814C25195B4B13006BA9FD /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		44814C27195B4B1C006BA9FD /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -271,8 +271,8 @@
 		44814C15195B2C2D006BA9FD /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				44814C16195B2C74006BA9FD /* User.h */,
-				44814C17195B2C74006BA9FD /* User.m */,
+				44814C16195B2C74006BA9FD /* Doctor.h */,
+				44814C17195B2C74006BA9FD /* Doctor.m */,
 				44814C19195B2C98006BA9FD /* Consultation.h */,
 				44814C1A195B2C98006BA9FD /* Consultation.m */,
 				44814C1C195B2CAC006BA9FD /* Medicament.h */,
@@ -284,8 +284,8 @@
 		44814C1F195B465B006BA9FD /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				44814C20195B466E006BA9FD /* UserModel.h */,
-				44814C21195B466E006BA9FD /* UserModel.m */,
+				44814C20195B466E006BA9FD /* DoctorModel.h */,
+				44814C21195B466E006BA9FD /* DoctorModel.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -457,14 +457,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44814C18195B2C74006BA9FD /* User.m in Sources */,
+				44814C18195B2C74006BA9FD /* Doctor.m in Sources */,
 				44814C1B195B2C98006BA9FD /* Consultation.m in Sources */,
 				44CF60DA195CFF1C00BB7B69 /* UIView+convenience.m in Sources */,
 				44CF60D9195CFF1C00BB7B69 /* UIColor+expanded.m in Sources */,
 				44CF60DB195CFF1C00BB7B69 /* VRGCalendarView.m in Sources */,
 				44CF607C195CF5BA00BB7B69 /* PatientsVC.m in Sources */,
 				44814C3B195B4D73006BA9FD /* NSString+MD5.m in Sources */,
-				44814C22195B466E006BA9FD /* UserModel.m in Sources */,
+				44814C22195B466E006BA9FD /* DoctorModel.m in Sources */,
 				44CF60D8195CFF1C00BB7B69 /* NSMutableArray+convenience.m in Sources */,
 				44CF60BB195CFAE700BB7B69 /* ConsultationsVC.m in Sources */,
 				44CF60D7195CFF1C00BB7B69 /* NSDate+convenience.m in Sources */,

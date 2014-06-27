@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Ponja. All rights reserved.
 //
 
-#import "User.h"
+#import "Doctor.h"
 
-@implementation User
+@implementation Doctor
 
 @end

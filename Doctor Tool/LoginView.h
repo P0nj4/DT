@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@class User;
+@class Doctor;
 
 @protocol LoginViewDelegate <NSObject>
 
-- (void)registerButtonPressed:(User *)usr;
-- (void)loginButtonPressed:(User *)usr;
+- (void)registerButtonPressed:(Doctor *)usr;
+- (void)loginButtonPressed:(Doctor *)usr;
 - (void)loginWithFacebookButtonPressed;
 - (void)loginWithGoogleButtonPressed;
 - (void)dismissCard;

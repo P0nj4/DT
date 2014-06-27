@@ -7,10 +7,10 @@
 //
 
 #import "SignUpView.h"
-#import "User.h"
+#import "Doctor.h"
 
 @interface SignUpView ()
-@property (nonatomic, strong) User *usr;
+@property (nonatomic, strong) Doctor *usr;
 @end
 
 @implementation SignUpView
@@ -45,7 +45,7 @@
 
 - (IBAction)btnRegisterPressed:(id)sender {
     if (!self.usr) {
-        self.usr = [[User alloc] init];
+        self.usr = [[Doctor alloc] init];
     }
     
     self.usr.email = self.txtEmail.text;
@@ -72,7 +72,7 @@
 
 - (IBAction)btnAddImagePressed:(id)sender {
     if (!self.usr) {
-        self.usr = [[User alloc] init];
+        self.usr = [[Doctor alloc] init];
     }
     if ([self.delegate respondsToSelector:@selector(takePhoto:)]) {
         [self.delegate takePhoto:self.usr];

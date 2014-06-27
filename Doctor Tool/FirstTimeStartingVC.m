@@ -11,15 +11,15 @@
 #import "LoginView.h"
 #import "SignUpView.h"
 #import "MBProgressHUD.h"
-#import "UserModel.h"
-#import "User.h"
+#import "DoctorModel.h"
+#import "Doctor.h"
 #import "UIImage+Resize.h"
 
 @interface FirstTimeStartingVC () <CardViewDelegate, LoginViewDelegate, SignUpViewDelegate>
 @property (nonatomic, strong) UIView *viewBG;
 @property (nonatomic, assign) BOOL isLogin;
 @property (nonatomic, strong) CardView *cv;
-@property (nonatomic, weak) User *usr;
+@property (nonatomic, weak) Doctor *usr;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *btnLoginSignUp;
 
 - (IBAction)btnSignUpPressed:(id)sender;
@@ -86,13 +86,13 @@
 }
 
 
-- (void)registerButtonPressed:(User *)usr{
+- (void)registerButtonPressed:(Doctor *)usr{
     if (!self.isLogin) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         dispatch_queue_t queue = dispatch_queue_create("q_registerUser", NULL);
         dispatch_async(queue, ^{
             @try {
-                [UserModel registerUser:usr];
+                [DoctorModel registerUser:usr];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
                     
@@ -114,13 +114,13 @@
     }
 }
 
-- (void)loginButtonPressed:(User *)usr{
+- (void)loginButtonPressed:(Doctor *)usr{
     if (self.isLogin) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         dispatch_queue_t queue = dispatch_queue_create("q_registerUser", NULL);
         dispatch_async(queue, ^{
             @try {
-                [UserModel loginUser:usr.email password:usr.password];
+                [DoctorModel loginUser:usr.email password:usr.password];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
                     
@@ -156,7 +156,7 @@
     }];
 }
 
-- (void)takePhoto:(User *)usr{
+- (void)takePhoto:(Doctor *)usr{
     self.usr = usr;
     UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"takePhoto", nil), NSLocalizedString(@"useLibrary", nil), nil];
     [sheet showInView:self.view];

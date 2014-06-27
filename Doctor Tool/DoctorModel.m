@@ -6,18 +6,18 @@
 //  Copyright (c) 2014 Ponja. All rights reserved.
 //
 
-#import "UserModel.h"
+#import "DoctorModel.h"
 #import <Parse/Parse.h>
-#import "User.h"
+#import "Doctor.h"
 #import "NSString+MD5.h"
 
 NSString* const genericError = @"genericError";
 
-@implementation UserModel
+@implementation DoctorModel
 
-+ (User *)loginUser:(NSString *)userName password:(NSString *)pass{
++ (Doctor *)loginUser:(NSString *)userName password:(NSString *)pass{
     pass = [pass stringConvertedToMD5];
-    User *u;
+    Doctor *u;
     PFQuery *query = [PFQuery queryWithClassName:@"_User"];
     [query whereKey:@"password" equalTo:pass];
 
@@ -29,7 +29,7 @@ NSString* const genericError = @"genericError";
             @throw [[NSException alloc] initWithName:@"invalidLogin" reason:error.description userInfo:nil];
         }else{
             PFObject *obj = [result objectAtIndex:0];
-            u = [[User alloc] init];
+            u = [[Doctor alloc] init];
             u.name = [obj objectForKey:@"name"];
             u.lastName = [obj objectForKey:@"lastName"];
             u.email = [obj objectForKey:@"email"];
@@ -40,7 +40,7 @@ NSString* const genericError = @"genericError";
     return u;
 }
 
-+ (void)registerUser:(User *)u{
++ (void)registerUser:(Doctor *)u{
     PFObject *parse = [PFObject objectWithClassName:@"_User"];
     NSString *pass = [u.password stringConvertedToMD5];
     parse[@"name"] = u.name;
@@ -62,12 +62,12 @@ NSString* const genericError = @"genericError";
     NSArray *result = [query findObjects:&error];
     
     if (!error) {
-        User *u;
+        Doctor *u;
         for (PFObject *obj in result) {
             if (!arr) {
                 arr = [[NSMutableArray alloc] initWithCapacity:result.count];
             }
-            u = [[User alloc] init];
+            u = [[Doctor alloc] init];
             u.name = [obj objectForKey:@"name"];
             u.lastName = [obj objectForKey:@"lastName"];
             u.email = [obj objectForKey:@"email"];

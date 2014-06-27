@@ -7,10 +7,10 @@
 //
 
 #import "LoginView.h"
-#import "User.h"
+#import "Doctor.h"
 
 @interface LoginView ()
-@property (nonatomic, strong) User *usr;
+@property (nonatomic, strong) Doctor *usr;
 @end
 
 
@@ -60,7 +60,7 @@
 
 - (IBAction)btnLoginPressed:(id)sender {
     if (!self.usr) {
-        self.usr = [[User alloc] init];
+        self.usr = [[Doctor alloc] init];
     }
     self.usr.email = self.txtEmail.text;
     self.usr.password = self.txtPassword.text;

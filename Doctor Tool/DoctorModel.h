@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@class User;
+@class Doctor;
 
-@interface UserModel : NSObject
-+ (User *)loginUser:(NSString *)userName password:(NSString *)pass;
-+ (void)registerUser:(User *)u;
+@interface DoctorModel : NSObject
++ (Doctor *)loginUser:(NSString *)userName password:(NSString *)pass;
++ (void)registerUser:(Doctor *)u;
 + (NSMutableArray *)getAllUsers;
 @end

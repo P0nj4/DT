@@ -9,14 +9,14 @@
 #import <Foundation/Foundation.h>
 
 
-typedef enum {Doctor, Admin, Other} Role;
+//typedef enum {Doctor, Admin, Other} Role;
 
-@interface User : NSObject
+@interface Doctor : NSObject
 @property (nonatomic, strong) NSString* password;
 @property (nonatomic, strong) NSString* name;
 @property (nonatomic, strong) NSString* lastName;
 @property (nonatomic, strong) NSString* email;
 @property (nonatomic, strong) NSString* identifier;
 @property (nonatomic, strong) UIImage *avatar;
-@property (nonatomic, assign) Role role;
+//@property (nonatomic, assign) Role role;
 @end

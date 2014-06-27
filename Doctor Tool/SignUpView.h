@@ -8,14 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@class User;
+@class Doctor;
 
 @protocol SignUpViewDelegate <NSObject>
 
-- (void)registerButtonPressed:(User *)usr;
-- (void)loginButtonPressed:(User *)usr;
+- (void)registerButtonPressed:(Doctor *)usr;
+- (void)loginButtonPressed:(Doctor *)usr;
 - (void)dismissCard;
-- (void)takePhoto:(User *)usr;
+- (void)takePhoto:(Doctor *)usr;
 
 @end
 
