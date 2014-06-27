@@ -25,6 +25,14 @@
     return self;
 }
 
+- (id)initWithName:(NSString *)pname lastName:(NSString *)plastName{
+    self = [super init];
+    if (self) {
+        self.name = pname;
+        self.lastName = plastName;
+    }
+    return self;
+}
 
 - (NSString *)description{
     return [NSString stringWithFormat:@"id:%@ name:%@ lastName:%@", self.identifier, self.name, self.lastName];

@@ -16,6 +16,7 @@
 #import "DoctorModel.h"
 #import "PatientModel.h"
 #import "Doctor.h"
+#import "Patient.h"
 
 @implementation AppDelegate
 
@@ -39,7 +40,10 @@
     
     [DoctorModel loginDoctor:@"german.f.pereyra@gmail.com" password:@"123456"];
     
+    Patient *newPatient = [[Patient alloc] initWithName:@"Mi primer paciente" lastName:@"chupa culo"];
+    [PatientModel addPatient:newPatient forDoctor:[Session sharedInstance].doctor];
     NSLog(@"session doctor %@", [Session sharedInstance].doctor);
+    
     
     self.window.rootViewController = navController;
     [self.window makeKeyAndVisible];

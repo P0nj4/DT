@@ -14,4 +14,5 @@
 @property (nonatomic, strong) NSString *lastName;
 @property (nonatomic, strong) NSString *identifier;
 - (id)initWithParse:(PFObject *)object error:(NSError **)error;
+- (id)initWithName:(NSString *)pname lastName:(NSString *)plastName;
 @end
