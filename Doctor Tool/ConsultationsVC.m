@@ -39,8 +39,14 @@
 
 -(void)calendarView:(VRGCalendarView *)calendarView switchedToMonth:(int)month targetHeight:(float)targetHeight animated:(BOOL)animated {
     if (month==[[NSDate date] month]) {
-        NSArray *dates = [NSArray arrayWithObjects:[NSNumber numberWithInt:1],[NSNumber numberWithInt:5], nil];
-        [calendarView markDates:dates];
+        //NSArray *dates = [NSArray arrayWithObjects:[NSNumber numberWithInt:1],[NSNumber numberWithInt:5], nil];
+        //[calendarView markDates:dates];
+        NSDateFormatter *format = [[NSDateFormatter alloc] init];
+        [format setDateFormat:@"dd/MM/yyyy"];
+        NSDate *formatedDate = [format dateFromString:@"24/06/2014"];
+        NSArray *date = [NSArray arrayWithObjects:formatedDate, nil];
+        NSArray *color = [NSArray arrayWithObjects:[UIColor redColor],nil];
+        [calendarView markDates:date withColors:color];
     }
 }
 
