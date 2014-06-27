@@ -24,4 +24,9 @@
     }
     return self;
 }
+
+
+- (NSString *)description{
+    return [NSString stringWithFormat:@"id:%@ name:%@ lastName:%@", self.identifier, self.name, self.lastName];
+}
 @end

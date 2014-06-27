@@ -13,6 +13,8 @@
 
 
 + (void)saveExample{
+   
+    /*
     PFObject *doctor = [PFObject objectWithClassName:@"Doctor"];
     doctor.objectId = @"8FBlgsQzTq";
     //[doctor setObject:@"prueba" forKey:@"name"];
@@ -25,15 +27,48 @@
     [patient setObject:@"asdasd" forKey:@"lastName"];
     [patient setObject:doctor forKey:@"Doctor"];
 
-    [patient saveInBackground];
+    [patient saveInBackground];*/
+    
+    PFObject *doctor = [PFObject objectWithClassName:@"Doctor"];
+    doctor.objectId = @"8FBlgsQzTq";
+    PFObject *patient = [PFObject objectWithClassName:@"Patient"];
+    patient.objectId = @"NdJr6xMWRl";
+    
+    PFObject *consultation = [PFObject objectWithClassName:@"Consultation"];
+    [consultation setObject:@"consulta 2 " forKey:@"notes"];
+    [consultation setObject:@5 forKey:@"rating"];
+    [consultation setObject:doctor forKey:@"Doctor"];
+    [consultation setObject:patient forKey:@"Patient"];
+    
+    [consultation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (error) {
+            NSLog(@"error %@", error);
+        }
+    }];
+    
 }
 
 + (void)loadExample{
-    PFQuery *query = [PFQuery queryWithClassName:@"Patient"];
-    [query whereKey:@"objectId" equalTo:@"NdJr6xMWRl"];
+    PFQuery *query = [PFQuery queryWithClassName:@"Consultation"];
+    [query whereKey:@"objectId" equalTo:@"pxxI32htOv"];
     [query includeKey:@"Doctor"];
+    [query includeKey:@"Patient"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        NSLog(@"objects %@", [[[objects objectAtIndex:0] objectForKey:@"Doctor"] objectForKey:@"name"]);
+        NSLog(@"objects %@", [[[objects objectAtIndex:0] objectForKey:@"Patient"] objectForKey:@"name"]);
+    }];
+}
+
++ (void)loadConsultationsByDoctor{
+    PFQuery *query = [PFQuery queryWithClassName:@"Consultation"];
+    PFQuery *innerQuery = [PFQuery queryWithClassName:@"Doctor"];
+    [innerQuery whereKey:@"objectId" equalTo:@"8FBlgsQzTq"];
+    [query includeKey:@"Doctor"];
+    [query includeKey:@"Patient"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        for (PFObject *obj in objects) {
+            NSString *notes = [obj objectForKey:@"notes"];
+            NSLog(@"%@", notes);
+        }
     }];
 }
 @end

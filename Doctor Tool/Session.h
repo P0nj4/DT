@@ -1,5 +1,5 @@
 //
-//  ParseTemporal.h
+//  Session.h
 //  Doctor Tool
 //
 //  Created by Germán Pereyra on 27/06/14.
@@ -8,8 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ParseTemporal : NSObject
-+ (void)saveExample;
-+ (void)loadExample;
-+ (void)loadConsultationsByDoctor;
+@class Doctor;
+
+@interface Session : NSObject
+
++ (Session *)sharedInstance;
+
+@property (nonatomic, strong) Doctor *doctor;
+
 @end

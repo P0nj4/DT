@@ -10,7 +10,12 @@
 #import <Parse/Parse.h>
 #import "FirstTimeStartingVC.h"
 #import "ConsultationsVC.h"
+
+
 #import "ParseTemporal.h"
+#import "DoctorModel.h"
+#import "PatientModel.h"
+#import "Doctor.h"
 
 @implementation AppDelegate
 
@@ -28,7 +33,13 @@
     UIViewController *viewController = [[ConsultationsVC alloc] initWithNibName:@"ConsultationsVC" bundle:nil];
     UINavigationController *navController=[[UINavigationController alloc]initWithRootViewController:viewController];
     
-    [ParseTemporal loadExample];
+    
+    //Doctor *d = [[Doctor alloc] initWithEmail:@"german.f.pereyra@gmail.com" password:@"123456" name:@"Germán" lastName:@"Pereyra" avatar:nil];
+    //[DoctorModel registerDoctor:d];
+    
+    [DoctorModel loginDoctor:@"german.f.pereyra@gmail.com" password:@"123456"];
+    
+    NSLog(@"session doctor %@", [Session sharedInstance].doctor);
     
     self.window.rootViewController = navController;
     [self.window makeKeyAndVisible];

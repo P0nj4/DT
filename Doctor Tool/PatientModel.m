@@ -12,7 +12,7 @@
 
 @implementation PatientModel
 
-- (void)loadDoctorPatients:(Doctor *)doc{
++ (void)loadDoctorPatients:(Doctor *)doc{
     if (doc.patients) {
         doc.patients = nil;
     }
@@ -23,30 +23,24 @@
     NSError *error;
     NSArray *result = [query findObjects:&error];
     if (!error) {
-        NSMutableArray *allObjects = [[NSMutableArray alloc] initWithCapacity:result.count];
+        
         Patient *pAux = nil;
         for (PFObject *obj in result) {
             
             pAux = [[Patient alloc] initWithParse:obj error:&error];
             if (!error) {
-                [allObjects addObject:pAux];
+                [doc.patients setObject:pAux forKey:pAux.identifier];
             }else{
                 error = nil;
             }
             pAux = nil;
         }
-        
-        if (allObjects.count > 0) {
-            doc.patients = allObjects;
-        }
-        allObjects = nil;
-        
     }else{
         @throw [[NSException alloc] initWithName:kGenericError reason:error.description userInfo:nil];
     }
 }
 
-- (void)addPatient:(Patient *)pat forDoctor:(Doctor *)doc{
++ (void)addPatient:(Patient *)pat forDoctor:(Doctor *)doc{
     if (!pat || !doc) {
         @throw [[NSException alloc] initWithName:kGenericError reason:@"error" userInfo:nil];
     }else{
@@ -57,7 +51,7 @@
         [parse save:&error];
         pat.identifier = parse.objectId;
         NSLog(@"new patient added %@", pat.identifier);
-        [doc.patients addObject:pat];
+        [doc.patients setObject:pat forKey:pat.identifier];
     }
 }
 

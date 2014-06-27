@@ -12,6 +12,8 @@
 		442BFA5A195DE4090068A0BB /* CommonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 442BFA59195DE4090068A0BB /* CommonModel.m */; };
 		442BFA5D195DEB6B0068A0BB /* ConsultationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 442BFA5C195DEB6B0068A0BB /* ConsultationModel.m */; };
 		442BFA60195DF4340068A0BB /* ParseTemporal.m in Sources */ = {isa = PBXBuildFile; fileRef = 442BFA5F195DF4340068A0BB /* ParseTemporal.m */; };
+		442BFA63195E08250068A0BB /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 442BFA62195E08250068A0BB /* Session.m */; };
+		442BFA66195E0D510068A0BB /* CommonValidations.m in Sources */ = {isa = PBXBuildFile; fileRef = 442BFA65195E0D510068A0BB /* CommonValidations.m */; };
 		444EAB55195BA9800066CC40 /* CardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 444EAB54195BA9800066CC40 /* CardView.m */; };
 		44814BD5195B2735006BA9FD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44814BD4195B2735006BA9FD /* Foundation.framework */; };
 		44814BD7195B2735006BA9FD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44814BD6195B2735006BA9FD /* CoreGraphics.framework */; };
@@ -81,6 +83,10 @@
 		442BFA5C195DEB6B0068A0BB /* ConsultationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsultationModel.m; sourceTree = "<group>"; };
 		442BFA5E195DF4340068A0BB /* ParseTemporal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseTemporal.h; sourceTree = "<group>"; };
 		442BFA5F195DF4340068A0BB /* ParseTemporal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseTemporal.m; sourceTree = "<group>"; };
+		442BFA61195E08250068A0BB /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
+		442BFA62195E08250068A0BB /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
+		442BFA64195E0D510068A0BB /* CommonValidations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonValidations.h; sourceTree = "<group>"; };
+		442BFA65195E0D510068A0BB /* CommonValidations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonValidations.m; sourceTree = "<group>"; };
 		444EAB53195BA9800066CC40 /* CardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardView.h; sourceTree = "<group>"; };
 		444EAB54195BA9800066CC40 /* CardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardView.m; sourceTree = "<group>"; };
 		44814BD1195B2735006BA9FD /* Doctor Tool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Doctor Tool.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -294,6 +300,8 @@
 				44814C1D195B2CAC006BA9FD /* Medicament.m */,
 				442BFA55195DE1F00068A0BB /* Patient.h */,
 				442BFA56195DE1F00068A0BB /* Patient.m */,
+				442BFA61195E08250068A0BB /* Session.h */,
+				442BFA62195E08250068A0BB /* Session.m */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -318,6 +326,8 @@
 		44814C38195B4D56006BA9FD /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				442BFA64195E0D510068A0BB /* CommonValidations.h */,
+				442BFA65195E0D510068A0BB /* CommonValidations.m */,
 				44814C39195B4D73006BA9FD /* NSString+MD5.h */,
 				44814C3A195B4D73006BA9FD /* NSString+MD5.m */,
 				44814C4C195B6A95006BA9FD /* UIImage+Resize.h */,
@@ -495,9 +505,11 @@
 				44CF60D8195CFF1C00BB7B69 /* NSMutableArray+convenience.m in Sources */,
 				442BFA5D195DEB6B0068A0BB /* ConsultationModel.m in Sources */,
 				44CF60BB195CFAE700BB7B69 /* ConsultationsVC.m in Sources */,
+				442BFA66195E0D510068A0BB /* CommonValidations.m in Sources */,
 				44CF60D7195CFF1C00BB7B69 /* NSDate+convenience.m in Sources */,
 				44873F5A195B9A0E00F8DCAD /* SignUpView.m in Sources */,
 				444EAB55195BA9800066CC40 /* CardView.m in Sources */,
+				442BFA63195E08250068A0BB /* Session.m in Sources */,
 				44814C1E195B2CAC006BA9FD /* Medicament.m in Sources */,
 				44873F49195B951F00F8DCAD /* LoginView.m in Sources */,
 				442BFA57195DE1F00068A0BB /* Patient.m in Sources */,

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <Parse/Parse.h>
 
 //typedef enum {Doctor, Admin, Other} Role;
 
@@ -18,6 +18,11 @@
 @property (nonatomic, strong) NSString* email;
 @property (nonatomic, strong) NSString* identifier;
 @property (nonatomic, strong) UIImage *avatar;
-@property (nonatomic, strong) NSMutableArray *patients;
+@property (nonatomic, strong) NSMutableDictionary *patients;
+@property (nonatomic, strong) NSMutableDictionary *consultations;
 //@property (nonatomic, assign) Role role;
+
+
+- (id)initWithParse:(PFObject *)object error:(NSError **)error;
+- (id)initWithEmail:(NSString *)pemail password:(NSString *)ppassword name:(NSString *)pname lastName:(NSString *)plastName avatar:(UIImage *)pavatar;
 @end

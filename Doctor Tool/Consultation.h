@@ -19,4 +19,6 @@
 @property (nonatomic, strong) NSString *notes;
 @property (nonatomic, strong) NSString *identifier;
 @property (nonatomic, strong) NSMutableArray *medicaments;
+
+- (id)initWithParse:(PFObject *)object error:(NSError **)error;
 @end

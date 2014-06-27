@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
+#import "CommonValidations.h"
 
 #define kGenericError @"genericError"
 

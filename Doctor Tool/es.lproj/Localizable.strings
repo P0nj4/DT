@@ -12,7 +12,8 @@
 /*Error*/
 "genericError" = "Ups, algo no andubo bien, intentalo nuevamente";
 "invalidLogin" = "Usuario y password no son correctos, intentalo nuevamente";
-
+"invalidEmailFormat" = "Formato de email incorrecto";
+"invalidPasswordLength" = "La contraseña debe tener un mínimo de 6 dígitos";
 
 /*SignUp*/
 "takePhoto" = "Tomar una fotografía";

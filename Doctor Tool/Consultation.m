@@ -10,7 +10,7 @@
 
 @implementation Consultation
 
-@synthesize identifier, notes, date, doctor, done, medicaments,patient,rating;
+@synthesize identifier, notes, date, doctor, done, medicaments, patient, rating;
 
 - (id)initWithParse:(PFObject *)object error:(NSError **)error{
     self = [super init];
@@ -29,4 +29,8 @@
     return self;
 }
 
+
+- (NSString *)description{
+    return [NSString stringWithFormat:@"id:%@ notes:%@ date:%@ rating:%li", self.identifier, self.notes, self.date, (long)self.rating];
+}
 @end
