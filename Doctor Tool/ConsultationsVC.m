@@ -9,6 +9,7 @@
 #import "ConsultationsVC.h"
 #import "VRGCalendarView.h"
 #import "NSDate+convenience.h"
+#import "ConsultationHoursVC.h"
 
 @interface ConsultationsVC () <VRGCalendarViewDelegate>
 
@@ -51,6 +52,7 @@
 
 -(void)calendarView:(VRGCalendarView *)calendarView dateSelected:(NSDate *)date {
     NSLog(@"Selected date = %@",date);
+    [self.navigationController pushViewController:[[ConsultationHoursVC alloc] initWithNibName:@"ConsultationHoursVC" bundle:[NSBundle mainBundle]] animated:YES];
 }
 
 - (void)didReceiveMemoryWarning

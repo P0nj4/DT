@@ -102,6 +102,7 @@
     self.selectedPatient = [self.patientsArray objectAtIndex:indexPath.row];
     UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"whatDoYouWantToDoWithThisPatient", nil) delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"addConsultation", nil), NSLocalizedString(@"editPatient", nil), NSLocalizedString(@"deletePatient", nil), NSLocalizedString(@"cancel", nil), nil];
     [as showInView:self.view];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - UIActionSheetDelegate
