@@ -70,7 +70,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
-    if (indexPath.section > 9) {
+    if (indexPath.section < 10) {
         cell.textLabel.text = [NSString stringWithFormat:@"0%li:", (long)indexPath.section];
     }else{
         cell.textLabel.text = [NSString stringWithFormat:@"%li:", (long)indexPath.section];

@@ -476,7 +476,7 @@
                 CGContextSetFillColorWithColor(context,
                                                [UIColor whiteColor].CGColor);
             }else{
-                CGRect rectangleGrid = CGRectMake(targetX + (((kVRGCalendarViewDayWidth  / 2) + 5) - 32),targetY,kVRGCalendarViewDayWidth - 20 ,kVRGCalendarViewDayHeight - 20);
+                CGRect rectangleGrid = CGRectMake(targetX + (((kVRGCalendarViewDayWidth  / 2) + 5) - 32),targetY,kVRGCalendarViewDayWidth - 45 ,kVRGCalendarViewDayHeight - 45);
                 //CGContextAddRect(context, rectangleGrid);
                 CGContextAddEllipseInRect(context, rectangleGrid);
                 CGContextSetFillColorWithColor(context, [UIColor redColor].CGColor);
