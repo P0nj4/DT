@@ -503,9 +503,10 @@
         int targetColumn = targetBlock%7;
         int targetRow = targetBlock/7;
         
-        int targetX = targetColumn * (kVRGCalendarViewDayWidth+2) + 7;
-        int targetY = kVRGCalendarViewTopBarHeight + targetRow * (kVRGCalendarViewDayHeight+2) + 38;
+        int targetX = targetColumn * (kVRGCalendarViewDayWidth+2) ;
+        int targetY = kVRGCalendarViewTopBarHeight + targetRow * (kVRGCalendarViewDayHeight+2);
         
+        //Tamaño de la marca
         CGRect rectangle = CGRectMake(targetX,targetY,kVRGCalendarViewDayWidth - 10 ,2);
         CGContextAddRect(context, rectangle);
         
@@ -518,9 +519,17 @@
             color  = (UIColor *)[markedColors objectAtIndex:i];
         }
         
-        
-        CGContextSetFillColorWithColor(context, color.CGColor);
+        targetX = targetX + (kVRGCalendarViewDayWidth / 2) - 5;
+        targetY = targetY + (kVRGCalendarViewDayHeight - 20);
+        CGRect borderRect = CGRectMake(targetX, targetY, 10.0, 10.0);
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        CGContextSetRGBStrokeColor(context, 1.0, 1.0, 1.0, 1.0);
+        CGContextSetRGBFillColor(context, 255, 0, 0, 1.0);
+        CGContextSetLineWidth(context, 2.0);
+        CGContextFillEllipseInRect (context, borderRect);
+        CGContextStrokeEllipseInRect(context, borderRect);
         CGContextFillPath(context);
+        
     }
 }
 
