@@ -466,13 +466,26 @@
             CGContextSetFillColorWithColor(context, 
                                            [UIColor whiteColor].CGColor);
         } else if (todayBlock==i) {
-            CGRect rectangleGrid = CGRectMake(targetX,targetY,kVRGCalendarViewDayWidth+2,kVRGCalendarViewDayHeight+2);
-            CGContextAddRect(context, rectangleGrid);
-            CGContextSetFillColorWithColor(context, [UIColor colorWithHexString:@"0x383838"].CGColor);
-            CGContextFillPath(context);
+            //Aca es donde va el día de hoy
+            if (NO) {
+                CGRect rectangleGrid = CGRectMake(targetX,targetY,kVRGCalendarViewDayWidth+2,kVRGCalendarViewDayHeight+2);
+                CGContextAddRect(context, rectangleGrid);
+                CGContextSetFillColorWithColor(context, [UIColor colorWithHexString:@"0x383838"].CGColor);
+                CGContextFillPath(context);
+                
+                CGContextSetFillColorWithColor(context,
+                                               [UIColor whiteColor].CGColor);
+            }else{
+                CGRect rectangleGrid = CGRectMake(targetX + (((kVRGCalendarViewDayWidth  / 2) + 5) - 32),targetY,kVRGCalendarViewDayWidth - 20 ,kVRGCalendarViewDayHeight - 20);
+                //CGContextAddRect(context, rectangleGrid);
+                CGContextAddEllipseInRect(context, rectangleGrid);
+                CGContextSetFillColorWithColor(context, [UIColor redColor].CGColor);
+                CGContextFillPath(context);
+                
+                CGContextSetFillColorWithColor(context,
+                                               [UIColor whiteColor].CGColor);
+            }
             
-            CGContextSetFillColorWithColor(context, 
-                                           [UIColor whiteColor].CGColor);
         }
         
         [date drawInRect:CGRectMake(targetX+2, targetY+10, kVRGCalendarViewDayWidth, kVRGCalendarViewDayHeight) withFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:kDateFontSize] lineBreakMode:UILineBreakModeClip alignment:UITextAlignmentCenter];
@@ -524,7 +537,8 @@
         CGRect borderRect = CGRectMake(targetX, targetY, 10.0, 10.0);
         CGContextRef context = UIGraphicsGetCurrentContext();
         CGContextSetRGBStrokeColor(context, 1.0, 1.0, 1.0, 1.0);
-        CGContextSetRGBFillColor(context, 255, 0, 0, 1.0);
+        //CGContextSetRGBFillColor(context, 255, 0, 0, 1.0);
+        CGContextSetFillColorWithColor(context, color.CGColor);
         CGContextSetLineWidth(context, 2.0);
         CGContextFillEllipseInRect (context, borderRect);
         CGContextStrokeEllipseInRect(context, borderRect);

@@ -45,7 +45,7 @@
         [format setDateFormat:@"dd/MM/yyyy"];
         NSDate *formatedDate = [format dateFromString:@"24/06/2014"];
         NSArray *date = [NSArray arrayWithObjects:formatedDate, nil];
-        NSArray *color = [NSArray arrayWithObjects:[UIColor redColor],nil];
+        NSArray *color = [NSArray arrayWithObjects:[UIColor yellowColor],nil];
         [calendarView markDates:date withColors:color];
     }
 }
