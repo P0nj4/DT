@@ -562,7 +562,27 @@
 
 #pragma mark - Init
 -(id)init {
-    self = [super initWithFrame:CGRectMake(100, 60, kVRGCalendarViewWidth, 0)];
+    self = [super initWithFrame:CGRectMake(100, 70, kVRGCalendarViewWidth, 0)];
+    if (self) {
+        self.contentMode = UIViewContentModeTop;
+        self.clipsToBounds=YES;
+        
+        isAnimating=NO;
+        self.labelCurrentMonth = [[UILabel alloc] initWithFrame:CGRectMake(34, 0, kVRGCalendarViewWidth-68, 40)];
+        [self addSubview:labelCurrentMonth];
+        labelCurrentMonth.backgroundColor=[UIColor whiteColor];
+        labelCurrentMonth.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:17];
+        labelCurrentMonth.textColor = [UIColor colorWithHexString:@"0x383838"];
+        labelCurrentMonth.textAlignment = UITextAlignmentCenter;
+        
+        [self performSelector:@selector(reset) withObject:nil afterDelay:0.1]; //so delegate can be set after init and still get called on init
+        //        [self reset];
+    }
+    return self;
+}
+
+-(id)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
     if (self) {
         self.contentMode = UIViewContentModeTop;
         self.clipsToBounds=YES;
