@@ -286,7 +286,7 @@
     
     CGRect rectangle = CGRectMake(0,0,self.frame.size.width,kVRGCalendarViewTopBarHeight);
     CGContextAddRect(context, rectangle);
-    CGContextSetFillColorWithColor(context, [UIColor whiteColor].CGColor);
+    CGContextSetFillColorWithColor(context, kHeaderColor.CGColor);
     CGContextFillPath(context);
     
     //Arrows
@@ -475,7 +475,7 @@
                                            [UIColor whiteColor].CGColor);
         }
         
-        [date drawInRect:CGRectMake(targetX+2, targetY+10, kVRGCalendarViewDayWidth, kVRGCalendarViewDayHeight) withFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:17] lineBreakMode:UILineBreakModeClip alignment:UITextAlignmentCenter];
+        [date drawInRect:CGRectMake(targetX+2, targetY+10, kVRGCalendarViewDayWidth, kVRGCalendarViewDayHeight) withFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:kDateFontSize] lineBreakMode:UILineBreakModeClip alignment:UITextAlignmentCenter];
     }
     
     //    CGContextClosePath(context);
