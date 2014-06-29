@@ -1,10 +1,10 @@
-/* 
-  Localizable.strings
-  Doctor Tool
-
-  Created by Germán Pereyra on 25/06/14.
-  Copyright (c) 2014 Ponja. All rights reserved.
-*/
+/*
+ Localizable.strings
+ Doctor Tool
+ 
+ Created by Germán Pereyra on 25/06/14.
+ Copyright (c) 2014 Ponja. All rights reserved.
+ */
 
 /*Generic*/
 "cancel" = "Cancelar";
@@ -25,3 +25,8 @@
 "lastConsultation" = "Última consulta: ";
 "lastConsultationNeverHad" = "Nunca";
 "patientRegisteredAt" = "Registrado en: ";
+"lastConsultationFormat" = "%@ de %@ de %@";
+"whatDoYouWantToDoWithThisPatient" = "¿Que desea hacer con este paciente?";
+"editPatient" = "Editar paciente";
+"deletePatient" = "Eliminar paciente";
+"addConsultation" = "Asignarle una consulta";

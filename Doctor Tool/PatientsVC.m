@@ -12,11 +12,13 @@
 #import "LoadingView.h"
 #import "Patient.h"
 #import "PatientsCell.h"
+#import "ConsultationsVC.h"
 
 
 @interface PatientsVC ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tblPatients;
 @property (nonatomic, strong) NSArray *patientsArray;
+@property (nonatomic, weak) Patient *selectedPatient;
 @end
 
 @implementation PatientsVC
@@ -73,12 +75,17 @@
     cell.lblName.text = [NSString stringWithFormat:@"%@ %@", patient.name, patient.lastName];
     NSString *lastConsultation = nil;
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"dd, MMM yyyy"];
+    [formatter setDateFormat:@"MMM"];
     if (patient.lastConsultation) {
-        lastConsultation = [formatter stringFromDate:patient.lastConsultation];
+        NSDateFormatter* day = [[NSDateFormatter alloc] init];
+        [day setDateFormat: @"EEEE"];
+        NSString *strDay = NSLocalizedString([day stringFromDate: patient.lastConsultation], nil);
+        [day setDateFormat: @"yyyy"];
+        lastConsultation = [NSString stringWithFormat:NSLocalizedString(@"lastConsultationFormat", nil), strDay , [formatter stringFromDate:patient.lastConsultation], [day stringFromDate:patient.lastConsultation]];
     }else{
         lastConsultation = NSLocalizedString(@"lastConsultationNeverHad", nil);
     }
+    
     
     cell.lblLastConsultation.text = [NSLocalizedString(@"lastConsultation", nil) stringByAppendingString:lastConsultation];
     cell.lblCreatedAt.text  = [NSLocalizedString(@"patientRegisteredAt", nil) stringByAppendingString:[formatter stringFromDate:patient.createdAt]];
@@ -90,4 +97,21 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 80;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    self.selectedPatient = [self.patientsArray objectAtIndex:indexPath.row];
+    UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"whatDoYouWantToDoWithThisPatient", nil) delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"addConsultation", nil), NSLocalizedString(@"editPatient", nil), NSLocalizedString(@"deletePatient", nil), NSLocalizedString(@"cancel", nil), nil];
+    [as showInView:self.view];
+}
+
+#pragma mark - UIActionSheetDelegate
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 0) {
+        ConsultationsVC *vc = [[ConsultationsVC alloc] initWithNibName:@"ConsultationsVC" bundle:[NSBundle mainBundle]];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+}
+
+
+
 @end

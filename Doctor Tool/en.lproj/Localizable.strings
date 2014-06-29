@@ -25,3 +25,8 @@
 "lastConsultation" = "Última consulta: ";
 "lastConsultationNeverHad" = "Nunca";
 "patientRegisteredAt" = "Registrado en: ";
+"lastConsultationFormat" = "%@ de %@ de %@";
+"whatDoYouWantToDoWithThisPatient" = "¿Que desea hacer con este paciente?";
+"editPatient" = "Editar paciente";
+"deletePatient" = "Eliminar paciente";
+"addConsultation" = "Asignarle una consulta";

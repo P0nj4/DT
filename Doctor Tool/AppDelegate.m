@@ -33,10 +33,10 @@
     [DoctorModel loginDoctor:@"german.f.pereyra@gmail.com" password:@"123456"];
     
     //UIViewController *viewController = [[FirstTimeStartingVC alloc] initWithNibName:@"FirstTimeStartingVC" bundle:nil];
-    UIViewController *viewController = [[ConsultationsVC alloc] initWithNibName:@"ConsultationsVC" bundle:nil];
+    UIViewController *viewController = [[PatientsVC alloc] initWithNibName:@"PatientsVC" bundle:nil];
     UINavigationController *navController=[[UINavigationController alloc]initWithRootViewController:viewController];
-    
-    
+    navController.navigationBar.opaque = YES;
+    navController.navigationBar.translucent = NO;
     //Doctor *d = [[Doctor alloc] initWithEmail:@"german.f.pereyra@gmail.com" password:@"123456" name:@"Germán" lastName:@"Pereyra" avatar:nil];
     //[DoctorModel registerDoctor:d];
 //    

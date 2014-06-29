@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PatientsVC : UIViewController
+@interface PatientsVC : UIViewController <UIActionSheetDelegate>
 
 @end

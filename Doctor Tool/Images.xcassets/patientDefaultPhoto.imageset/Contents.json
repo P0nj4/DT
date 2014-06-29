@@ -3,12 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "patientDefaultPhoto@2x-1.png"
+      "filename" : "defaultPatientPhoto@2x-1.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "patientDefaultPhoto@2x.png"
+      "filename" : "defaultPatientPhoto@2x.png"
     }
   ],
   "info" : {

@@ -28,10 +28,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    VRGCalendarView *calendar = [[VRGCalendarView alloc] initWithFrame:CGRectMake(34, 70, 580, 40)];
+    VRGCalendarView *calendar = [[VRGCalendarView alloc] initWithFrame:CGRectMake(100, 70, 580, 40)];
     calendar.delegate=self;
     [self.view addSubview:calendar];
-    //[self.navigationController setNavigationBarHidden:YES animated:NO];
     calendar.layer.cornerRadius = 8;
 
 }
