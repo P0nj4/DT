@@ -18,6 +18,8 @@
 
 #define kHeaderColor [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1.0]
 #define kDateFontSize 17
+//#define kBackgroundDateColor [UIColor colorWithHexString:@"0xf3f3f3"]
+#define kBackgroundDateColor [UIColor whiteColor]
 
 @protocol VRGCalendarViewDelegate;
 @interface VRGCalendarView : UIView {

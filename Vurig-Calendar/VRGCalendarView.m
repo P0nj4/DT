@@ -339,7 +339,7 @@
     float gridHeight = numRows*(kVRGCalendarViewDayHeight+2)+1;
     CGRect rectangleGrid = CGRectMake(0,kVRGCalendarViewTopBarHeight,self.frame.size.width,gridHeight);
     CGContextAddRect(context, rectangleGrid);
-    CGContextSetFillColorWithColor(context, [UIColor colorWithHexString:@"0xf3f3f3"].CGColor);
+    CGContextSetFillColorWithColor(context, kBackgroundDateColor.CGColor);
     //CGContextSetFillColorWithColor(context, [UIColor colorWithHexString:@"0xff0000"].CGColor);
     CGContextFillPath(context);
     
@@ -506,7 +506,7 @@
         int targetX = targetColumn * (kVRGCalendarViewDayWidth+2) + 7;
         int targetY = kVRGCalendarViewTopBarHeight + targetRow * (kVRGCalendarViewDayHeight+2) + 38;
         
-        CGRect rectangle = CGRectMake(targetX,targetY,kVRGCalendarViewDayWidth - 10,2);
+        CGRect rectangle = CGRectMake(targetX,targetY,kVRGCalendarViewDayWidth - 10 ,2);
         CGContextAddRect(context, rectangle);
         
         UIColor *color;
