@@ -20,3 +20,8 @@
 "takePhoto" = "Tomar una fotografía";
 "useLibrary" = "Usar una imagen existente";
 "noCamera" = "Ups, tu dispositivo parace no tener camara";
+
+/*PatientVC*/
+"lastConsultation" = "Última consulta: ";
+"lastConsultationNeverHad" = "Nunca";
+"patientRegisteredAt" = "Registrado en: ";

@@ -61,6 +61,11 @@
 		44CF60DA195CFF1C00BB7B69 /* UIView+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 44CF60D4195CFF1C00BB7B69 /* UIView+convenience.m */; };
 		44CF60DB195CFF1C00BB7B69 /* VRGCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44CF60D6195CFF1C00BB7B69 /* VRGCalendarView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		44CF60DE195E2F0100BB7B69 /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44CF60DD195E2F0100BB7B69 /* LoadingView.m */; };
+		44CF60E1195E3ACB00BB7B69 /* PatientCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44CF60E0195E3ACB00BB7B69 /* PatientCell.xib */; };
+		44CF60F0195E4E3C00BB7B69 /* PatientCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 44CF60EF195E4E3C00BB7B69 /* PatientCell.m */; };
+		44CF60F8196040C200BB7B69 /* XIBBasedTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 44CF60F7196040C200BB7B69 /* XIBBasedTableCell.m */; };
+		44CF60FB1960412200BB7B69 /* PatientsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 44CF60FA1960412200BB7B69 /* PatientsCell.m */; };
+		44CF60FD1960414500BB7B69 /* PatientsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44CF60FC1960414500BB7B69 /* PatientsCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,6 +166,14 @@
 		44CF60D6195CFF1C00BB7B69 /* VRGCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VRGCalendarView.m; sourceTree = "<group>"; };
 		44CF60DC195E2F0100BB7B69 /* LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingView.h; sourceTree = "<group>"; };
 		44CF60DD195E2F0100BB7B69 /* LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingView.m; sourceTree = "<group>"; };
+		44CF60E0195E3ACB00BB7B69 /* PatientCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PatientCell.xib; sourceTree = "<group>"; };
+		44CF60EE195E4E3C00BB7B69 /* PatientCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientCell.h; sourceTree = "<group>"; };
+		44CF60EF195E4E3C00BB7B69 /* PatientCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientCell.m; sourceTree = "<group>"; };
+		44CF60F6196040C200BB7B69 /* XIBBasedTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XIBBasedTableCell.h; sourceTree = "<group>"; };
+		44CF60F7196040C200BB7B69 /* XIBBasedTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XIBBasedTableCell.m; sourceTree = "<group>"; };
+		44CF60F91960412200BB7B69 /* PatientsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientsCell.h; sourceTree = "<group>"; };
+		44CF60FA1960412200BB7B69 /* PatientsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientsCell.m; sourceTree = "<group>"; };
+		44CF60FC1960414500BB7B69 /* PatientsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PatientsCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -360,6 +373,7 @@
 		44873F46195B94EF00F8DCAD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				44CF60DF195E3AAD00BB7B69 /* Cells */,
 				44CF60DC195E2F0100BB7B69 /* LoadingView.h */,
 				44CF60DD195E2F0100BB7B69 /* LoadingView.m */,
 				444EAB53195BA9800066CC40 /* CardView.h */,
@@ -389,6 +403,21 @@
 				44CF60D6195CFF1C00BB7B69 /* VRGCalendarView.m */,
 			);
 			path = "Vurig-Calendar";
+			sourceTree = "<group>";
+		};
+		44CF60DF195E3AAD00BB7B69 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				44CF60EE195E4E3C00BB7B69 /* PatientCell.h */,
+				44CF60EF195E4E3C00BB7B69 /* PatientCell.m */,
+				44CF60E0195E3ACB00BB7B69 /* PatientCell.xib */,
+				44CF60F6196040C200BB7B69 /* XIBBasedTableCell.h */,
+				44CF60F7196040C200BB7B69 /* XIBBasedTableCell.m */,
+				44CF60F91960412200BB7B69 /* PatientsCell.h */,
+				44CF60FA1960412200BB7B69 /* PatientsCell.m */,
+				44CF60FC1960414500BB7B69 /* PatientsCell.xib */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -472,7 +501,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				44873F57195B999500F8DCAD /* LoginView.xib in Resources */,
+				44CF60E1195E3ACB00BB7B69 /* PatientCell.xib in Resources */,
 				44CF60BC195CFAE700BB7B69 /* ConsultationsVC.xib in Resources */,
+				44CF60FD1960414500BB7B69 /* PatientsCell.xib in Resources */,
 				44814C45195B65FE006BA9FD /* Localizable.strings in Resources */,
 				44CF607D195CF5BA00BB7B69 /* PatientsVC.xib in Resources */,
 				44814BED195B2736006BA9FD /* Images.xcassets in Resources */,
@@ -498,8 +529,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				44814C18195B2C74006BA9FD /* Doctor.m in Sources */,
+				44CF60F0195E4E3C00BB7B69 /* PatientCell.m in Sources */,
 				44814C1B195B2C98006BA9FD /* Consultation.m in Sources */,
 				44CF60DA195CFF1C00BB7B69 /* UIView+convenience.m in Sources */,
+				44CF60F8196040C200BB7B69 /* XIBBasedTableCell.m in Sources */,
 				44CF60D9195CFF1C00BB7B69 /* UIColor+expanded.m in Sources */,
 				442BFA60195DF4340068A0BB /* ParseTemporal.m in Sources */,
 				44CF60DB195CFF1C00BB7B69 /* VRGCalendarView.m in Sources */,
@@ -513,6 +546,7 @@
 				44CF60BB195CFAE700BB7B69 /* ConsultationsVC.m in Sources */,
 				442BFA66195E0D510068A0BB /* CommonValidations.m in Sources */,
 				44CF60D7195CFF1C00BB7B69 /* NSDate+convenience.m in Sources */,
+				44CF60FB1960412200BB7B69 /* PatientsCell.m in Sources */,
 				44873F5A195B9A0E00F8DCAD /* SignUpView.m in Sources */,
 				444EAB55195BA9800066CC40 /* CardView.m in Sources */,
 				442BFA63195E08250068A0BB /* Session.m in Sources */,

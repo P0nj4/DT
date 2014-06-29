@@ -11,6 +11,8 @@
 #import "PatientModel.h"
 #import "LoadingView.h"
 #import "Patient.h"
+#import "PatientsCell.h"
+
 
 @interface PatientsVC ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tblPatients;
@@ -59,14 +61,33 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *cellIdentifier = @"cellPatient";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    static NSString *CellIdentifier = @"TableCellWithNumberCellIdentifier";
+    
+    PatientsCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = (PatientsCell *)[PatientsCell cellFromNibNamed:@"PatientsCell"];
     }
+    
     Patient *patient = [self.patientsArray objectAtIndex:indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", patient.name, patient.lastName];
+    
+    cell.lblName.text = [NSString stringWithFormat:@"%@ %@", patient.name, patient.lastName];
+    NSString *lastConsultation = nil;
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"dd, MMM yyyy"];
+    if (patient.lastConsultation) {
+        lastConsultation = [formatter stringFromDate:patient.lastConsultation];
+    }else{
+        lastConsultation = NSLocalizedString(@"lastConsultationNeverHad", nil);
+    }
+    
+    cell.lblLastConsultation.text = [NSLocalizedString(@"lastConsultation", nil) stringByAppendingString:lastConsultation];
+    cell.lblCreatedAt.text  = [NSLocalizedString(@"patientRegisteredAt", nil) stringByAppendingString:[formatter stringFromDate:patient.createdAt]];
+     
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 80;
 }
 @end

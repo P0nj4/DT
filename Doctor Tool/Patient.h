@@ -13,6 +13,9 @@
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *lastName;
 @property (nonatomic, strong) NSString *identifier;
+@property (nonatomic, strong) NSDate *lastConsultation;
+@property (nonatomic, strong) NSDate *createdAt;
+
 - (id)initWithParse:(PFObject *)object error:(NSError **)error;
 - (id)initWithName:(NSString *)pname lastName:(NSString *)plastName;
 @end

@@ -18,7 +18,9 @@
             *error = [NSError errorWithDomain:@"wrongPatient" code:200 userInfo:nil];
             return self;
         }
+        self.lastConsultation = [object objectForKey:@"lastConsultation"];
         self.identifier = object.objectId;
+        self.createdAt = object.createdAt;
         self.name = [object objectForKey:@"name"];
         self.lastName = [object objectForKey:@"lastName"];
     }

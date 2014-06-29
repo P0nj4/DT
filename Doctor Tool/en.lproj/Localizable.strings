@@ -5,3 +5,23 @@
   Created by Germán Pereyra on 25/06/14.
   Copyright (c) 2014 Ponja. All rights reserved.
 */
+
+/*Generic*/
+"cancel" = "Cancelar";
+
+/*Error*/
+"genericError" = "Ups, algo no andubo bien, intentalo nuevamente";
+"invalidLogin" = "Usuario y password no son correctos, intentalo nuevamente";
+"invalidEmailFormat" = "Formato de email incorrecto";
+"invalidPasswordLength" = "La contraseña debe tener un mínimo de 6 dígitos";
+"loading" = "Cargando";
+
+/*SignUp*/
+"takePhoto" = "Tomar una fotografía";
+"useLibrary" = "Usar una imagen existente";
+"noCamera" = "Ups, tu dispositivo parace no tener camara";
+
+/*PatientVC*/
+"lastConsultation" = "Última consulta: ";
+"lastConsultationNeverHad" = "Nunca";
+"patientRegisteredAt" = "Registrado en: ";
