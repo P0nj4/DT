@@ -15,6 +15,7 @@
 #import "ParseTemporal.h"
 #import "DoctorModel.h"
 #import "PatientModel.h"
+#import "ConsultationsVC.h"
 #import "Doctor.h"
 #import "Patient.h"
 
@@ -32,7 +33,7 @@
     [DoctorModel loginDoctor:@"german.f.pereyra@gmail.com" password:@"123456"];
     
     //UIViewController *viewController = [[FirstTimeStartingVC alloc] initWithNibName:@"FirstTimeStartingVC" bundle:nil];
-    UIViewController *viewController = [[PatientsVC alloc] initWithNibName:@"PatientsVC" bundle:nil];
+    UIViewController *viewController = [[ConsultationsVC alloc] initWithNibName:@"ConsultationsVC" bundle:nil];
     UINavigationController *navController=[[UINavigationController alloc]initWithRootViewController:viewController];
     
     
