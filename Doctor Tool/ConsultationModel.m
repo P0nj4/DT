@@ -14,7 +14,7 @@
 
 @implementation ConsultationModel
 
-- (void)loadConsultationsOfDoctor:(Doctor *)doc pendingsOnly:(BOOL)pendings{
++ (void)loadConsultationsOfDoctor:(Doctor *)doc pendingsOnly:(BOOL)pendings{
     if (!doc.consultations) {
         doc.consultations = [[NSMutableDictionary alloc] init];
     }
@@ -47,7 +47,7 @@
 }
 
 
-- (void)addConsultation:(Consultation *)cons forDoctor:(Doctor *)doc andPatient:(Patient *)pat{
++ (void)addConsultation:(Consultation *)cons forDoctor:(Doctor *)doc andPatient:(Patient *)pat{
     PFObject *doctor = [PFObject objectWithClassName:@"Doctor"];
     doctor.objectId = doc.identifier;
     PFObject *patient = [PFObject objectWithClassName:@"Patient"];

@@ -31,6 +31,16 @@
     return self;
 }
 
+
+- (id)init{
+    self = [super init];
+    if (self) {
+        self.consultations = [[NSMutableDictionary alloc] init];
+        self.patients = [[NSMutableDictionary alloc] init];
+    }
+    return self;
+}
+
 - (id)initWithEmail:(NSString *)pemail password:(NSString *)ppassword name:(NSString *)pname lastName:(NSString *)plastName avatar:(UIImage *)pavatar{
     self = [super init];
     if (self) {

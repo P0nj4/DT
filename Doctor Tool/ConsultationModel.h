@@ -12,6 +12,6 @@
 @class Doctor, Consultation, Patient;
 
 @interface ConsultationModel : CommonModel
-- (void)loadConsultationsOfDoctor:(Doctor *)doc pendingsOnly:(BOOL)pendings;
-- (void)addConsultation:(Consultation *)cons forDoctor:(Doctor *)doc andPatient:(Patient *)pat;
++ (void)loadConsultationsOfDoctor:(Doctor *)doc pendingsOnly:(BOOL)pendings;
++ (void)addConsultation:(Consultation *)cons forDoctor:(Doctor *)doc andPatient:(Patient *)pat;
 @end
