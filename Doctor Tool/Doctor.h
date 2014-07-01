@@ -7,22 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Parse/Parse.h>
-
+#import <CoreData/CoreData.h>
 //typedef enum {Doctor, Admin, Other} Role;
 
 @interface Doctor : NSObject
-@property (nonatomic, strong) NSString* password;
+
 @property (nonatomic, strong) NSString* name;
 @property (nonatomic, strong) NSString* lastName;
 @property (nonatomic, strong) NSString* email;
-@property (nonatomic, strong) NSString* identifier;
+@property (nonatomic, strong) NSManagedObjectID* identifier;
 @property (nonatomic, strong) UIImage *avatar;
 @property (nonatomic, strong) NSMutableDictionary *patients;
 @property (nonatomic, strong) NSMutableDictionary *consultations;
 //@property (nonatomic, assign) Role role;
 
 
-- (id)initWithParse:(PFObject *)object error:(NSError **)error;
-- (id)initWithEmail:(NSString *)pemail password:(NSString *)ppassword name:(NSString *)pname lastName:(NSString *)plastName avatar:(UIImage *)pavatar;
+- (id)initWithObject:(NSManagedObject *)object error:(NSError **)error;
+- (id)initWithEmail:(NSString *)pemail name:(NSString *)pname lastName:(NSString *)plastName avatar:(UIImage *)pavatar;
+- (NSManagedObject *)updateToDatabase:(NSManagedObjectContext *)context managedObject:(NSManagedObject*)object;
+- (NSManagedObject *)convertToDatabase:(NSManagedObjectContext *)context;
 @end

@@ -58,4 +58,21 @@
 }
 
 
++ (void)updatePatient:(Patient *)pat forDoctor:(Doctor *)doc{
+    if (!pat || !doc) {
+        @throw [[NSException alloc] initWithName:kGenericError reason:@"error" userInfo:nil];
+    }else{
+        PFObject *parse = [PFObject objectWithClassName:@"Patient"];
+        parse.objectId = pat.identifier;
+        parse[@"name"] = pat.name;
+        parse[@"lastName"] = pat.lastName;
+        NSError *error;
+        [parse save:&error];
+        pat.identifier = parse.objectId;
+        NSLog(@"Patient update %@", pat.identifier);
+        [doc.patients setObject:pat forKey:pat.identifier];
+    }
+}
+
+
 @end

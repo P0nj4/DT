@@ -12,86 +12,67 @@
 
 @implementation DoctorModel
 
-+ (void)loginDoctor:(NSString *)email password:(NSString *)pass{
-    
-    if(![CommonValidations validateEmail:email]){
-        @throw [[NSException alloc] initWithName:@"invalidEmailFormat" reason:@"" userInfo:nil];
-    }
-    pass = [pass stringConvertedToMD5];
-    Doctor *u;
-    PFQuery *query = [PFQuery queryWithClassName:@"Doctor"];
-    [query whereKey:@"password" equalTo:pass];
-    [query whereKey:@"email" equalTo:email];
+- (NSMutableArray *)getAll{
+    NSMutableArray *result = nil;
+   
+    NSManagedObjectContext *context = [self managedObjectContext];
 
-    NSError *error;
-    NSArray *result = [query findObjects:&error];
+    NSEntityDescription *entityDesc = [NSEntityDescription entityForName:@"Doctor" inManagedObjectContext:context];
+
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDesc];
+    //NSPredicate *pred =[NSPredicate predicateWithFormat:@"(name = %@)", @""];
+    //[request setPredicate:pred];
+    //NSManagedObject *matches = nil;
     
-    if (!error) {
-        if (result.count == 0) {
-            @throw [[NSException alloc] initWithName:@"invalidLogin" reason:error.description userInfo:nil];
-        }else{
-            PFObject *obj = [result objectAtIndex:0];
-            u = [[Doctor alloc] initWithParse:obj error:&error];
-            if (error) {
-                @throw [[NSException alloc] initWithName:kGenericError reason:error.description userInfo:nil];
+    NSError *error;
+    NSArray *response = [context executeFetchRequest:request
+                                              error:&error];
+   
+    Doctor *docAux = nil;
+    for (NSManagedObject *matches in response) {
+        NSError *err;
+        docAux = [[Doctor alloc] initWithObject:matches error:&err];
+        if (!err) {
+            if (!result) {
+                result = [[NSMutableArray alloc] init];
             }
+            [result addObject:docAux];
         }
-    }else{
-        @throw [[NSException alloc] initWithName:kGenericError reason:error.description userInfo:nil];
+        docAux = nil;
     }
-    [Session sharedInstance].doctor = u;
+    return result;
 }
 
-+ (void)registerDoctor:(Doctor *)u{
+- (void)update:(id)object{
+    Doctor *docAux = (Doctor *)object;
+    NSManagedObjectID *identifier = docAux.identifier;
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSManagedObject *obj = [context objectRegisteredForID:identifier];
     
-    if(![CommonValidations validateEmail:u.email]){
-        @throw [[NSException alloc] initWithName:@"invalidEmailFormat" reason:@"" userInfo:nil];
-    }
+    [docAux updateToDatabase:context managedObject:obj];
     
-    if(![CommonValidations validateMinimumLength:u.password parameter:6]){
-        @throw [[NSException alloc] initWithName:@"invalidPasswordLength" reason:@"" userInfo:nil];
-    }
-    
-    PFObject *parse = [PFObject objectWithClassName:@"Doctor"];
-    NSString *pass = [u.password stringConvertedToMD5];
-    parse[@"name"] = u.name;
-    parse[@"lastName"] = u.lastName;
-    parse[@"password"] = pass;
-    parse[@"email"] = u.email;
     NSError *error;
-    [parse save:&error];
+    [context save:&error];
     if (error) {
         @throw [[NSException alloc] initWithName:kGenericError reason:error.description userInfo:nil];
-    }else{
-        u.identifier = parse.objectId;
-        [Session sharedInstance].doctor = u;
     }
 }
 
-
-+ (NSMutableArray *)getAllUsers{
-    NSMutableArray *arr;
-    PFQuery *query = [PFQuery queryWithClassName:@"Doctor"];
-    NSError *error;
-    NSArray *result = [query findObjects:&error];
+- (void)save:(id)object{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSManagedObject *newElement;
     
-    if (!error) {
-        Doctor *u;
-        for (PFObject *obj in result) {
-            if (!arr) {
-                arr = [[NSMutableArray alloc] initWithCapacity:result.count];
-            }
-            u = [[Doctor alloc] init];
-            u.name = [obj objectForKey:@"name"];
-            u.lastName = [obj objectForKey:@"lastName"];
-            u.email = [obj objectForKey:@"email"];
-            u.email = [obj objectForKey:@"objectId"];
-            [arr addObject:u];
-        }
-    }else{
+    Doctor *docAux = (Doctor *)object;
+    newElement = [docAux convertToDatabase:context];
+    NSError *error;
+    [context save:&error];
+    
+    
+    if (error) {
         @throw [[NSException alloc] initWithName:kGenericError reason:error.description userInfo:nil];
     }
-    return arr;
 }
+
 
 @end

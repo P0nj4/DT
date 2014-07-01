@@ -14,4 +14,5 @@
 @interface ConsultationModel : CommonModel
 + (void)loadConsultationsOfDoctor:(Doctor *)doc pendingsOnly:(BOOL)pendings;
 + (void)addConsultation:(Consultation *)cons forDoctor:(Doctor *)doc andPatient:(Patient *)pat;
++ (void)loadConsultationsOfDoctor:(Doctor *)doc startingDate:(NSDate *)start endingDate:(NSDate *)end;
 @end

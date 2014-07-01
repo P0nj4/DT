@@ -9,15 +9,17 @@
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
 #import "FirstTimeStartingVC.h"
+
+
 #import "PatientsVC.h"
-
-
 #import "ParseTemporal.h"
 #import "DoctorModel.h"
 #import "PatientModel.h"
 #import "ConsultationsVC.h"
 #import "Doctor.h"
 #import "Patient.h"
+#import "ConsultationModel.h"
+#import "Consultation.h"
 
 @implementation AppDelegate
 
@@ -30,21 +32,27 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
    
-    [DoctorModel loginDoctor:@"german.f.pereyra@gmail.com" password:@"123456"];
+    Doctor *doc = [[Doctor alloc] initWithEmail:@"emailaa" name:@"nombre" lastName:@"ape" avatar:nil];
+    
+    DoctorModel *model = [[DoctorModel alloc] init] ;
+    //[model save:doc];
+    NSMutableArray *arrayAux = [model getAll];
+    
+    NSLog(@"%@", arrayAux);
+    
+    doc = nil;
+    doc = [arrayAux objectAtIndex:0];
+    doc.name = @"pepito";    
+    [model update:doc];
+    
+    
     
     //UIViewController *viewController = [[FirstTimeStartingVC alloc] initWithNibName:@"FirstTimeStartingVC" bundle:nil];
     UIViewController *viewController = [[PatientsVC alloc] initWithNibName:@"PatientsVC" bundle:nil];
     UINavigationController *navController=[[UINavigationController alloc]initWithRootViewController:viewController];
     navController.navigationBar.opaque = YES;
     navController.navigationBar.translucent = NO;
-    //Doctor *d = [[Doctor alloc] initWithEmail:@"german.f.pereyra@gmail.com" password:@"123456" name:@"Germán" lastName:@"Pereyra" avatar:nil];
-    //[DoctorModel registerDoctor:d];
-//    
-//    [DoctorModel loginDoctor:@"german.f.pereyra@gmail.com" password:@"123456"];
-//    
-//    Patient *newPatient = [[Patient alloc] initWithName:@"segundo paciente" lastName:@"lalalala"];
-//    [PatientModel addPatient:newPatient forDoctor:[Session sharedInstance].doctor];
-    NSLog(@"session doctor %@", [Session sharedInstance].doctor);
+    
     
     
     self.window.rootViewController = navController;

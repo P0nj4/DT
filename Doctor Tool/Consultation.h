@@ -21,4 +21,5 @@
 @property (nonatomic, strong) NSMutableArray *medicaments;
 
 - (id)initWithParse:(PFObject *)object error:(NSError **)error;
+- (id)initWithDate:(NSDate *)pdate forPatient:(Patient *)ppatient forDoctor:(Doctor *)pdoctor withNotes:(NSString *)pnotes;
 @end

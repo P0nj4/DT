@@ -49,8 +49,7 @@
     }
     
     self.usr.email = self.txtEmail.text;
-    self.usr.name = self.txtName.text;
-    self.usr.password = self.txtPassword.text;
+    self.usr.name = self.txtName.text;    
     self.usr.lastName = self.txtLastName.text;
     
     if([self.delegate respondsToSelector:@selector(registerButtonPressed:)]){

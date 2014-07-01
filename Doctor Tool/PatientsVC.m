@@ -35,6 +35,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    /*
     if ([Session sharedInstance].doctor.patients.count == 0) {
         [LoadingView loadingShowOnView:self.view animated:NO frame:self.view.bounds];
         dispatch_queue_t queue = dispatch_queue_create("q_loadPatients", NULL);
@@ -48,7 +49,7 @@
         });
     }else{
         self.patientsArray = [[Session sharedInstance].doctor.patients allValues];
-    }
+    }*/
 }
 
 - (void)didReceiveMemoryWarning

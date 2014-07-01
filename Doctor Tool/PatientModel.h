@@ -14,4 +14,5 @@
 @interface PatientModel : CommonModel
 + (void)loadDoctorPatients:(Doctor *)doc;
 + (void)addPatient:(Patient *)pat forDoctor:(Doctor *)doc;
++ (void)updatePatient:(Patient *)pat forDoctor:(Doctor *)doc;
 @end

@@ -12,7 +12,5 @@
 @class Doctor;
 
 @interface DoctorModel : CommonModel
-+ (void)loginDoctor:(NSString *)email password:(NSString *)pass;
-+ (void)registerDoctor:(Doctor *)u;
-+ (NSMutableArray *)getAllUsers;
+
 @end

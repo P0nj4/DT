@@ -92,7 +92,7 @@
         dispatch_queue_t queue = dispatch_queue_create("q_registerUser", NULL);
         dispatch_async(queue, ^{
             @try {
-                [DoctorModel registerDoctor:usr];
+                //[DoctorModel registerDoctor:usr];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
                     
@@ -120,7 +120,7 @@
         dispatch_queue_t queue = dispatch_queue_create("q_registerUser", NULL);
         dispatch_async(queue, ^{
             @try {
-                [DoctorModel loginDoctor:usr.email password:usr.password];
+                //[DoctorModel loginDoctor:usr.email password:usr.password];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
                     

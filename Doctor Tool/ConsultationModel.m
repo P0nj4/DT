@@ -31,6 +31,43 @@
     NSArray *objects = [query findObjects];
     
     for (PFObject *obj in objects) {
+        PFObject *ppatient = [obj objectForKey:@"patient"];
+        PFObject *pconultation = obj;
+        NSError *err;
+        if (![doc.patients objectForKey:ppatient.objectId]) {
+            Patient *patient = [[Patient alloc] initWithParse:ppatient error:&err];
+            if (!err) {
+                [doc.patients setObject:patient forKey:patient.identifier];
+            }
+        }
+        consultation = [[Consultation alloc] initWithParse:pconultation error:&err];
+        if (!err) {
+            consultation.patient = [doc.patients objectForKey:ppatient.objectId];
+            consultation.doctor = doc;
+            [doc.consultations setObject:consultation forKey:consultation.identifier];
+        }else{
+            @throw [[NSException alloc] initWithName:kGenericError reason:err.description userInfo:nil];
+        }
+    }
+}
+
+
++ (void)loadConsultationsOfDoctor:(Doctor *)doc startingDate:(NSDate *)start endingDate:(NSDate *)end{
+    if (!doc.consultations) {
+        doc.consultations = [[NSMutableDictionary alloc] init];
+    }
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Consultation"];
+    PFQuery *innerQuery = [PFQuery queryWithClassName:@"Doctor"];
+    [innerQuery whereKey:@"objectId" equalTo:doc.identifier];
+    [query includeKey:@"Patient"];
+    [query whereKey:@"date" greaterThan:start];
+    [query whereKey:@"date" lessThan:end];
+    
+    Consultation *consultation = nil;
+    NSArray *objects = [query findObjects];
+    
+    for (PFObject *obj in objects) {
         PFObject *ppatient = [obj objectForKey:@"Patient"];
         PFObject *pconultation = obj;
         NSError *err;
@@ -41,8 +78,14 @@
             }
         }
         consultation = [[Consultation alloc] initWithParse:pconultation error:&err];
-        consultation.patient = [doc.patients objectForKey:ppatient.objectId];
-        [doc.consultations setObject:consultation forKey:consultation.identifier];
+        if (!err) {
+            consultation.patient = [doc.patients objectForKey:ppatient.objectId];
+            consultation.doctor = doc;
+            [doc.consultations setObject:consultation forKey:consultation.identifier];
+        }else{
+            @throw [[NSException alloc] initWithName:kGenericError reason:err.description userInfo:nil];
+        }
+        
     }
 }
 

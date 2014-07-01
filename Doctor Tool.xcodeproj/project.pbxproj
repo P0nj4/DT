@@ -17,6 +17,8 @@
 		444DAD721960C1E600414DDD /* ConsultationHoursVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 444DAD701960C1E600414DDD /* ConsultationHoursVC.m */; };
 		444DAD731960C1E600414DDD /* ConsultationHoursVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 444DAD711960C1E600414DDD /* ConsultationHoursVC.xib */; };
 		444EAB55195BA9800066CC40 /* CardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 444EAB54195BA9800066CC40 /* CardView.m */; };
+		4456A267196326BF00EFE665 /* DoctorTool.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4456A265196326BF00EFE665 /* DoctorTool.xcdatamodeld */; };
+		4456A2691963299900EFE665 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4456A2681963299900EFE665 /* CoreData.framework */; };
 		44814BD5195B2735006BA9FD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44814BD4195B2735006BA9FD /* Foundation.framework */; };
 		44814BD7195B2735006BA9FD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44814BD6195B2735006BA9FD /* CoreGraphics.framework */; };
 		44814BD9195B2735006BA9FD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44814BD8195B2735006BA9FD /* UIKit.framework */; };
@@ -100,6 +102,8 @@
 		444DAD711960C1E600414DDD /* ConsultationHoursVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConsultationHoursVC.xib; sourceTree = "<group>"; };
 		444EAB53195BA9800066CC40 /* CardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardView.h; sourceTree = "<group>"; };
 		444EAB54195BA9800066CC40 /* CardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardView.m; sourceTree = "<group>"; };
+		4456A266196326BF00EFE665 /* DoctorTool.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DoctorTool.xcdatamodel; sourceTree = "<group>"; };
+		4456A2681963299900EFE665 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		44814BD1195B2735006BA9FD /* Doctor Tool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Doctor Tool.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		44814BD4195B2735006BA9FD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		44814BD6195B2735006BA9FD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -186,6 +190,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4456A2691963299900EFE665 /* CoreData.framework in Frameworks */,
 				44814C36195B4B57006BA9FD /* SystemConfiguration.framework in Frameworks */,
 				44814C34195B4B51006BA9FD /* StoreKit.framework in Frameworks */,
 				44814C32195B4B4A006BA9FD /* Security.framework in Frameworks */,
@@ -238,6 +243,7 @@
 		44814BD3195B2735006BA9FD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4456A2681963299900EFE665 /* CoreData.framework */,
 				44814C35195B4B57006BA9FD /* SystemConfiguration.framework */,
 				44814C33195B4B51006BA9FD /* StoreKit.framework */,
 				44814C31195B4B4A006BA9FD /* Security.framework */,
@@ -280,6 +286,7 @@
 				444DAD6F1960C1E600414DDD /* ConsultationHoursVC.h */,
 				444DAD701960C1E600414DDD /* ConsultationHoursVC.m */,
 				444DAD711960C1E600414DDD /* ConsultationHoursVC.xib */,
+				4456A265196326BF00EFE665 /* DoctorTool.xcdatamodeld */,
 			);
 			path = "Doctor Tool";
 			sourceTree = "<group>";
@@ -560,6 +567,7 @@
 				444EAB55195BA9800066CC40 /* CardView.m in Sources */,
 				442BFA63195E08250068A0BB /* Session.m in Sources */,
 				44814C1E195B2CAC006BA9FD /* Medicament.m in Sources */,
+				4456A267196326BF00EFE665 /* DoctorTool.xcdatamodeld in Sources */,
 				44873F49195B951F00F8DCAD /* LoginView.m in Sources */,
 				442BFA57195DE1F00068A0BB /* Patient.m in Sources */,
 				44814C57195B6F64006BA9FD /* MBProgressHUD.m in Sources */,
@@ -806,6 +814,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4456A265196326BF00EFE665 /* DoctorTool.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4456A266196326BF00EFE665 /* DoctorTool.xcdatamodel */,
+			);
+			currentVersion = 4456A266196326BF00EFE665 /* DoctorTool.xcdatamodel */;
+			path = DoctorTool.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 44814BC9195B2735006BA9FD /* Project object */;
 }

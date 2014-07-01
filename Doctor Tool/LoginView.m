@@ -63,7 +63,6 @@
         self.usr = [[Doctor alloc] init];
     }
     self.usr.email = self.txtEmail.text;
-    self.usr.password = self.txtPassword.text;
 
     if([self.delegate respondsToSelector:@selector(loginButtonPressed:)]){
         [self.delegate loginButtonPressed:self.usr];

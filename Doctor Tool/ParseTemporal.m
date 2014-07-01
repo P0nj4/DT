@@ -30,9 +30,9 @@
     [patient saveInBackground];*/
     
     PFObject *doctor = [PFObject objectWithClassName:@"Doctor"];
-    doctor.objectId = @"8FBlgsQzTq";
+    doctor.objectId = @"uuSwHNdO7W";
     PFObject *patient = [PFObject objectWithClassName:@"Patient"];
-    patient.objectId = @"NdJr6xMWRl";
+    patient.objectId = @"SXRTzE8JNZ";
     
     PFObject *consultation = [PFObject objectWithClassName:@"Consultation"];
     [consultation setObject:@"consulta 2 " forKey:@"notes"];
@@ -50,7 +50,7 @@
 
 + (void)loadExample{
     PFQuery *query = [PFQuery queryWithClassName:@"Consultation"];
-    [query whereKey:@"objectId" equalTo:@"pxxI32htOv"];
+    [query whereKey:@"objectId" equalTo:@"27ZR6lfqKy"];
     [query includeKey:@"Doctor"];
     [query includeKey:@"Patient"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
