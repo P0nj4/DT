@@ -11,7 +11,7 @@
 #import "LoginView.h"
 #import "SignUpView.h"
 #import "MBProgressHUD.h"
-#import "DoctorModel.h"
+
 #import "Doctor.h"
 #import "UIImage+Resize.h"
 

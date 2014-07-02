@@ -10,7 +10,7 @@
 #import "VRGCalendarView.h"
 #import "NSDate+convenience.h"
 #import "ConsultationHoursVC.h"
-#import "ConsultationModel.h"
+
 #import "Doctor.h"
 #import "Consultation.h"
 
@@ -37,7 +37,7 @@
     [self.view addSubview:calendar];
     calendar.layer.cornerRadius = 8;
     
-    [ConsultationModel loadConsultationsOfDoctor:[Session sharedInstance].doctor pendingsOnly:YES];
+    //[ConsultationModel loadConsultationsOfDoctor:[Session sharedInstance].doctor pendingsOnly:YES];
 
     Consultation *Consu1 = [[Consultation alloc] init];
     Consu1.date = [NSDate date];
@@ -49,12 +49,10 @@
     Consu2.date = newDate1;
     
     
-    [[Session sharedInstance].doctor.consultations setObject:Consu1 forKey:@"1"];
-    [[Session sharedInstance].doctor.consultations setObject:Consu2 forKey:@"2"];
     
-    NSArray *notSorted = [[Session sharedInstance].doctor.consultations allValues];
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:TRUE];
-    self.allConsultations = [notSorted sortedArrayUsingDescriptors:@[sortDescriptor]];
+//    NSArray *notSorted = [[Session sharedInstance].doctor.consultations allValues];
+ //   NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:TRUE];
+ //   self.allConsultations = [notSorted sortedArrayUsingDescriptors:@[sortDescriptor]];
     
 }
 

@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		442BFA54195DE1AD0068A0BB /* PatientModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 442BFA53195DE1AD0068A0BB /* PatientModel.m */; };
-		442BFA57195DE1F00068A0BB /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = 442BFA56195DE1F00068A0BB /* Patient.m */; };
-		442BFA5A195DE4090068A0BB /* CommonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 442BFA59195DE4090068A0BB /* CommonModel.m */; };
-		442BFA5D195DEB6B0068A0BB /* ConsultationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 442BFA5C195DEB6B0068A0BB /* ConsultationModel.m */; };
 		442BFA60195DF4340068A0BB /* ParseTemporal.m in Sources */ = {isa = PBXBuildFile; fileRef = 442BFA5F195DF4340068A0BB /* ParseTemporal.m */; };
 		442BFA63195E08250068A0BB /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 442BFA62195E08250068A0BB /* Session.m */; };
 		442BFA66195E0D510068A0BB /* CommonValidations.m in Sources */ = {isa = PBXBuildFile; fileRef = 442BFA65195E0D510068A0BB /* CommonValidations.m */; };
@@ -31,10 +27,6 @@
 		44814BF6195B2736006BA9FD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44814BD8195B2735006BA9FD /* UIKit.framework */; };
 		44814BFE195B2737006BA9FD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44814BFC195B2737006BA9FD /* InfoPlist.strings */; };
 		44814C00195B2737006BA9FD /* Doctor_ToolTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 44814BFF195B2737006BA9FD /* Doctor_ToolTests.m */; };
-		44814C18195B2C74006BA9FD /* Doctor.m in Sources */ = {isa = PBXBuildFile; fileRef = 44814C17195B2C74006BA9FD /* Doctor.m */; };
-		44814C1B195B2C98006BA9FD /* Consultation.m in Sources */ = {isa = PBXBuildFile; fileRef = 44814C1A195B2C98006BA9FD /* Consultation.m */; };
-		44814C1E195B2CAC006BA9FD /* Medicament.m in Sources */ = {isa = PBXBuildFile; fileRef = 44814C1D195B2CAC006BA9FD /* Medicament.m */; };
-		44814C22195B466E006BA9FD /* DoctorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 44814C21195B466E006BA9FD /* DoctorModel.m */; };
 		44814C24195B474D006BA9FD /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44814C23195B474D006BA9FD /* Parse.framework */; };
 		44814C26195B4B13006BA9FD /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44814C25195B4B13006BA9FD /* AudioToolbox.framework */; };
 		44814C28195B4B1C006BA9FD /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44814C27195B4B1C006BA9FD /* CFNetwork.framework */; };
@@ -55,6 +47,9 @@
 		44873F55195B990F00F8DCAD /* FirstTimeStartingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44873F53195B990F00F8DCAD /* FirstTimeStartingVC.xib */; };
 		44873F57195B999500F8DCAD /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44873F56195B999500F8DCAD /* LoginView.xib */; };
 		44873F5A195B9A0E00F8DCAD /* SignUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44873F59195B9A0E00F8DCAD /* SignUpView.m */; };
+		44AB9AF21964845E00A82256 /* Doctor.m in Sources */ = {isa = PBXBuildFile; fileRef = 44AB9AF11964845E00A82256 /* Doctor.m */; };
+		44AB9AF51964845F00A82256 /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = 44AB9AF41964845F00A82256 /* Patient.m */; };
+		44AB9AF81964845F00A82256 /* Consultation.m in Sources */ = {isa = PBXBuildFile; fileRef = 44AB9AF71964845F00A82256 /* Consultation.m */; };
 		44CF607C195CF5BA00BB7B69 /* PatientsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44CF607A195CF5BA00BB7B69 /* PatientsVC.m */; };
 		44CF607D195CF5BA00BB7B69 /* PatientsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44CF607B195CF5BA00BB7B69 /* PatientsVC.xib */; };
 		44CF60BB195CFAE700BB7B69 /* ConsultationsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44CF60B9195CFAE700BB7B69 /* ConsultationsVC.m */; };
@@ -83,14 +78,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		442BFA52195DE1AD0068A0BB /* PatientModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientModel.h; sourceTree = "<group>"; };
-		442BFA53195DE1AD0068A0BB /* PatientModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientModel.m; sourceTree = "<group>"; };
-		442BFA55195DE1F00068A0BB /* Patient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Patient.h; sourceTree = "<group>"; };
-		442BFA56195DE1F00068A0BB /* Patient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Patient.m; sourceTree = "<group>"; };
-		442BFA58195DE4090068A0BB /* CommonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonModel.h; sourceTree = "<group>"; };
-		442BFA59195DE4090068A0BB /* CommonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonModel.m; sourceTree = "<group>"; };
-		442BFA5B195DEB6B0068A0BB /* ConsultationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsultationModel.h; sourceTree = "<group>"; };
-		442BFA5C195DEB6B0068A0BB /* ConsultationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsultationModel.m; sourceTree = "<group>"; };
 		442BFA5E195DF4340068A0BB /* ParseTemporal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseTemporal.h; sourceTree = "<group>"; };
 		442BFA5F195DF4340068A0BB /* ParseTemporal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseTemporal.m; sourceTree = "<group>"; };
 		442BFA61195E08250068A0BB /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
@@ -120,14 +107,6 @@
 		44814BFB195B2736006BA9FD /* Doctor ToolTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Doctor ToolTests-Info.plist"; sourceTree = "<group>"; };
 		44814BFD195B2737006BA9FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		44814BFF195B2737006BA9FD /* Doctor_ToolTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Doctor_ToolTests.m; sourceTree = "<group>"; };
-		44814C16195B2C74006BA9FD /* Doctor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Doctor.h; sourceTree = "<group>"; };
-		44814C17195B2C74006BA9FD /* Doctor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Doctor.m; sourceTree = "<group>"; };
-		44814C19195B2C98006BA9FD /* Consultation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Consultation.h; sourceTree = "<group>"; };
-		44814C1A195B2C98006BA9FD /* Consultation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Consultation.m; sourceTree = "<group>"; };
-		44814C1C195B2CAC006BA9FD /* Medicament.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Medicament.h; sourceTree = "<group>"; };
-		44814C1D195B2CAC006BA9FD /* Medicament.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Medicament.m; sourceTree = "<group>"; };
-		44814C20195B466E006BA9FD /* DoctorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorModel.h; sourceTree = "<group>"; };
-		44814C21195B466E006BA9FD /* DoctorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorModel.m; sourceTree = "<group>"; };
 		44814C23195B474D006BA9FD /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		44814C25195B4B13006BA9FD /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		44814C27195B4B1C006BA9FD /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -157,6 +136,12 @@
 		44873F56195B999500F8DCAD /* LoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
 		44873F58195B9A0E00F8DCAD /* SignUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpView.h; sourceTree = "<group>"; };
 		44873F59195B9A0E00F8DCAD /* SignUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpView.m; sourceTree = "<group>"; };
+		44AB9AF01964845E00A82256 /* Doctor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Doctor.h; sourceTree = "<group>"; };
+		44AB9AF11964845E00A82256 /* Doctor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Doctor.m; sourceTree = "<group>"; };
+		44AB9AF31964845F00A82256 /* Patient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Patient.h; sourceTree = "<group>"; };
+		44AB9AF41964845F00A82256 /* Patient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Patient.m; sourceTree = "<group>"; };
+		44AB9AF61964845F00A82256 /* Consultation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Consultation.h; sourceTree = "<group>"; };
+		44AB9AF71964845F00A82256 /* Consultation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Consultation.m; sourceTree = "<group>"; };
 		44CF6079195CF5BA00BB7B69 /* PatientsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientsVC.h; sourceTree = "<group>"; };
 		44CF607A195CF5BA00BB7B69 /* PatientsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientsVC.m; sourceTree = "<group>"; };
 		44CF607B195CF5BA00BB7B69 /* PatientsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PatientsVC.xib; sourceTree = "<group>"; };
@@ -323,16 +308,14 @@
 		44814C15195B2C2D006BA9FD /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				44814C16195B2C74006BA9FD /* Doctor.h */,
-				44814C17195B2C74006BA9FD /* Doctor.m */,
-				44814C19195B2C98006BA9FD /* Consultation.h */,
-				44814C1A195B2C98006BA9FD /* Consultation.m */,
-				44814C1C195B2CAC006BA9FD /* Medicament.h */,
-				44814C1D195B2CAC006BA9FD /* Medicament.m */,
-				442BFA55195DE1F00068A0BB /* Patient.h */,
-				442BFA56195DE1F00068A0BB /* Patient.m */,
 				442BFA61195E08250068A0BB /* Session.h */,
 				442BFA62195E08250068A0BB /* Session.m */,
+				44AB9AF61964845F00A82256 /* Consultation.h */,
+				44AB9AF71964845F00A82256 /* Consultation.m */,
+				44AB9AF31964845F00A82256 /* Patient.h */,
+				44AB9AF41964845F00A82256 /* Patient.m */,
+				44AB9AF01964845E00A82256 /* Doctor.h */,
+				44AB9AF11964845E00A82256 /* Doctor.m */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -340,14 +323,6 @@
 		44814C1F195B465B006BA9FD /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				44814C20195B466E006BA9FD /* DoctorModel.h */,
-				44814C21195B466E006BA9FD /* DoctorModel.m */,
-				442BFA52195DE1AD0068A0BB /* PatientModel.h */,
-				442BFA53195DE1AD0068A0BB /* PatientModel.m */,
-				442BFA58195DE4090068A0BB /* CommonModel.h */,
-				442BFA59195DE4090068A0BB /* CommonModel.m */,
-				442BFA5B195DEB6B0068A0BB /* ConsultationModel.h */,
-				442BFA5C195DEB6B0068A0BB /* ConsultationModel.m */,
 				442BFA5E195DF4340068A0BB /* ParseTemporal.h */,
 				442BFA5F195DF4340068A0BB /* ParseTemporal.m */,
 			);
@@ -544,38 +519,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44814C18195B2C74006BA9FD /* Doctor.m in Sources */,
 				44CF60F0195E4E3C00BB7B69 /* PatientCell.m in Sources */,
-				44814C1B195B2C98006BA9FD /* Consultation.m in Sources */,
 				44CF60DA195CFF1C00BB7B69 /* UIView+convenience.m in Sources */,
 				44CF60F8196040C200BB7B69 /* XIBBasedTableCell.m in Sources */,
 				44CF60D9195CFF1C00BB7B69 /* UIColor+expanded.m in Sources */,
+				44AB9AF21964845E00A82256 /* Doctor.m in Sources */,
 				442BFA60195DF4340068A0BB /* ParseTemporal.m in Sources */,
 				44CF60DB195CFF1C00BB7B69 /* VRGCalendarView.m in Sources */,
 				44CF607C195CF5BA00BB7B69 /* PatientsVC.m in Sources */,
 				44814C3B195B4D73006BA9FD /* NSString+MD5.m in Sources */,
-				442BFA5A195DE4090068A0BB /* CommonModel.m in Sources */,
 				44CF60DE195E2F0100BB7B69 /* LoadingView.m in Sources */,
-				44814C22195B466E006BA9FD /* DoctorModel.m in Sources */,
 				44CF60D8195CFF1C00BB7B69 /* NSMutableArray+convenience.m in Sources */,
-				442BFA5D195DEB6B0068A0BB /* ConsultationModel.m in Sources */,
 				44CF60BB195CFAE700BB7B69 /* ConsultationsVC.m in Sources */,
+				44AB9AF51964845F00A82256 /* Patient.m in Sources */,
 				442BFA66195E0D510068A0BB /* CommonValidations.m in Sources */,
 				44CF60D7195CFF1C00BB7B69 /* NSDate+convenience.m in Sources */,
 				44CF60FB1960412200BB7B69 /* PatientsCell.m in Sources */,
 				44873F5A195B9A0E00F8DCAD /* SignUpView.m in Sources */,
 				444EAB55195BA9800066CC40 /* CardView.m in Sources */,
 				442BFA63195E08250068A0BB /* Session.m in Sources */,
-				44814C1E195B2CAC006BA9FD /* Medicament.m in Sources */,
 				4456A267196326BF00EFE665 /* DoctorTool.xcdatamodeld in Sources */,
+				44AB9AF81964845F00A82256 /* Consultation.m in Sources */,
 				44873F49195B951F00F8DCAD /* LoginView.m in Sources */,
-				442BFA57195DE1F00068A0BB /* Patient.m in Sources */,
 				44814C57195B6F64006BA9FD /* MBProgressHUD.m in Sources */,
 				44814C4E195B6A95006BA9FD /* UIImage+Resize.m in Sources */,
 				44873F54195B990F00F8DCAD /* FirstTimeStartingVC.m in Sources */,
 				44814BE5195B2735006BA9FD /* AppDelegate.m in Sources */,
 				444DAD721960C1E600414DDD /* ConsultationHoursVC.m in Sources */,
-				442BFA54195DE1AD0068A0BB /* PatientModel.m in Sources */,
 				44814BE1195B2735006BA9FD /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

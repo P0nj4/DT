@@ -2,24 +2,22 @@
 //  Consultation.h
 //  Doctor Tool
 //
-//  Created by Germán Pereyra on 25/06/14.
+//  Created by Germán Pereyra on 02/07/14.
 //  Copyright (c) 2014 Ponja. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "Doctor.h"
-#import "Patient.h"
+#import <CoreData/CoreData.h>
 
-@interface Consultation : NSObject
-@property (nonatomic, strong) NSDate *date;
-@property (nonatomic, weak) Doctor *doctor;
-@property (nonatomic, weak) Patient *patient;
-@property (nonatomic, assign) NSInteger rating;
-@property (nonatomic, assign) BOOL done;
-@property (nonatomic, strong) NSString *notes;
-@property (nonatomic, strong) NSString *identifier;
-@property (nonatomic, strong) NSMutableArray *medicaments;
+@class Patient;
 
-- (id)initWithParse:(PFObject *)object error:(NSError **)error;
-- (id)initWithDate:(NSDate *)pdate forPatient:(Patient *)ppatient forDoctor:(Doctor *)pdoctor withNotes:(NSString *)pnotes;
+@interface Consultation : NSManagedObject
+
+@property (nonatomic, retain) NSDate * date;
+@property (nonatomic, retain) NSNumber * done;
+@property (nonatomic, retain) NSString * notes;
+@property (nonatomic, retain) NSNumber * rating;
+@property (nonatomic, retain) NSDate * createdAt;
+@property (nonatomic, retain) Patient *patient;
+
 @end

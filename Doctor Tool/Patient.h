@@ -2,20 +2,36 @@
 //  Patient.h
 //  Doctor Tool
 //
-//  Created by Germán Pereyra on 27/06/14.
+//  Created by Germán Pereyra on 02/07/14.
 //  Copyright (c) 2014 Ponja. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import <Parse/Parse.h>
+#import <CoreData/CoreData.h>
 
-@interface Patient : NSObject
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSString *lastName;
-@property (nonatomic, strong) NSString *identifier;
-@property (nonatomic, strong) NSDate *lastConsultation;
-@property (nonatomic, strong) NSDate *createdAt;
+@class Consultation, Doctor;
 
-- (id)initWithParse:(PFObject *)object error:(NSError **)error;
-- (id)initWithName:(NSString *)pname lastName:(NSString *)plastName;
+@interface Patient : NSManagedObject
+
+@property (nonatomic, retain) NSDate * createdAt;
+@property (nonatomic, retain) NSDate * lastConsultation;
+@property (nonatomic, retain) NSString * lastName;
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSNumber * deleted;
+@property (nonatomic, retain) NSSet *doctor;
+@property (nonatomic, retain) NSSet *consultations;
+@end
+
+@interface Patient (CoreDataGeneratedAccessors)
+
+- (void)addDoctorObject:(Doctor *)value;
+- (void)removeDoctorObject:(Doctor *)value;
+- (void)addDoctor:(NSSet *)values;
+- (void)removeDoctor:(NSSet *)values;
+
+- (void)addConsultationsObject:(Consultation *)value;
+- (void)removeConsultationsObject:(Consultation *)value;
+- (void)addConsultations:(NSSet *)values;
+- (void)removeConsultations:(NSSet *)values;
+
 @end

@@ -8,7 +8,7 @@
 
 #import "PatientsVC.h"
 #import "Doctor.h"
-#import "PatientModel.h"
+
 #import "LoadingView.h"
 #import "Patient.h"
 #import "PatientsCell.h"
@@ -35,6 +35,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.patientsArray = [[Session sharedInstance].doctor.patients allObjects];
     /*
     if ([Session sharedInstance].doctor.patients.count == 0) {
         [LoadingView loadingShowOnView:self.view animated:NO frame:self.view.bounds];
@@ -87,9 +88,11 @@
         lastConsultation = NSLocalizedString(@"lastConsultationNeverHad", nil);
     }
     
+    if (lastConsultation) {
+        cell.lblLastConsultation.text = [NSLocalizedString(@"lastConsultation", nil) stringByAppendingString:lastConsultation];
+        cell.lblCreatedAt.text  = [NSLocalizedString(@"patientRegisteredAt", nil) stringByAppendingString:[formatter stringFromDate:patient.createdAt]];
+    }
     
-    cell.lblLastConsultation.text = [NSLocalizedString(@"lastConsultation", nil) stringByAppendingString:lastConsultation];
-    cell.lblCreatedAt.text  = [NSLocalizedString(@"patientRegisteredAt", nil) stringByAppendingString:[formatter stringFromDate:patient.createdAt]];
      
     
     return cell;
