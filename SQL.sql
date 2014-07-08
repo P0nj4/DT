@@ -1,22 +1,23 @@
-CREATE TABLE IF NOT EXISTS Doctors (
-identifier integer  PRIMARY KEY AUTOINCREMENT DEFAULT NULL,
-createdAt Date  DEFAULT NULL,
-avatar Binary,
-deleted Boolean,
-email Varchar(30) DEFAULT NULL,
-lastName Varchar(30),
-name Varchar(30),
-password Varchar(30));
 
 CREATE TABLE IF NOT EXISTS Patients (
 identifier integer  PRIMARY KEY AUTOINCREMENT DEFAULT NULL,
 createdAt Date  DEFAULT NULL,
-deleted Boolean,
+isDeleted Boolean,
 lastConsultation Date  DEFAULT NULL,
 lastName Varchar(30),
 name Varchar(30), 
 doctor integer,
 FOREIGN KEY(doctor) REFERENCES Doctors(identifier));
+
+CREATE TABLE IF NOT EXISTS Doctors (
+identifier integer  PRIMARY KEY AUTOINCREMENT DEFAULT NULL,
+createdAt Date  DEFAULT NULL,
+avatar Binary,
+isDeleted Boolean,
+email Varchar(30) DEFAULT NULL,
+lastName Varchar(30),
+name Varchar(30),
+password Varchar(30));
 
 CREATE TABLE IF NOT EXISTS Consultations (
 identifier integer  PRIMARY KEY AUTOINCREMENT DEFAULT NULL,

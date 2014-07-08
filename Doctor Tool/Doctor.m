@@ -72,7 +72,7 @@
         self.lastName = [results stringForColumn:@"lastName"];
         self.createdAt = [results dateForColumn:@"createdAt"];
         self.avatar = [UIImage imageWithData:[results dataForColumn:@"avatar"]];
-        self.deleted = [results boolForColumn:@"deleted"];
+        self.isDeleted = [results boolForColumn:@"isDeleted"];
         self.email = [results stringForColumn:@"email"];
         self.password = [results stringForColumn:@"password"];
     }
@@ -88,7 +88,7 @@
     FMDatabase *database = [FMDatabase databaseWithPath:dbPath];
     [database open];
     //FMResultSet *results = [database executeQuery:[NSString stringWithFormat:@"SELECT * FROM Doctors where identifier = %li", (long)self.identifier]];
-    FMResultSet *results = [database executeQuery:@"SELECT * from Doctors where deleted = ?", [NSNumber numberWithBool:NO], nil];
+    FMResultSet *results = [database executeQuery:@"SELECT * from Doctors where isDeleted = ?", [NSNumber numberWithBool:NO], nil];
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     Doctor *doc = nil;
     while([results next]) {
@@ -98,7 +98,7 @@
         doc.lastName = [results stringForColumn:@"lastName"];
         doc.createdAt = [results dateForColumn:@"createdAt"];
         doc.avatar = [UIImage imageWithData:[results dataForColumn:@"avatar"]];
-        doc.deleted = [results boolForColumn:@"deleted"];
+        doc.isDeleted = [results boolForColumn:@"isDeleted"];
         doc.email = [results stringForColumn:@"email"];
         doc.password = [results stringForColumn:@"password"];
         [dict setObject:doc forKey:[NSNumber numberWithInteger:doc.identifier]];

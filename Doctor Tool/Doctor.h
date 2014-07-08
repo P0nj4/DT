@@ -13,7 +13,7 @@
  identifier integer  PRIMARY KEY AUTOINCREMENT DEFAULT NULL,
  createdAt Date  DEFAULT NULL,
  avatar Binary,
- deleted Boolean,
+ isDeleted Boolean,
  email Varchar(30) DEFAULT NULL,
  lastName Varchar(30),
  name Varchar(30),
@@ -23,7 +23,7 @@
 @property (nonatomic, assign) NSInteger identifier;
 @property (nonatomic, strong) NSDate *createdAt;
 @property (nonatomic, strong) UIImage *avatar;
-@property (nonatomic, assign) BOOL deleted;
+@property (nonatomic, assign) BOOL isDeleted;
 @property (nonatomic, strong) NSString *email;
 @property (nonatomic, strong) NSString *lastName;
 @property (nonatomic, strong) NSString *name;

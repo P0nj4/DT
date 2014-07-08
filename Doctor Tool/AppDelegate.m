@@ -38,10 +38,11 @@
     navController.navigationBar.translucent = NO;
     
     [self initializeDB];
+   
+
     
-  
-    Doctor *doc = [[Doctor alloc] initWithName:@"german" lastName:@"pereyra" email:@"german.f.pereyra@gmail.com" password:@"1234" avatar:nil];
-    [doc saveMe];
+    [Consultation getAllStaringDate:nil endingDate:nil];
+    
     
     self.window.rootViewController = navController;
     [self.window makeKeyAndVisible];
@@ -54,17 +55,48 @@
     NSString *documentsDir = [docPaths objectAtIndex:0];
     NSString *dbPath = [documentsDir   stringByAppendingPathComponent:@"DTDatabase.sqlite"];
     
-    NSString* path = [[NSBundle mainBundle] pathForResource:@"SQL"
-                                                     ofType:@"sql"];
-    NSString* content = [NSString stringWithContentsOfFile:path
-                                                  encoding:NSUTF8StringEncoding
-                                                     error:NULL];
-    
-    NSLog(@"%@",content);
     
     FMDatabase *database = [FMDatabase databaseWithPath:dbPath];
     [database open];
-    [database executeUpdate:content];
+    NSString* path = nil;
+    NSString* content = nil;
+    for (int i = 0; i < 3; i++) {
+        NSString *tableName = nil;
+        
+        switch (i) {
+            case 0:
+                tableName = @"Doctors";
+                break;
+            case 1:
+                tableName = @"Patients";
+                break;
+            case 2:
+                tableName = @"Consultations";
+                break;
+            default:
+                break;
+        }
+        path = [[NSBundle mainBundle] pathForResource:tableName ofType:@"sql"];
+        content = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
+        [database executeUpdate:content];
+    }
+    
+    [database close];
+}
+
+- (void)SCHEME{
+    NSArray *docPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDir = [docPaths objectAtIndex:0];
+    NSString *dbPath = [documentsDir   stringByAppendingPathComponent:@"DTDatabase.sqlite"];
+    
+    FMDatabase *database = [FMDatabase databaseWithPath:dbPath];
+    [database open];
+    FMResultSet *results = [database executeQuery:@"SELECT name, sql FROM sqlite_master WHERE type='table' ORDER BY name", [NSNumber numberWithBool:NO], nil];
+    while([results next]) {
+
+        NSLog(@"%@",[results stringForColumn:@"name"]);
+        NSLog(@"%@",[results stringForColumn:@"sql"]);
+    }
     [database close];
 }
 							

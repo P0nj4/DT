@@ -11,7 +11,7 @@
 
 @implementation Patient
 
-- (id)initWithName:(NSString *)pname lastName:(NSString *)plastName doctor:(Doctor *)pdoctor {
+- (id)initWithName:(NSString *)pname lastName:(NSString *)plastName doctor:(Doctor *)pdoctor{
     self = [super init];
     if (self) {
         self.name = pname;
@@ -24,7 +24,7 @@
 /*
  identifier integer  PRIMARY KEY AUTOINCREMENT DEFAULT NULL,
  createdAt Date  DEFAULT NULL,
- deleted Boolean,
+ isDeleted Boolean,
  lastConsultation Date  DEFAULT NULL,
  lastName Varchar(30),
  name Varchar(30),
@@ -74,15 +74,17 @@
     
     FMDatabase *database = [FMDatabase databaseWithPath:dbPath];
     [database open];
-        FMResultSet *results = [database executeQuery:@"SELECT * from Doctors where identifier = ?",[NSString stringWithFormat:@"%li", (long)self.identifier], nil];
+    FMResultSet *results = [database executeQuery:@"SELECT * from Patients where identifier = ?",[NSString stringWithFormat:@"%li", (long)self.identifier], nil];
+    
     while([results next]) {
         self.identifier = [results intForColumn:@"identifier"];
         self.name = [results stringForColumn:@"name"];
         self.lastName = [results stringForColumn:@"lastName"];
         self.createdAt = [results dateForColumn:@"createdAt"];
-        self.deleted = [results boolForColumn:@"deleted"];
+        self.isDeleted = [results boolForColumn:@"isDeleted"];
     }
     [database close];
+    
 }
 
 
@@ -93,15 +95,16 @@
     
     FMDatabase *database = [FMDatabase databaseWithPath:dbPath];
     [database open];
-    FMResultSet *results = [database executeQuery:@"SELECT * from Patients where deleted = ?", [NSNumber numberWithBool:NO], nil];
+    FMResultSet *results = [database executeQuery:@"SELECT * from Patients where isDeleted = ?", [NSNumber numberWithBool:NO], nil];
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     Patient *pat = nil;
     while([results next]) {
+        pat = [[Patient alloc] init];
         pat.identifier = [results intForColumn:@"identifier"];
         pat.name = [results stringForColumn:@"name"];
         pat.lastName = [results stringForColumn:@"lastName"];
         pat.createdAt = [results dateForColumn:@"createdAt"];
-        pat.deleted = [results boolForColumn:@"deleted"];
+        pat.isDeleted = [results boolForColumn:@"isDeleted"];
         [dict setObject:pat forKey:[NSNumber numberWithInteger:pat.identifier]];
     }
     [database close];
@@ -118,20 +121,25 @@
     FMDatabase *database = [FMDatabase databaseWithPath:dbPath];
     [database open];
     Doctor *doc = (Doctor *)parent;
-    FMResultSet *results = [database executeQuery:@"SELECT * from Patients where deleted = ? and doctor = ?", [NSNumber numberWithBool:NO], [NSNumber numberWithInteger:doc.identifier], nil];
+    FMResultSet *results = [database executeQuery:@"SELECT * from Patients where isDeleted = ? and doctor = ?", [NSNumber numberWithBool:NO], [NSNumber numberWithInteger:doc.identifier], nil];
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     Patient *pat = nil;
     while([results next]) {
+        pat = [[Patient alloc] init];
         pat.identifier = [results intForColumn:@"identifier"];
         pat.name = [results stringForColumn:@"name"];
         pat.lastName = [results stringForColumn:@"lastName"];
         pat.createdAt = [results dateForColumn:@"createdAt"];
-        pat.deleted = [results boolForColumn:@"deleted"];
+        pat.isDeleted = [results boolForColumn:@"isDeleted"];
         [dict setObject:pat forKey:[NSNumber numberWithInteger:pat.identifier]];
     }
     [database close];
     
     return dict;
+}
+
+- (NSString *)description{
+    return [NSString stringWithFormat:@"%li %@ %@ %@ %hhd",(long)self.identifier, self.name, self.lastName, self.createdAt, self.isDeleted];
 }
 
 @end

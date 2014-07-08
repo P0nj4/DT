@@ -23,6 +23,9 @@
 		445820A8196C32DD002BD13F /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 445820A3196C32DD002BD13F /* FMResultSet.m */; };
 		445820AA196C3330002BD13F /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 445820A9196C3330002BD13F /* libsqlite3.dylib */; };
 		445820AC196C3965002BD13F /* SQL.sql in Resources */ = {isa = PBXBuildFile; fileRef = 445820AB196C3965002BD13F /* SQL.sql */; };
+		445820B2196C6CBA002BD13F /* Doctors.sql in Resources */ = {isa = PBXBuildFile; fileRef = 445820AF196C6CBA002BD13F /* Doctors.sql */; };
+		445820B3196C6CBA002BD13F /* Patients.sql in Resources */ = {isa = PBXBuildFile; fileRef = 445820B0196C6CBA002BD13F /* Patients.sql */; };
+		445820B5196C6CD5002BD13F /* Consultations.sql in Resources */ = {isa = PBXBuildFile; fileRef = 445820B4196C6CD5002BD13F /* Consultations.sql */; };
 		44814BD5195B2735006BA9FD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44814BD4195B2735006BA9FD /* Foundation.framework */; };
 		44814BD7195B2735006BA9FD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44814BD6195B2735006BA9FD /* CoreGraphics.framework */; };
 		44814BD9195B2735006BA9FD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44814BD8195B2735006BA9FD /* UIKit.framework */; };
@@ -115,6 +118,9 @@
 		445820A3196C32DD002BD13F /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		445820A9196C3330002BD13F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		445820AB196C3965002BD13F /* SQL.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SQL.sql; sourceTree = SOURCE_ROOT; };
+		445820AF196C6CBA002BD13F /* Doctors.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Doctors.sql; path = DBSQL/Doctors.sql; sourceTree = SOURCE_ROOT; };
+		445820B0196C6CBA002BD13F /* Patients.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Patients.sql; path = DBSQL/Patients.sql; sourceTree = SOURCE_ROOT; };
+		445820B4196C6CD5002BD13F /* Consultations.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Consultations.sql; path = DBSQL/Consultations.sql; sourceTree = SOURCE_ROOT; };
 		44814BD1195B2735006BA9FD /* Doctor Tool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Doctor Tool.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		44814BD4195B2735006BA9FD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		44814BD6195B2735006BA9FD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -241,6 +247,16 @@
 			path = fmdb;
 			sourceTree = "<group>";
 		};
+		445820AD196C6C5D002BD13F /* DBSQL */ = {
+			isa = PBXGroup;
+			children = (
+				445820B4196C6CD5002BD13F /* Consultations.sql */,
+				445820AF196C6CBA002BD13F /* Doctors.sql */,
+				445820B0196C6CBA002BD13F /* Patients.sql */,
+			);
+			name = DBSQL;
+			sourceTree = "<group>";
+		};
 		44814BC8195B2735006BA9FD = {
 			isa = PBXGroup;
 			children = (
@@ -287,6 +303,7 @@
 		44814BDA195B2735006BA9FD /* Doctor Tool */ = {
 			isa = PBXGroup;
 			children = (
+				445820AD196C6C5D002BD13F /* DBSQL */,
 				44873F46195B94EF00F8DCAD /* Views */,
 				44814C38195B4D56006BA9FD /* Utilities */,
 				44814C1F195B465B006BA9FD /* Models */,
@@ -536,10 +553,13 @@
 				44814C45195B65FE006BA9FD /* Localizable.strings in Resources */,
 				44CF607D195CF5BA00BB7B69 /* PatientsVC.xib in Resources */,
 				44814BED195B2736006BA9FD /* Images.xcassets in Resources */,
+				445820B3196C6CBA002BD13F /* Patients.sql in Resources */,
+				445820B5196C6CD5002BD13F /* Consultations.sql in Resources */,
 				44873F4B195B953E00F8DCAD /* SignUpView.xib in Resources */,
 				444DAD731960C1E600414DDD /* ConsultationHoursVC.xib in Resources */,
 				445820AC196C3965002BD13F /* SQL.sql in Resources */,
 				44873F55195B990F00F8DCAD /* FirstTimeStartingVC.xib in Resources */,
+				445820B2196C6CBA002BD13F /* Doctors.sql in Resources */,
 				44814BDF195B2735006BA9FD /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

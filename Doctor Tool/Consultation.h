@@ -30,8 +30,12 @@
 @property (nonatomic, assign) NSInteger rating;
 @property (nonatomic, strong) NSDate *date;
 @property (nonatomic, strong) NSDate *createdAt;
-@property (nonatomic, assign) BOOL deleted;
+@property (nonatomic, assign) BOOL isDeleted;
 @property (nonatomic, strong) NSString *notes;
 @property (nonatomic, assign) BOOL done;
 @property (nonatomic, weak) Patient *patient;
+
+- (id)initWithRating:(NSInteger)prating notes:(NSString *)pnotes date:(NSDate *)pdate;
++ (NSMutableDictionary *)getAllWithParent:(id)parent staringDate:(NSDate *)start endingDate:(NSDate *)end;
++ (NSMutableDictionary *)getAllStaringDate:(NSDate *)start endingDate:(NSDate *)end;
 @end
