@@ -20,9 +20,6 @@
 #import "Consultation.h"
 
 @implementation AppDelegate
-@synthesize managedObjectContext = _managedObjectContext;
-@synthesize managedObjectModel = _managedObjectModel;
-@synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -40,132 +37,35 @@
     navController.navigationBar.opaque = YES;
     navController.navigationBar.translucent = NO;
     
+    [self initializeDB];
     
+  
+    Doctor *doc = [[Doctor alloc] initWithName:@"german" lastName:@"pereyra" email:@"german.f.pereyra@gmail.com" password:@"1234" avatar:nil];
+    [doc saveMe];
     
-    [self setExampleData];
     self.window.rootViewController = navController;
     [self.window makeKeyAndVisible];
     
     return YES;
 }
 
-- (void)setExampleData{
-    NSArray *arr = [self getAllDoctors];
-    if ([arr count] == 0) {
-        
-        Doctor * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"Doctor"
-                                                          inManagedObjectContext:self.managedObjectContext];
-        newEntry.name = @"pepe";
-        newEntry.lastName = @"triaz";
-        newEntry.password = @"1234";
-        newEntry.email = @"pepe@gmail.com";
-        newEntry.deleted = NO;
-        newEntry.createdAt = [NSDate date];
-        NSError *error;
-        if (![self.managedObjectContext save:&error]) {
-            NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-        }
-        [Session sharedInstance].doctor = newEntry;
-    }else{
-        [Session sharedInstance].doctor = [arr objectAtIndex:0];
-    }
+- (void)initializeDB{
+    NSArray *docPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDir = [docPaths objectAtIndex:0];
+    NSString *dbPath = [documentsDir   stringByAppendingPathComponent:@"DTDatabase.sqlite"];
     
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"dd-MM-yyyy hh:mm"];
+    NSString* path = [[NSBundle mainBundle] pathForResource:@"SQL"
+                                                     ofType:@"sql"];
+    NSString* content = [NSString stringWithContentsOfFile:path
+                                                  encoding:NSUTF8StringEncoding
+                                                     error:NULL];
     
-    for (Doctor *doc in arr) {
-        NSLog(@"Doctor: %@", doc.description);
-        if ([doc.patients count] > 0) {
-            for (Patient *pat in [doc patients]) {
-                NSLog(@"   Patient: %@", pat.description);
-                if ([[pat consultations] count] > 0) {
-                    for (Consultation *con in [pat consultations]) {
-                        NSLog(@"      Consultation: %@", con.description);
-                    }
-                }
-            }
-        }else{
-            NSMutableArray *patients = [[NSMutableArray alloc] init];
-            for (int i = 0; i < 10; i++) {
-                Patient *pat1 = [NSEntityDescription insertNewObjectForEntityForName:@"Patient"
-                                                              inManagedObjectContext:self.managedObjectContext];
-                pat1.createdAt = [NSDate date];
-                pat1.lastConsultation = [NSDate date];
-                pat1.deleted = NO;
-                pat1.name = [NSString stringWithFormat:@"paciente %i", i];
-                pat1.lastName = [NSString stringWithFormat:@"apellido %i", i];
-                [patients addObject:pat1];
-                
-                for (int j = 0; j < 10; j++) {
-                    /*
-                     @property (nonatomic, retain) NSDate * date;
-                     @property (nonatomic, retain) NSNumber * done;
-                     @property (nonatomic, retain) NSString * notes;
-                     @property (nonatomic, retain) NSNumber * rating;
-                     @property (nonatomic, retain) NSDate * createdAt;
-                     @property (nonatomic, retain) Patient *patient;
-                     */
-                    Consultation *consultationAux = [NSEntityDescription insertNewObjectForEntityForName:@"Consultation"
-                                                                                  inManagedObjectContext:self.managedObjectContext];
-                    consultationAux.createdAt = [NSDate date];
-                    
-                    NSString *daystr = (j < 9 ? [NSString stringWithFormat:@"0%i", j+1] : [NSString stringWithFormat:@"%i", j+1]);
-                    NSString *Hourstr = (j < 10 ? [NSString stringWithFormat:@"0%i", j] : [NSString stringWithFormat:@"%i", j]);
-                    NSString *Minstr = (j % 3 ? @"15" : (j % 2 ? @"30" : @"00"));
-                    
-                    NSString *dateString = [NSString stringWithFormat:@"%@-07-2014 %@:%@", daystr, Hourstr, Minstr];
-                    NSLog(@"%@", dateString);
-                    consultationAux.date = [formatter dateFromString:dateString];
-                    consultationAux.notes = [NSString stringWithFormat:@"notas %i", i];
-                    consultationAux.rating = [NSNumber numberWithInt:i];
-                    consultationAux.patient = pat1;
-                }
-            }
-            doc.patients = [NSSet setWithArray:patients];
-            NSError *error;
-            if (![self.managedObjectContext save:&error]) {
-                NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-            }
-
-        }
-        
-    }
-}
-
-- (void)addDoctor{
-    // Add Entry to PhoneBook Data base and reset all fields
+    NSLog(@"%@",content);
     
-    //  1
-    Doctor * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"Doctor"
-                                                      inManagedObjectContext:self.managedObjectContext];
-    //  2
-    newEntry.name = @"pepe";
-    newEntry.lastName = @"triaz";
-    newEntry.password = @"";
-    
-    //  6
-    Patient *pat1 = [NSEntityDescription insertNewObjectForEntityForName:@"Patient"
-                                                               inManagedObjectContext:self.managedObjectContext];
-    pat1.name = @"paciente ";
-    pat1.lastName = @"ejemplo 1";
-    
-    //  7
-    Patient *pat2 = [NSEntityDescription insertNewObjectForEntityForName:@"Patient"
-                                                  inManagedObjectContext:self.managedObjectContext];
-    
-    pat1.name = @"paciente 2";
-    pat1.lastName = @"ejemplo 2";
-    
-    //  8
-    newEntry.patients = [NSSet setWithObjects:pat1 ,pat2, nil];
-    
-    //  3
-    NSError *error;
-    if (![self.managedObjectContext save:&error]) {
-        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-    }
-   
-
+    FMDatabase *database = [FMDatabase databaseWithPath:dbPath];
+    [database open];
+    [database executeUpdate:content];
+    [database close];
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -197,68 +97,5 @@
 
 
 
-
-
-- (NSManagedObjectContext *) managedObjectContext {
-    if (_managedObjectContext != nil) {
-        return _managedObjectContext;
-    }
-    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
-    if (coordinator != nil) {
-        _managedObjectContext = [[NSManagedObjectContext alloc] init];
-        [_managedObjectContext setPersistentStoreCoordinator: coordinator];
-    }
-    
-    return _managedObjectContext;
-}
-
-- (NSManagedObjectModel *)managedObjectModel {
-    if (_managedObjectModel != nil) {
-        return _managedObjectModel;
-    }
-    _managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
-    
-    return _managedObjectModel;
-}
-
-- (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
-    if (_persistentStoreCoordinator != nil) {
-        return _persistentStoreCoordinator;
-    }
-    NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory]
-                                               stringByAppendingPathComponent: @"DoctorTool.sqlite"]];
-    NSError *error = nil;
-    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc]
-                                   initWithManagedObjectModel:[self managedObjectModel]];
-    if(![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
-                                                  configuration:nil URL:storeUrl options:nil error:&error]) {
-        /*Error for store creation should be handled in here*/
-    }
-    
-    return _persistentStoreCoordinator;
-}
-
-- (NSString *)applicationDocumentsDirectory {
-    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-}
-
-
--(NSArray*)getAllDoctors
-{
-    // initializing NSFetchRequest
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    
-    //Setting Entity to be Queried
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Doctor"
-                                              inManagedObjectContext:self.managedObjectContext];
-    [fetchRequest setEntity:entity];
-    NSError* error;
-    
-    // Query on managedObjectContext With Generated fetchRequest
-    NSArray *fetchedRecords = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
-    
-    // Returning Fetched Records
-    return fetchedRecords;
-}
 
 @end

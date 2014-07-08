@@ -35,7 +35,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.patientsArray = [[Session sharedInstance].doctor.patients allObjects];
+    //self.patientsArray = [[Session sharedInstance].doctor.patients allObjects];
     /*
     if ([Session sharedInstance].doctor.patients.count == 0) {
         [LoadingView loadingShowOnView:self.view animated:NO frame:self.view.bounds];

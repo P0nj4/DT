@@ -2,32 +2,34 @@
 //  Doctor.h
 //  Doctor Tool
 //
-//  Created by Germán Pereyra on 02/07/14.
+//  Created by Germán Pereyra on 08/07/14.
 //  Copyright (c) 2014 Ponja. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
+#import "Entities.h"
+/*
+ CREATE TABLE Doctors (
+ identifier integer  PRIMARY KEY AUTOINCREMENT DEFAULT NULL,
+ createdAt Date  DEFAULT NULL,
+ avatar Binary,
+ deleted Boolean,
+ email Varchar(30) DEFAULT NULL,
+ lastName Varchar(30),
+ name Varchar(30),
+ password Varchar(30))
+ */
+@interface Doctor : NSObject <Entities>
+@property (nonatomic, assign) NSInteger identifier;
+@property (nonatomic, strong) NSDate *createdAt;
+@property (nonatomic, strong) UIImage *avatar;
+@property (nonatomic, assign) BOOL deleted;
+@property (nonatomic, strong) NSString *email;
+@property (nonatomic, strong) NSString *lastName;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *password;
 
-@class Patient;
+@property (nonatomic, strong) NSMutableDictionary *patients;
 
-@interface Doctor : NSManagedObject
-
-@property (nonatomic, retain) NSData * avatar;
-@property (nonatomic, retain) NSString * email;
-@property (nonatomic, retain) NSString * lastName;
-@property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSNumber * deleted;
-@property (nonatomic, retain) NSDate * createdAt;
-@property (nonatomic, retain) NSString * password;
-@property (nonatomic, retain) NSSet *patients;
-@end
-
-@interface Doctor (CoreDataGeneratedAccessors)
-
-- (void)addPatientsObject:(Patient *)value;
-- (void)removePatientsObject:(Patient *)value;
-- (void)addPatients:(NSSet *)values;
-- (void)removePatients:(NSSet *)values;
-
+- (id)initWithName:(NSString *)pname lastName:(NSString *)plastName email:(NSString *)pemail password:(NSString *)pass avatar:(UIImage *)pavatar;
 @end

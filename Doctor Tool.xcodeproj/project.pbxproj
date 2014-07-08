@@ -13,8 +13,16 @@
 		444DAD721960C1E600414DDD /* ConsultationHoursVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 444DAD701960C1E600414DDD /* ConsultationHoursVC.m */; };
 		444DAD731960C1E600414DDD /* ConsultationHoursVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 444DAD711960C1E600414DDD /* ConsultationHoursVC.xib */; };
 		444EAB55195BA9800066CC40 /* CardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 444EAB54195BA9800066CC40 /* CardView.m */; };
-		4456A267196326BF00EFE665 /* DoctorTool.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4456A265196326BF00EFE665 /* DoctorTool.xcdatamodeld */; };
-		4456A2691963299900EFE665 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4456A2681963299900EFE665 /* CoreData.framework */; };
+		4458208D196C2C76002BD13F /* Doctor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4458208C196C2C76002BD13F /* Doctor.m */; };
+		44582091196C2DBB002BD13F /* Consultation.m in Sources */ = {isa = PBXBuildFile; fileRef = 44582090196C2DBB002BD13F /* Consultation.m */; };
+		44582094196C2E86002BD13F /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = 44582093196C2E86002BD13F /* Patient.m */; };
+		445820A4196C32DD002BD13F /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4458209A196C32DD002BD13F /* FMDatabase.m */; };
+		445820A5196C32DD002BD13F /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4458209C196C32DD002BD13F /* FMDatabaseAdditions.m */; };
+		445820A6196C32DD002BD13F /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4458209E196C32DD002BD13F /* FMDatabasePool.m */; };
+		445820A7196C32DD002BD13F /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 445820A0196C32DD002BD13F /* FMDatabaseQueue.m */; };
+		445820A8196C32DD002BD13F /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 445820A3196C32DD002BD13F /* FMResultSet.m */; };
+		445820AA196C3330002BD13F /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 445820A9196C3330002BD13F /* libsqlite3.dylib */; };
+		445820AC196C3965002BD13F /* SQL.sql in Resources */ = {isa = PBXBuildFile; fileRef = 445820AB196C3965002BD13F /* SQL.sql */; };
 		44814BD5195B2735006BA9FD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44814BD4195B2735006BA9FD /* Foundation.framework */; };
 		44814BD7195B2735006BA9FD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44814BD6195B2735006BA9FD /* CoreGraphics.framework */; };
 		44814BD9195B2735006BA9FD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44814BD8195B2735006BA9FD /* UIKit.framework */; };
@@ -47,9 +55,6 @@
 		44873F55195B990F00F8DCAD /* FirstTimeStartingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44873F53195B990F00F8DCAD /* FirstTimeStartingVC.xib */; };
 		44873F57195B999500F8DCAD /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44873F56195B999500F8DCAD /* LoginView.xib */; };
 		44873F5A195B9A0E00F8DCAD /* SignUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44873F59195B9A0E00F8DCAD /* SignUpView.m */; };
-		44AB9AF21964845E00A82256 /* Doctor.m in Sources */ = {isa = PBXBuildFile; fileRef = 44AB9AF11964845E00A82256 /* Doctor.m */; };
-		44AB9AF51964845F00A82256 /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = 44AB9AF41964845F00A82256 /* Patient.m */; };
-		44AB9AF81964845F00A82256 /* Consultation.m in Sources */ = {isa = PBXBuildFile; fileRef = 44AB9AF71964845F00A82256 /* Consultation.m */; };
 		44CF607C195CF5BA00BB7B69 /* PatientsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44CF607A195CF5BA00BB7B69 /* PatientsVC.m */; };
 		44CF607D195CF5BA00BB7B69 /* PatientsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44CF607B195CF5BA00BB7B69 /* PatientsVC.xib */; };
 		44CF60BB195CFAE700BB7B69 /* ConsultationsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44CF60B9195CFAE700BB7B69 /* ConsultationsVC.m */; };
@@ -89,8 +94,27 @@
 		444DAD711960C1E600414DDD /* ConsultationHoursVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConsultationHoursVC.xib; sourceTree = "<group>"; };
 		444EAB53195BA9800066CC40 /* CardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardView.h; sourceTree = "<group>"; };
 		444EAB54195BA9800066CC40 /* CardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardView.m; sourceTree = "<group>"; };
-		4456A266196326BF00EFE665 /* DoctorTool.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DoctorTool.xcdatamodel; sourceTree = "<group>"; };
 		4456A2681963299900EFE665 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		4458208B196C2C76002BD13F /* Doctor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Doctor.h; sourceTree = "<group>"; };
+		4458208C196C2C76002BD13F /* Doctor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Doctor.m; sourceTree = "<group>"; };
+		4458208E196C2D41002BD13F /* Entities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Entities.h; sourceTree = "<group>"; };
+		4458208F196C2DBB002BD13F /* Consultation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Consultation.h; sourceTree = "<group>"; };
+		44582090196C2DBB002BD13F /* Consultation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Consultation.m; sourceTree = "<group>"; };
+		44582092196C2E86002BD13F /* Patient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Patient.h; sourceTree = "<group>"; };
+		44582093196C2E86002BD13F /* Patient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Patient.m; sourceTree = "<group>"; };
+		44582099196C32DD002BD13F /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		4458209A196C32DD002BD13F /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		4458209B196C32DD002BD13F /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		4458209C196C32DD002BD13F /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		4458209D196C32DD002BD13F /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		4458209E196C32DD002BD13F /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		4458209F196C32DD002BD13F /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		445820A0196C32DD002BD13F /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		445820A1196C32DD002BD13F /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		445820A2196C32DD002BD13F /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		445820A3196C32DD002BD13F /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		445820A9196C3330002BD13F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		445820AB196C3965002BD13F /* SQL.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SQL.sql; sourceTree = SOURCE_ROOT; };
 		44814BD1195B2735006BA9FD /* Doctor Tool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Doctor Tool.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		44814BD4195B2735006BA9FD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		44814BD6195B2735006BA9FD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -136,12 +160,6 @@
 		44873F56195B999500F8DCAD /* LoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
 		44873F58195B9A0E00F8DCAD /* SignUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpView.h; sourceTree = "<group>"; };
 		44873F59195B9A0E00F8DCAD /* SignUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpView.m; sourceTree = "<group>"; };
-		44AB9AF01964845E00A82256 /* Doctor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Doctor.h; sourceTree = "<group>"; };
-		44AB9AF11964845E00A82256 /* Doctor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Doctor.m; sourceTree = "<group>"; };
-		44AB9AF31964845F00A82256 /* Patient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Patient.h; sourceTree = "<group>"; };
-		44AB9AF41964845F00A82256 /* Patient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Patient.m; sourceTree = "<group>"; };
-		44AB9AF61964845F00A82256 /* Consultation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Consultation.h; sourceTree = "<group>"; };
-		44AB9AF71964845F00A82256 /* Consultation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Consultation.m; sourceTree = "<group>"; };
 		44CF6079195CF5BA00BB7B69 /* PatientsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientsVC.h; sourceTree = "<group>"; };
 		44CF607A195CF5BA00BB7B69 /* PatientsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientsVC.m; sourceTree = "<group>"; };
 		44CF607B195CF5BA00BB7B69 /* PatientsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PatientsVC.xib; sourceTree = "<group>"; };
@@ -175,7 +193,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4456A2691963299900EFE665 /* CoreData.framework in Frameworks */,
+				445820AA196C3330002BD13F /* libsqlite3.dylib in Frameworks */,
 				44814C36195B4B57006BA9FD /* SystemConfiguration.framework in Frameworks */,
 				44814C34195B4B51006BA9FD /* StoreKit.framework in Frameworks */,
 				44814C32195B4B4A006BA9FD /* Security.framework in Frameworks */,
@@ -205,6 +223,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		44582098196C32DD002BD13F /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				44582099196C32DD002BD13F /* FMDatabase.h */,
+				4458209A196C32DD002BD13F /* FMDatabase.m */,
+				4458209B196C32DD002BD13F /* FMDatabaseAdditions.h */,
+				4458209C196C32DD002BD13F /* FMDatabaseAdditions.m */,
+				4458209D196C32DD002BD13F /* FMDatabasePool.h */,
+				4458209E196C32DD002BD13F /* FMDatabasePool.m */,
+				4458209F196C32DD002BD13F /* FMDatabaseQueue.h */,
+				445820A0196C32DD002BD13F /* FMDatabaseQueue.m */,
+				445820A1196C32DD002BD13F /* FMDB.h */,
+				445820A2196C32DD002BD13F /* FMResultSet.h */,
+				445820A3196C32DD002BD13F /* FMResultSet.m */,
+			);
+			path = fmdb;
+			sourceTree = "<group>";
+		};
 		44814BC8195B2735006BA9FD = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +264,7 @@
 		44814BD3195B2735006BA9FD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				445820A9196C3330002BD13F /* libsqlite3.dylib */,
 				4456A2681963299900EFE665 /* CoreData.framework */,
 				44814C35195B4B57006BA9FD /* SystemConfiguration.framework */,
 				44814C33195B4B51006BA9FD /* StoreKit.framework */,
@@ -271,7 +308,7 @@
 				444DAD6F1960C1E600414DDD /* ConsultationHoursVC.h */,
 				444DAD701960C1E600414DDD /* ConsultationHoursVC.m */,
 				444DAD711960C1E600414DDD /* ConsultationHoursVC.xib */,
-				4456A265196326BF00EFE665 /* DoctorTool.xcdatamodeld */,
+				445820AB196C3965002BD13F /* SQL.sql */,
 			);
 			path = "Doctor Tool";
 			sourceTree = "<group>";
@@ -308,14 +345,15 @@
 		44814C15195B2C2D006BA9FD /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				4458208E196C2D41002BD13F /* Entities.h */,
 				442BFA61195E08250068A0BB /* Session.h */,
 				442BFA62195E08250068A0BB /* Session.m */,
-				44AB9AF61964845F00A82256 /* Consultation.h */,
-				44AB9AF71964845F00A82256 /* Consultation.m */,
-				44AB9AF31964845F00A82256 /* Patient.h */,
-				44AB9AF41964845F00A82256 /* Patient.m */,
-				44AB9AF01964845E00A82256 /* Doctor.h */,
-				44AB9AF11964845E00A82256 /* Doctor.m */,
+				4458208B196C2C76002BD13F /* Doctor.h */,
+				4458208C196C2C76002BD13F /* Doctor.m */,
+				4458208F196C2DBB002BD13F /* Consultation.h */,
+				44582090196C2DBB002BD13F /* Consultation.m */,
+				44582092196C2E86002BD13F /* Patient.h */,
+				44582093196C2E86002BD13F /* Patient.m */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -345,6 +383,7 @@
 		44814C4F195B6CAE006BA9FD /* External Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				44582098196C32DD002BD13F /* fmdb */,
 				44CF60CC195CFF1C00BB7B69 /* Vurig-Calendar */,
 				44814C54195B6F64006BA9FD /* ProgressHUD */,
 			);
@@ -499,6 +538,7 @@
 				44814BED195B2736006BA9FD /* Images.xcassets in Resources */,
 				44873F4B195B953E00F8DCAD /* SignUpView.xib in Resources */,
 				444DAD731960C1E600414DDD /* ConsultationHoursVC.xib in Resources */,
+				445820AC196C3965002BD13F /* SQL.sql in Resources */,
 				44873F55195B990F00F8DCAD /* FirstTimeStartingVC.xib in Resources */,
 				44814BDF195B2735006BA9FD /* InfoPlist.strings in Resources */,
 			);
@@ -523,30 +563,34 @@
 				44CF60DA195CFF1C00BB7B69 /* UIView+convenience.m in Sources */,
 				44CF60F8196040C200BB7B69 /* XIBBasedTableCell.m in Sources */,
 				44CF60D9195CFF1C00BB7B69 /* UIColor+expanded.m in Sources */,
-				44AB9AF21964845E00A82256 /* Doctor.m in Sources */,
 				442BFA60195DF4340068A0BB /* ParseTemporal.m in Sources */,
 				44CF60DB195CFF1C00BB7B69 /* VRGCalendarView.m in Sources */,
 				44CF607C195CF5BA00BB7B69 /* PatientsVC.m in Sources */,
+				445820A4196C32DD002BD13F /* FMDatabase.m in Sources */,
 				44814C3B195B4D73006BA9FD /* NSString+MD5.m in Sources */,
 				44CF60DE195E2F0100BB7B69 /* LoadingView.m in Sources */,
+				4458208D196C2C76002BD13F /* Doctor.m in Sources */,
 				44CF60D8195CFF1C00BB7B69 /* NSMutableArray+convenience.m in Sources */,
 				44CF60BB195CFAE700BB7B69 /* ConsultationsVC.m in Sources */,
-				44AB9AF51964845F00A82256 /* Patient.m in Sources */,
+				445820A6196C32DD002BD13F /* FMDatabasePool.m in Sources */,
+				44582094196C2E86002BD13F /* Patient.m in Sources */,
+				44582091196C2DBB002BD13F /* Consultation.m in Sources */,
 				442BFA66195E0D510068A0BB /* CommonValidations.m in Sources */,
 				44CF60D7195CFF1C00BB7B69 /* NSDate+convenience.m in Sources */,
 				44CF60FB1960412200BB7B69 /* PatientsCell.m in Sources */,
 				44873F5A195B9A0E00F8DCAD /* SignUpView.m in Sources */,
 				444EAB55195BA9800066CC40 /* CardView.m in Sources */,
 				442BFA63195E08250068A0BB /* Session.m in Sources */,
-				4456A267196326BF00EFE665 /* DoctorTool.xcdatamodeld in Sources */,
-				44AB9AF81964845F00A82256 /* Consultation.m in Sources */,
 				44873F49195B951F00F8DCAD /* LoginView.m in Sources */,
 				44814C57195B6F64006BA9FD /* MBProgressHUD.m in Sources */,
+				445820A7196C32DD002BD13F /* FMDatabaseQueue.m in Sources */,
 				44814C4E195B6A95006BA9FD /* UIImage+Resize.m in Sources */,
 				44873F54195B990F00F8DCAD /* FirstTimeStartingVC.m in Sources */,
 				44814BE5195B2735006BA9FD /* AppDelegate.m in Sources */,
 				444DAD721960C1E600414DDD /* ConsultationHoursVC.m in Sources */,
+				445820A8196C32DD002BD13F /* FMResultSet.m in Sources */,
 				44814BE1195B2735006BA9FD /* main.m in Sources */,
+				445820A5196C32DD002BD13F /* FMDatabaseAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -784,19 +828,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		4456A265196326BF00EFE665 /* DoctorTool.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				4456A266196326BF00EFE665 /* DoctorTool.xcdatamodel */,
-			);
-			currentVersion = 4456A266196326BF00EFE665 /* DoctorTool.xcdatamodel */;
-			path = DoctorTool.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 44814BC9195B2735006BA9FD /* Project object */;
 }

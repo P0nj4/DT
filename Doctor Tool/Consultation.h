@@ -2,22 +2,36 @@
 //  Consultation.h
 //  Doctor Tool
 //
-//  Created by Germán Pereyra on 02/07/14.
+//  Created by Germán Pereyra on 08/07/14.
 //  Copyright (c) 2014 Ponja. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
 
 @class Patient;
 
-@interface Consultation : NSManagedObject
+/*
+ 
+ 
+ CREATE TABLE Consultations (
+ identifier integer  PRIMARY KEY AUTOINCREMENT DEFAULT NULL,
+ date Date  DEFAULT NULL,
+ createdAt Date  DEFAULT NULL,
+ notes TEXT DEFAULT NULL,
+ done Boolean  NOT NULL  DEFAULT 0,
+ rating integer  NOT NULL DEFAULT 0,
+ patient integer,
+ FOREIGN KEY(patient) REFERENCES Patients(identifier))
+ 
+ */
 
-@property (nonatomic, retain) NSDate * date;
-@property (nonatomic, retain) NSNumber * done;
-@property (nonatomic, retain) NSString * notes;
-@property (nonatomic, retain) NSNumber * rating;
-@property (nonatomic, retain) NSDate * createdAt;
-@property (nonatomic, retain) Patient *patient;
-
+@interface Consultation : NSObject
+@property (nonatomic, assign) NSInteger identifier;
+@property (nonatomic, assign) NSInteger rating;
+@property (nonatomic, strong) NSDate *date;
+@property (nonatomic, strong) NSDate *createdAt;
+@property (nonatomic, assign) BOOL deleted;
+@property (nonatomic, strong) NSString *notes;
+@property (nonatomic, assign) BOOL *done;
+@property (nonatomic, weak) Patient *patient;
 @end
