@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "Entities.h"
 @class Patient;
 
 /*
@@ -25,13 +25,13 @@
  
  */
 
-@interface Consultation : NSObject
+@interface Consultation : NSObject <Entities>
 @property (nonatomic, assign) NSInteger identifier;
 @property (nonatomic, assign) NSInteger rating;
 @property (nonatomic, strong) NSDate *date;
 @property (nonatomic, strong) NSDate *createdAt;
 @property (nonatomic, assign) BOOL deleted;
 @property (nonatomic, strong) NSString *notes;
-@property (nonatomic, assign) BOOL *done;
+@property (nonatomic, assign) BOOL done;
 @property (nonatomic, weak) Patient *patient;
 @end

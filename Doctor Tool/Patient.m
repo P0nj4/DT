@@ -40,7 +40,7 @@
     
     FMDatabase *database = [FMDatabase databaseWithPath:dbPath];
     [database open];
-    BOOL result = [database executeUpdate:@"INSERT INTO Patients (createdAt, lastName, name, doctor) VALUES (?, ?, ?, ?)",[NSDate date], self.lastName, self.name, self.doctor.identifier, nil];
+    BOOL result = [database executeUpdate:@"INSERT INTO Patients (createdAt, lastName, name, doctor) VALUES (?, ?, ?, ?)",[NSDate date], self.lastName, self.name, [NSNumber numberWithInteger:self.doctor.identifier], nil];
     if (!result) {
         [database close];
         @throw [[NSException alloc] initWithName:kGenericError reason:@"Enable to save the data" userInfo:nil];
@@ -59,7 +59,7 @@
     
     FMDatabase *database = [FMDatabase databaseWithPath:dbPath];
     [database open];
-    BOOL result = [database executeUpdate:@"UPDATE Patients set lastName = ?, name = ?, doctor = ?", self.lastName, self.name, self.doctor.identifier, nil];
+    BOOL result = [database executeUpdate:@"UPDATE Patients set lastName = ?, name = ?, doctor = ?", self.lastName, self.name, [NSNumber numberWithInteger:self.doctor.identifier], nil];
     [database close];
     
     if (!result) {    
