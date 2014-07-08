@@ -140,7 +140,10 @@
     [database open];
     
     Patient *pat = (Patient *)parent;
-    FMResultSet *results = [database executeQuery:@"SELECT * from Consultations where patient = ? AND date BETWEEN \"2010-01-01\" AND \"2015-01-01\" ", [NSNumber numberWithInteger:pat.identifier], nil];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    FMResultSet *results = [database executeQuery:[NSString stringWithFormat:@"select * from Consultations where patient = ? AND date(Consultations.date) > date('%@') date(Consultation.date) < ('%@')", [formatter stringFromDate:start], [formatter stringFromDate:end]],[NSNumber numberWithInteger:pat.identifier], nil];
+    //FMResultSet *results = [database executeQuery:@"SELECT * from Consultations where patient = ? AND date BETWEEN \"2010-01-01\" AND \"2015-01-01\" ", [NSNumber numberWithInteger:pat.identifier], nil];
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     Consultation *con = nil;
     while([results next]) {
@@ -168,7 +171,9 @@
     FMDatabase *database = [FMDatabase databaseWithPath:dbPath];
     [database open];
 
-    FMResultSet *results = [database executeQuery:@"select date('now') as dateF,* from Consultations where Consultations.date < '2012-12-12'", nil];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    FMResultSet *results = [database executeQuery:[NSString stringWithFormat:@"select * from Consultations where date(Consultations.date) > date('%@') date(Consultation.date) < ('%@')", [formatter stringFromDate:start], [formatter stringFromDate:end]], nil];
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     Consultation *con = nil;
     while([results next]) {
