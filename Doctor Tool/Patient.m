@@ -74,7 +74,7 @@
     
     FMDatabase *database = [FMDatabase databaseWithPath:dbPath];
     [database open];
-        FMResultSet *results = [database executeQuery:@"SELECT * from Doctors where identifier = ?",[NSString stringWithFormat:@"%li", (long)self.identifier]];
+        FMResultSet *results = [database executeQuery:@"SELECT * from Doctors where identifier = ?",[NSString stringWithFormat:@"%li", (long)self.identifier], nil];
     while([results next]) {
         self.identifier = [results intForColumn:@"identifier"];
         self.name = [results stringForColumn:@"name"];
@@ -93,7 +93,32 @@
     
     FMDatabase *database = [FMDatabase databaseWithPath:dbPath];
     [database open];
-    FMResultSet *results = [database executeQuery:@"SELECT * from Patients where deleted = ?", [NSNumber numberWithBool:NO]];
+    FMResultSet *results = [database executeQuery:@"SELECT * from Patients where deleted = ?", [NSNumber numberWithBool:NO], nil];
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    Patient *pat = nil;
+    while([results next]) {
+        pat.identifier = [results intForColumn:@"identifier"];
+        pat.name = [results stringForColumn:@"name"];
+        pat.lastName = [results stringForColumn:@"lastName"];
+        pat.createdAt = [results dateForColumn:@"createdAt"];
+        pat.deleted = [results boolForColumn:@"deleted"];
+        [dict setObject:pat forKey:[NSNumber numberWithInteger:pat.identifier]];
+    }
+    [database close];
+    
+    return dict;
+}
+
+
++ (NSMutableDictionary *)getAllWithParent:(id)parent{
+    NSArray *docPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDir = [docPaths objectAtIndex:0];
+    NSString *dbPath = [documentsDir   stringByAppendingPathComponent:@"DTDatabase.sqlite"];
+    
+    FMDatabase *database = [FMDatabase databaseWithPath:dbPath];
+    [database open];
+    Doctor *doc = (Doctor *)parent;
+    FMResultSet *results = [database executeQuery:@"SELECT * from Patients where deleted = ? and doctor = ?", [NSNumber numberWithBool:NO], [NSNumber numberWithInteger:doc.identifier], nil];
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     Patient *pat = nil;
     while([results next]) {

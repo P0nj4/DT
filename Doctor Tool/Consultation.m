@@ -64,7 +64,7 @@
     
     FMDatabase *database = [FMDatabase databaseWithPath:dbPath];
     [database open];
-    FMResultSet *results = [database executeQuery:@"SELECT * from Consultations where identifier = ?",[NSString stringWithFormat:@"%li", (long)self.identifier]];
+    FMResultSet *results = [database executeQuery:@"SELECT * from Consultations where identifier = ?",[NSString stringWithFormat:@"%li", (long)self.identifier], nil];
     while([results next]) {
         self.identifier = [results intForColumn:@"identifier"];
         self.rating = [results intForColumn:@"rating"];
@@ -85,7 +85,7 @@
     
     FMDatabase *database = [FMDatabase databaseWithPath:dbPath];
     [database open];
-    FMResultSet *results = [database executeQuery:@"SELECT * from Consultations where deleted = ?", [NSNumber numberWithBool:NO]];
+    FMResultSet *results = [database executeQuery:@"SELECT * from Consultations where deleted = ?", [NSNumber numberWithBool:NO], nil];
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     Consultation *con = nil;
     while([results next]) {
@@ -102,5 +102,34 @@
     
     return dict;
 }
+
+
++ (NSMutableDictionary *)getAllWithParent:(id)parent{
+    NSArray *docPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDir = [docPaths objectAtIndex:0];
+    NSString *dbPath = [documentsDir   stringByAppendingPathComponent:@"DTDatabase.sqlite"];
+    
+    FMDatabase *database = [FMDatabase databaseWithPath:dbPath];
+    [database open];
+    
+    Patient *pat = (Patient *)parent;
+    FMResultSet *results = [database executeQuery:@"SELECT * from Consultations where deleted = ? and patient = ?", [NSNumber numberWithBool:NO], [NSNumber numberWithInteger:pat.identifier], nil];
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    Consultation *con = nil;
+    while([results next]) {
+        con.identifier = [results intForColumn:@"identifier"];
+        con.rating = [results intForColumn:@"rating"];
+        con.date = [results dateForColumn:@"date"];
+        con.createdAt = [results dateForColumn:@"createdAt"];
+        con.deleted = [results boolForColumn:@"deleted"];
+        con.notes = [results stringForColumn:@"notes"];
+        con.done = [results boolForColumn:@"done"];
+        [dict setObject:con forKey:[NSNumber numberWithInteger:con.identifier]];
+    }
+    [database close];
+    
+    return dict;
+}
+
 
 @end

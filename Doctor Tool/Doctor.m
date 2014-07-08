@@ -65,7 +65,7 @@
     FMDatabase *database = [FMDatabase databaseWithPath:dbPath];
     [database open];
     //FMResultSet *results = [database executeQuery:[NSString stringWithFormat:@"SELECT * FROM Doctors where identifier = %li", (long)self.identifier]];
-    FMResultSet *results = [database executeQuery:@"SELECT * from Doctors where identifier = ?",[NSString stringWithFormat:@"%li", (long)self.identifier]];
+    FMResultSet *results = [database executeQuery:@"SELECT * from Doctors where identifier = ?",[NSString stringWithFormat:@"%li", (long)self.identifier], nil];
     while([results next]) {
         self.identifier = [results intForColumn:@"identifier"];
         self.name = [results stringForColumn:@"name"];
@@ -88,7 +88,7 @@
     FMDatabase *database = [FMDatabase databaseWithPath:dbPath];
     [database open];
     //FMResultSet *results = [database executeQuery:[NSString stringWithFormat:@"SELECT * FROM Doctors where identifier = %li", (long)self.identifier]];
-    FMResultSet *results = [database executeQuery:@"SELECT * from Doctors where deleted = ?", [NSNumber numberWithBool:NO]];
+    FMResultSet *results = [database executeQuery:@"SELECT * from Doctors where deleted = ?", [NSNumber numberWithBool:NO], nil];
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     Doctor *doc = nil;
     while([results next]) {
@@ -107,4 +107,9 @@
     
     return dict;
 }
+
++ (NSMutableDictionary *)getAllWithParent:(id)parent{
+    return nil;
+}
+
 @end

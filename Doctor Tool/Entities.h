@@ -16,4 +16,5 @@
 - (void)saveMe;
 - (void)updateMe;
 + (NSMutableDictionary *)getAll;
++ (NSMutableDictionary *)getAllWithParent:(id)parent;
 @end
