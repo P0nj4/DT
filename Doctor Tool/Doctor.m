@@ -10,13 +10,7 @@
 
 @implementation Doctor
 
-/*
- @property (nonatomic, assign) NSInteger identifier;
- @property (nonatomic, strong) NSDate *createdAt;
- @property (nonatomic, strong) UIImage *avatar;
- @property (nonatomic, assign) BOOL deleted;
 
- */
 - (id)initWithName:(NSString *)pname lastName:(NSString *)plastName email:(NSString *)pemail password:(NSString *)pass avatar:(UIImage *)pavatar{
     self = [super init];
     if (self) {
@@ -58,8 +52,7 @@
     BOOL result = [database executeUpdate:@"UPDATE Doctors set avatar = ?, email = ?, lastName = ?, name = ?, password = ?", self.avatar, self.email, self.lastName, self.name, self.password, nil];
     [database close];
     
-    if (!result) {
-        [database close];
+    if (!result) {        
         @throw [[NSException alloc] initWithName:kGenericError reason:@"Enable to save the data" userInfo:nil];
     }
 }
@@ -72,7 +65,7 @@
     FMDatabase *database = [FMDatabase databaseWithPath:dbPath];
     [database open];
     //FMResultSet *results = [database executeQuery:[NSString stringWithFormat:@"SELECT * FROM Doctors where identifier = %li", (long)self.identifier]];
-    FMResultSet *results = [database executeQuery:@"SELECT * from Doctors where identifier = ?",[NSString stringWithFormat:@"%li", (long)self.identifier]];
+    FMResultSet *results = [database executeQuery:@"SELECT * from Doctors where deleted = ?", [NSNumber numberWithBool:NO]];
     while([results next]) {
         self.identifier = [results intForColumn:@"identifier"];
         self.name = [results stringForColumn:@"name"];

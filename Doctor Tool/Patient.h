@@ -22,7 +22,7 @@
  
  */
 @interface Patient : NSObject
-@property (nonatomic, assign) NSInteger *identifier;
+@property (nonatomic, assign) NSInteger identifier;
 @property (nonatomic, assign) BOOL deleted;
 @property (nonatomic, strong) NSDate *lastConsultation;
 @property (nonatomic, strong) NSDate *createdAt;
