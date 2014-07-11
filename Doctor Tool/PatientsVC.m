@@ -35,22 +35,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //self.patientsArray = [[Session sharedInstance].doctor.patients allObjects];
-    /*
-    if ([Session sharedInstance].doctor.patients.count == 0) {
-        [LoadingView loadingShowOnView:self.view animated:NO frame:self.view.bounds];
-        dispatch_queue_t queue = dispatch_queue_create("q_loadPatients", NULL);
-        dispatch_async(queue, ^{
-            [PatientModel loadDoctorPatients:[Session sharedInstance].doctor];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.patientsArray = [[Session sharedInstance].doctor.patients allValues];
-                [LoadingView loadingHideOnView:self.view animated:YES];
-                [self.tblPatients reloadData];
-            });
-        });
-    }else{
-        self.patientsArray = [[Session sharedInstance].doctor.patients allValues];
-    }*/
+    NSArray *patientsArrayAux = [[Patient getAllWithParent:[Session sharedInstance].doctor] allValues];
+    self.patientsArray = [patientsArrayAux sortedArrayUsingSelector:@selector(compareTo:)];
 }
 
 - (void)didReceiveMemoryWarning
@@ -61,7 +47,7 @@
 
 #pragma mark - UItableViewDataSource & UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [Session sharedInstance].doctor.patients.count;
+    return self.patientsArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -113,6 +99,7 @@
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 0) {
         ConsultationsVC *vc = [[ConsultationsVC alloc] initWithNibName:@"ConsultationsVC" bundle:[NSBundle mainBundle]];
+        [Session sharedInstance].patient = self.selectedPatient;
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

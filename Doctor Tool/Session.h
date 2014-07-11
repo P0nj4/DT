@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+@class Patient;
 @class Doctor;
 
 @interface Session : NSObject
@@ -15,5 +16,5 @@
 + (Session *)sharedInstance;
 
 @property (nonatomic, strong) Doctor *doctor;
-
+@property (nonatomic, strong) Patient *patient;
 @end

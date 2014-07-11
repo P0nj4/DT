@@ -34,8 +34,8 @@
 @property (nonatomic, strong) NSString *notes;
 @property (nonatomic, assign) BOOL done;
 @property (nonatomic, weak) Patient *patient;
-
-- (id)initWithRating:(NSInteger)prating notes:(NSString *)pnotes date:(NSDate *)pdate;
+- (NSComparisonResult)compareTo:(Consultation *)consultation2;
+- (id)initWithRating:(NSInteger)prating notes:(NSString *)pnotes date:(NSDate *)pdate patient:(Patient *)ppatient;
 + (NSMutableDictionary *)getAllWithParent:(id)parent staringDate:(NSDate *)start endingDate:(NSDate *)end;
 + (NSMutableDictionary *)getAllStaringDate:(NSDate *)start endingDate:(NSDate *)end;
 @end

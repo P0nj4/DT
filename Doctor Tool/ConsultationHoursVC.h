@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ConsultationHoursVC : UIViewController
-
+@property (nonatomic, strong) NSArray *consultationsForToday;
 @end

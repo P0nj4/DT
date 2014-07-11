@@ -29,6 +29,6 @@
 @property (nonatomic, strong) NSString *lastName;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, assign) Doctor *doctor;
-
+- (NSComparisonResult)compareTo:(Patient *)consultation2;
 - (id)initWithName:(NSString *)pname lastName:(NSString *)plastName doctor:(Doctor *)pdoctor;
 @end

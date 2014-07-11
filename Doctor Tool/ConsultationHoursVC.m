@@ -7,9 +7,11 @@
 //
 
 #import "ConsultationHoursVC.h"
+#import "Consultation.h"
+#import "Patient.h"
 
 @interface ConsultationHoursVC () <UITableViewDataSource, UITableViewDelegate>
-
+@property (nonatomic, strong) NSMutableDictionary *dic;
 @end
 
 @implementation ConsultationHoursVC
@@ -26,7 +28,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    NSDateFormatter *formatter;
+    formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"HH:mm"];
+    NSString *strDate = nil;
+    
+    self.dic = [[NSMutableDictionary alloc] initWithCapacity:self.consultationsForToday.count];
+    
+    for (Consultation *cons in self.consultationsForToday) {
+        strDate = [formatter stringFromDate:cons.date];
+        [self.dic setObject:cons forKey:strDate];
+    }
+    NSLog(@"%@",self.dic);
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -76,8 +90,13 @@
         cell.textLabel.text = [NSString stringWithFormat:@"%li:", (long)indexPath.section];
     }
     
-    
     cell.textLabel.text = [cell.textLabel.text stringByAppendingString:(indexPath.row * 15 == 0 ? @"00" : [NSString stringWithFormat:@"%i", indexPath.row * 15])];
+
+    if ([self.dic objectForKey:cell.textLabel.text]) {
+        Consultation *consAux = [self.dic objectForKey:cell.textLabel.text];
+        cell.textLabel.text = [cell.textLabel.text stringByAppendingString:[NSString stringWithFormat:@" - %@ %@", [Session sharedInstance].patient.name, [Session sharedInstance].patient.lastName]];
+    }
+
     return cell;
 }
 @end

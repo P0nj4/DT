@@ -12,12 +12,13 @@
 @implementation Consultation
 
 
-- (id)initWithRating:(NSInteger)prating notes:(NSString *)pnotes date:(NSDate *)pdate{
+- (id)initWithRating:(NSInteger)prating notes:(NSString *)pnotes date:(NSDate *)pdate patient:(Patient *)ppatient{
     self = [super init];
     if (self) {
         self.rating = prating;
         self.notes = pnotes;
         self.date = pdate;
+        self.patient = ppatient;
     }
     return self;
 }
@@ -219,4 +220,10 @@
 - (NSString *)description{
     return [NSString stringWithFormat:@"%@ %@", self.notes, self.date];
 }
+
+
+- (NSComparisonResult)compareTo:(Consultation *)consultation2 {
+    return [self.date compare:consultation2.date];
+}
+
 @end

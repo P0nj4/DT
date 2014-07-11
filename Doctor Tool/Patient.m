@@ -142,4 +142,10 @@
     return [NSString stringWithFormat:@"%li %@ %@ %@ %hhd",(long)self.identifier, self.name, self.lastName, self.createdAt, self.isDeleted];
 }
 
+
+- (NSComparisonResult)compareTo:(Patient *)consultation2 {
+    return [self.lastConsultation compare:consultation2.lastConsultation];
+}
+
+
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@class Patient;
 
 @interface ConsultationsVC : UIViewController
 

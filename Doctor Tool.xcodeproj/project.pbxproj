@@ -58,6 +58,7 @@
 		44873F55195B990F00F8DCAD /* FirstTimeStartingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44873F53195B990F00F8DCAD /* FirstTimeStartingVC.xib */; };
 		44873F57195B999500F8DCAD /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44873F56195B999500F8DCAD /* LoginView.xib */; };
 		44873F5A195B9A0E00F8DCAD /* SignUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44873F59195B9A0E00F8DCAD /* SignUpView.m */; };
+		4498D17E19706A5B0091E1D1 /* NSDate+CommonDateFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4498D17D19706A5B0091E1D1 /* NSDate+CommonDateFunctions.m */; };
 		44CF607C195CF5BA00BB7B69 /* PatientsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44CF607A195CF5BA00BB7B69 /* PatientsVC.m */; };
 		44CF607D195CF5BA00BB7B69 /* PatientsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44CF607B195CF5BA00BB7B69 /* PatientsVC.xib */; };
 		44CF60BB195CFAE700BB7B69 /* ConsultationsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44CF60B9195CFAE700BB7B69 /* ConsultationsVC.m */; };
@@ -166,6 +167,8 @@
 		44873F56195B999500F8DCAD /* LoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
 		44873F58195B9A0E00F8DCAD /* SignUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpView.h; sourceTree = "<group>"; };
 		44873F59195B9A0E00F8DCAD /* SignUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpView.m; sourceTree = "<group>"; };
+		4498D17C19706A5B0091E1D1 /* NSDate+CommonDateFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+CommonDateFunctions.h"; sourceTree = "<group>"; };
+		4498D17D19706A5B0091E1D1 /* NSDate+CommonDateFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+CommonDateFunctions.m"; sourceTree = "<group>"; };
 		44CF6079195CF5BA00BB7B69 /* PatientsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientsVC.h; sourceTree = "<group>"; };
 		44CF607A195CF5BA00BB7B69 /* PatientsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientsVC.m; sourceTree = "<group>"; };
 		44CF607B195CF5BA00BB7B69 /* PatientsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PatientsVC.xib; sourceTree = "<group>"; };
@@ -387,6 +390,8 @@
 		44814C38195B4D56006BA9FD /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				4498D17C19706A5B0091E1D1 /* NSDate+CommonDateFunctions.h */,
+				4498D17D19706A5B0091E1D1 /* NSDate+CommonDateFunctions.m */,
 				442BFA64195E0D510068A0BB /* CommonValidations.h */,
 				442BFA65195E0D510068A0BB /* CommonValidations.m */,
 				44814C39195B4D73006BA9FD /* NSString+MD5.h */,
@@ -588,6 +593,7 @@
 				44CF607C195CF5BA00BB7B69 /* PatientsVC.m in Sources */,
 				445820A4196C32DD002BD13F /* FMDatabase.m in Sources */,
 				44814C3B195B4D73006BA9FD /* NSString+MD5.m in Sources */,
+				4498D17E19706A5B0091E1D1 /* NSDate+CommonDateFunctions.m in Sources */,
 				44CF60DE195E2F0100BB7B69 /* LoadingView.m in Sources */,
 				4458208D196C2C76002BD13F /* Doctor.m in Sources */,
 				44CF60D8195CFF1C00BB7B69 /* NSMutableArray+convenience.m in Sources */,

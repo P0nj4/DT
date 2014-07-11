@@ -30,13 +30,6 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
    
     
-    
-    //UIViewController *viewController = [[FirstTimeStartingVC alloc] initWithNibName:@"FirstTimeStartingVC" bundle:nil];
-    UIViewController *viewController = [[PatientsVC alloc] initWithNibName:@"PatientsVC" bundle:nil];
-    UINavigationController *navController=[[UINavigationController alloc]initWithRootViewController:viewController];
-    navController.navigationBar.opaque = YES;
-    navController.navigationBar.translucent = NO;
-    
     [self initializeDB];
     
     if (![[NSUserDefaults standardUserDefaults] objectForKey:@"HasRun"]){
@@ -44,12 +37,16 @@
         [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:@"HasRun"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
+
+    [Session sharedInstance].doctor = [[Doctor alloc] init];
+    [Session sharedInstance].doctor.identifier = 1;
+    [[Session sharedInstance].doctor loadMe];
     
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd HH:mm"];
-    NSLog(@"%@",[Consultation getAllStaringDate:[formatter dateFromString:@"2014-07-05 00:00"] endingDate:[formatter dateFromString:@"2014-07-10 00:00"]]);
-    
-    NSLog(@"%@",[Consultation getAll]);
+    UIViewController *viewController = [[PatientsVC alloc] initWithNibName:@"PatientsVC" bundle:nil];
+    UINavigationController *navController=[[UINavigationController alloc]initWithRootViewController:viewController];
+    navController.navigationBar.opaque = YES;
+    navController.navigationBar.translucent = NO;
+
     
     self.window.rootViewController = navController;
     [self.window makeKeyAndVisible];
@@ -106,7 +103,7 @@
         NSString *strMins = (i % 3 ? @"15" : (i % 2 ? @"30" : @"00"));
         strDate = [strDate stringByAppendingString:[NSString stringWithFormat:@"%@:%@", strHour, strMins]];
         
-        Consultation *consAux = [[Consultation alloc] initWithRating:0 notes:[NSString stringWithFormat:@"Notas_%i", i] date:[formatter dateFromString:strDate]];
+        Consultation *consAux = [[Consultation alloc] initWithRating:0 notes:[NSString stringWithFormat:@"Notas_%i", i] date:[formatter dateFromString:strDate] patient:paux];
         [consAux saveMe];
     }
 
