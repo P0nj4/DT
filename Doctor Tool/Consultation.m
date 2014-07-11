@@ -30,7 +30,9 @@
     FMDatabase *database = [FMDatabase databaseWithPath:dbPath];
     [database open];
     
-    BOOL result = [database executeUpdate:@"INSERT INTO Consultations (rating, date, createdAt, notes, patient) VALUES (?, ?, ?, ?, ?)", [NSNumber numberWithInteger:self.rating], self.date, [NSDate date], self.notes, [NSNumber numberWithInteger:self.patient.identifier], nil];
+    [database setLogsErrors:YES];
+
+    BOOL result = [database executeUpdate:@"INSERT INTO Consultations (rating, consDate, createdAt, notes, patient) VALUES (?, ?, ?, ?, ?)", [NSNumber numberWithInteger:self.rating], self.date, [NSDate date], self.notes, [NSNumber numberWithInteger:self.patient.identifier], nil];
     if (!result) {
         [database close];
         @throw [[NSException alloc] initWithName:kGenericError reason:@"Enable to save the data" userInfo:nil];
@@ -48,7 +50,7 @@
     
     FMDatabase *database = [FMDatabase databaseWithPath:dbPath];
     [database open];
-    BOOL result = [database executeUpdate:@"UPDATE Consultations set rating = ?, date = ?, notes = ?, patient = ?, done = ?, isDeleted = ? where identifier = ?", [NSNumber numberWithInteger:self.rating], self.date, self.notes, [NSNumber numberWithInteger:self.patient.identifier], [NSNumber numberWithBool:self.done], [NSNumber numberWithBool:self.isDeleted], [NSNumber numberWithInteger:self.identifier], nil];
+    BOOL result = [database executeUpdate:@"UPDATE Consultations set rating = ?, consDate = ?, notes = ?, patient = ?, done = ?, isDeleted = ? where identifier = ?", [NSNumber numberWithInteger:self.rating], self.date, self.notes, [NSNumber numberWithInteger:self.patient.identifier], [NSNumber numberWithBool:self.done], [NSNumber numberWithBool:self.isDeleted], [NSNumber numberWithInteger:self.identifier], nil];
     [database close];
     
     if (!result) {
@@ -67,7 +69,7 @@
     while([results next]) {
         self.identifier = [results intForColumn:@"identifier"];
         self.rating = [results intForColumn:@"rating"];
-        self.date = [results dateForColumn:@"date"];
+        self.date = [results dateForColumn:@"consDate"];
         self.createdAt = [results dateForColumn:@"createdAt"];
         self.isDeleted = [results boolForColumn:@"isDeleted"];
         self.notes = [results stringForColumn:@"notes"];
@@ -91,7 +93,7 @@
         con = [[Consultation alloc] init];
         con.identifier = [results intForColumn:@"identifier"];
         con.rating = [results intForColumn:@"rating"];
-        con.date = [results dateForColumn:@"date"];
+        con.date = [results dateForColumn:@"consDate"];
         con.createdAt = [results dateForColumn:@"createdAt"];
         con.notes = [results stringForColumn:@"notes"];
         con.done = [results boolForColumn:@"done"];
@@ -119,7 +121,7 @@
         con = [[Consultation alloc] init];
         con.identifier = [results intForColumn:@"identifier"];
         con.rating = [results intForColumn:@"rating"];
-        con.date = [results dateForColumn:@"date"];
+        con.date = [results dateForColumn:@"consDate"];
         con.createdAt = [results dateForColumn:@"createdAt"];
         con.isDeleted = [results boolForColumn:@"isDeleted"];
         con.notes = [results stringForColumn:@"notes"];
@@ -142,15 +144,24 @@
     Patient *pat = (Patient *)parent;
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd"];
-    FMResultSet *results = [database executeQuery:[NSString stringWithFormat:@"select * from Consultations where patient = ? AND date(Consultations.date) > date('%@') date(Consultation.date) < ('%@')", [formatter stringFromDate:start], [formatter stringFromDate:end]],[NSNumber numberWithInteger:pat.identifier], nil];
-    //FMResultSet *results = [database executeQuery:@"SELECT * from Consultations where patient = ? AND date BETWEEN \"2010-01-01\" AND \"2015-01-01\" ", [NSNumber numberWithInteger:pat.identifier], nil];
+    //FMResultSet *results = [database executeQuery:[NSString stringWithFormat:@"Select * from Consultations where consDate > date('%@') and consDate < date('%@') and patient = ?", [formatter stringFromDate:start], [formatter stringFromDate:end]],[NSNumber numberWithInteger:pat.identifier], nil];
+    
+    
+    float dateToQueryStart = [start timeIntervalSince1970];
+    float dateToQueryEnd = [end timeIntervalSince1970];
+    
+    NSString *query = [NSString stringWithFormat:
+                       @"SELECT * from Consultations where consDate > %li and consDate < %li and patient = ?",(long) dateToQueryStart, (long)dateToQueryEnd];
+    
+    FMResultSet *results = [database executeQuery:query, [NSNumber numberWithInteger:pat.identifier], nil];
+    
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     Consultation *con = nil;
     while([results next]) {
         con = [[Consultation alloc] init];
         con.identifier = [results intForColumn:@"identifier"];
         con.rating = [results intForColumn:@"rating"];
-        con.date = [results dateForColumn:@"date"];
+        con.date = [results dateForColumn:@"consDate"];
         con.createdAt = [results dateForColumn:@"createdAt"];
        
         con.notes = [results stringForColumn:@"notes"];
@@ -172,15 +183,29 @@
     [database open];
 
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd"];
-    FMResultSet *results = [database executeQuery:[NSString stringWithFormat:@"select * from Consultations where date(Consultations.date) > date('%@') date(Consultation.date) < ('%@')", [formatter stringFromDate:start], [formatter stringFromDate:end]], nil];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm"];
+    /*
+    FMResultSet *results = [database executeQuery:[NSString stringWithFormat:@"Select * from Consultations where consDate > date('%@')",
+                                                   [formatter stringFromDate:start],
+                                                   [formatter stringFromDate:end]], nil];
+     */
+    //[database setDateFormat:formatter];
+    //FMResultSet *results = [database executeQuery:@"select * from Consultations where consDate > DATETIME('2014-02-03 21:30:00')", nil];
+    
+    float dateToQueryStart = [start timeIntervalSince1970];
+    float dateToQueryEnd = [end timeIntervalSince1970];
+    
+    NSString *query = [NSString stringWithFormat:
+                       @"SELECT * from Consultations where consDate > %li and consDate < %li",(long) dateToQueryStart, (long)dateToQueryEnd];
+    
+    FMResultSet *results = [database executeQuery:query, nil];
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     Consultation *con = nil;
     while([results next]) {
         con = [[Consultation alloc] init];
         con.identifier = [results intForColumn:@"identifier"];
         con.rating = [results intForColumn:@"rating"];
-        con.date = [results dateForColumn:@"date"];
+        con.date = [results dateForColumn:@"consDate"];
         con.createdAt = [results dateForColumn:@"createdAt"];
         con.notes = [results stringForColumn:@"notes"];
         con.done = [results boolForColumn:@"done"];
@@ -191,5 +216,7 @@
     return dict;
 }
 
-
+- (NSString *)description{
+    return [NSString stringWithFormat:@"%@ %@", self.notes, self.date];
+}
 @end

@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS Consultations (
 identifier integer  PRIMARY KEY AUTOINCREMENT DEFAULT NULL,
-date Date  DEFAULT NULL,
+consDate Date  DEFAULT NULL,
 createdAt Date  DEFAULT NULL,
 notes TEXT DEFAULT NULL,
 done integer  NOT NULL  DEFAULT 0,

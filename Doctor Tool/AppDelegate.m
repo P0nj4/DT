@@ -38,16 +38,78 @@
     navController.navigationBar.translucent = NO;
     
     [self initializeDB];
-   
-
     
-    [Consultation getAllStaringDate:nil endingDate:nil];
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"HasRun"]){
+        [self exampleDataSet];
+        [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:@"HasRun"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
     
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm"];
+    NSLog(@"%@",[Consultation getAllStaringDate:[formatter dateFromString:@"2014-07-05 00:00"] endingDate:[formatter dateFromString:@"2014-07-10 00:00"]]);
+    
+    NSLog(@"%@",[Consultation getAll]);
     
     self.window.rootViewController = navController;
     [self.window makeKeyAndVisible];
     
     return YES;
+}
+
+- (void)exampleDataSet{
+    Doctor *doc = [[Doctor alloc] initWithName:@"Germán" lastName:@"Pereyra" email:@"germanp@gmail.com" password:@"0000" avatar:nil];
+    [doc saveMe];
+    
+    for (int i =0; i < 5; i++) {
+        NSString *name;
+        NSString *lastName;
+        switch (i) {
+            case 0:
+                name = @"pepe";
+                lastName = @"pepe";
+                break;
+            case 1:
+                name = @"Rodígo";
+                lastName = @"Herrera";
+                break;
+            case 2:
+                name = @"Jorge";
+                lastName = @"Pereyra";
+                break;
+            case 3:
+                name = @"Antoño";
+                lastName = @"Perez";
+                break;
+            case 4:
+                name = @"Mirian";
+                lastName = @"Rodíguez";
+                break;
+            default:
+                name = @"123";
+                lastName = @"321";
+                break;
+        }
+        
+        Patient *p = [[Patient alloc] initWithName:name lastName:lastName doctor:doc];
+        [p saveMe];
+    }
+    
+    Patient *paux = [[Patient alloc] init];
+    paux.identifier = 1;
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm"];
+    for (int i = 0; i < 23; i++) {
+        NSString *strDate = [NSString stringWithFormat:@"2014-07-%@ ", (i > 9 ? [NSString stringWithFormat:@"%li", (long)i]: [NSString stringWithFormat:@"0%li", (long)i+1])];
+        NSString *strHour = (i > 9 ? [NSString stringWithFormat:@"%li",(long)i] : [NSString stringWithFormat:@"0%li", (long)i]);
+        NSString *strMins = (i % 3 ? @"15" : (i % 2 ? @"30" : @"00"));
+        strDate = [strDate stringByAppendingString:[NSString stringWithFormat:@"%@:%@", strHour, strMins]];
+        
+        Consultation *consAux = [[Consultation alloc] initWithRating:0 notes:[NSString stringWithFormat:@"Notas_%i", i] date:[formatter dateFromString:strDate]];
+        [consAux saveMe];
+    }
+
 }
 
 - (void)initializeDB{
