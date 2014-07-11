@@ -210,6 +210,8 @@
         con.createdAt = [results dateForColumn:@"createdAt"];
         con.notes = [results stringForColumn:@"notes"];
         con.done = [results boolForColumn:@"done"];
+        con.patient = [[Patient alloc] init];
+        con.patient.identifier = [results intForColumn:@"patient"];
         [dict setObject:con forKey:[NSNumber numberWithInteger:con.identifier]];
     }
     [database close];

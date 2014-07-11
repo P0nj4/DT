@@ -104,10 +104,10 @@
 
 -(void)calendarView:(VRGCalendarView *)calendarView dateSelected:(NSDate *)date {
     NSLog(@"Selected date = %@",date);
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(date >= %@) AND (date <= %@)", date, [date dateByAddingDays:1]];
-    NSArray *dates = [self.allConsultations filteredArrayUsingPredicate:predicate];
+    //NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(date >= %@) AND (date <= %@)", date, [date dateByAddingDays:1]];
+    //NSArray *dates = [self.allConsultations filteredArrayUsingPredicate:predicate];
     ConsultationHoursVC *vc = [[ConsultationHoursVC alloc] initWithNibName:@"ConsultationHoursVC" bundle:[NSBundle mainBundle]];
-    vc.consultationsForToday = dates;
+    vc.currentDate = date;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

@@ -9,6 +9,8 @@
 #import "ConsultationHoursVC.h"
 #import "Consultation.h"
 #import "Patient.h"
+#import "NSDate+CommonDateFunctions.h"
+
 
 @interface ConsultationHoursVC () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) NSMutableDictionary *dic;
@@ -33,9 +35,12 @@
     [formatter setDateFormat:@"HH:mm"];
     NSString *strDate = nil;
     
-    self.dic = [[NSMutableDictionary alloc] initWithCapacity:self.consultationsForToday.count];
+    NSMutableDictionary *dicOfConlsultationsForTheCurrentDate = [Consultation getAllStaringDate:self.currentDate endingDate:[[self.currentDate dateByAddingDays:1] dateBySubstractingMinutes:1]];
     
-    for (Consultation *cons in self.consultationsForToday) {
+    self.dic = [[NSMutableDictionary alloc] initWithCapacity:dicOfConlsultationsForTheCurrentDate.count];
+    
+    for (Consultation *cons in dicOfConlsultationsForTheCurrentDate) {
+        [cons.patient loadMe];
         strDate = [formatter stringFromDate:cons.date];
         [self.dic setObject:cons forKey:strDate];
     }
